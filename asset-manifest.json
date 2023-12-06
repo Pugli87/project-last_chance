@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/project-last_chance/static/css/main.7acaea2f.css",
+    "main.js": "/project-last_chance/static/js/main.07d3183d.js",
+    "index.html": "/project-last_chance/index.html",
+    "main.7acaea2f.css.map": "/project-last_chance/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/project-last_chance/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
