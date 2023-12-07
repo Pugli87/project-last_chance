@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png'
 import logo_tablet from '../../../assets/images/logos/logo-tablet.png'
 import logo_mobile from '../../../assets/images/logos/logo-mobile.png'
@@ -7,7 +7,7 @@ import NavLinkHeader from 'components/NavLinkHeader/NavLinkHeader'
 import { useDeviceDetect } from 'hooks/deviceDetect/useDeviceDetect'
 
 function HeaderNavbarLogin() {
-  const { isMobile, isTablet, isDesktop } = useDeviceDetect()
+  const { isTablet, isDesktop } = useDeviceDetect()
 
   return (
     <div className='HeaderNavbarLogin'>

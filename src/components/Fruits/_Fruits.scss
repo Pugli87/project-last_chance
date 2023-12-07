@@ -13,4 +13,9 @@
         bottom: 0;
         height: 100%;
     }
+
+    @media (max-width: 1024px) {
+        height: 40%;
+        width: 100vw;
+    }
 }
