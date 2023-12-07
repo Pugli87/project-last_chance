@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import './_GeneralLayout.scss'
 import FruitsLogin from "components/auth/Fruits/FruitsLogin";
+import Fruits from "components/Fruits/Fruits";
 
 const GeneralLayout = ({ children }) => {
     const location = useLocation();
@@ -23,7 +24,7 @@ const GeneralLayout = ({ children }) => {
     }, [location.pathname]);
 
     return (
-        <div className="GeneralLayout">
+        <div className="GeneralLayout containerDefault">
             {showComponent ?    
                 <>
                     <div className='contentLayout'>
@@ -35,8 +36,9 @@ const GeneralLayout = ({ children }) => {
                     <div className='contentLayout'>
                         <HeaderNavbar />
                     </div>
+                    <Fruits />
                 </>}
-            <div className='contentLayout'>{ children }</div>
+            <div className='contentLayout appLayout'>{ children }</div>
         </div>
     );
 };

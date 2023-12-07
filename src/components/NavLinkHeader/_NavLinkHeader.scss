@@ -1,0 +1,19 @@
+@import '/src/assets/sass/base/variables';
+.NavLinkHeader {
+    transition: $salud-transition;
+    color: $salud-gray;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        color: #000;
+    }
+
+    &.-active {
+        color: #000;
+    }
+}

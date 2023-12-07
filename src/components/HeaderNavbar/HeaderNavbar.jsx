@@ -1,7 +1,7 @@
 import React from 'react'
 import logo_desktop from '../../assets/images/logos/logo-desktop.png'
 import './_HeaderNavbar.scss'
-import { Link } from 'react-router-dom'
+import NavLinkHeader from 'components/NavLinkHeader/NavLinkHeader'
 
 function HeaderNavbar() {
   return (
@@ -11,20 +11,18 @@ function HeaderNavbar() {
         <div className='HeaderNavbar__wrapper'>
           <ul className='HeaderNavbar__list-navbar'>
             <li className='pointer'>
-              <Link
-                className='links'
+              <NavLinkHeader
                 to='/diary'
               >
                 Diario
-              </Link>
+              </NavLinkHeader>
             </li>
             <li className='pointer'>
-              <Link
-                className='links'
+              <NavLinkHeader
                 to='/calculator'
               >
                 Calculadora
-              </Link>
+              </NavLinkHeader>
             </li>
           </ul>
           <ul className='HeaderNavbar__list-menu'>

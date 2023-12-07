@@ -1,30 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png'
 import './_HeaderNavbarLogin.scss'
-import { Link } from 'react-router-dom'
+import NavLinkHeader from 'components/NavLinkHeader/NavLinkHeader'
+import { useDeviceDetect } from 'hooks/deviceDetect/useDeviceDetect'
 
 function HeaderNavbarLogin() {
+  const { isMobile, isTablet, isDesktop } = useDeviceDetect()
+
+  useEffect(()=>{
+    console.log("isMobile:", isMobile)
+    console.log("isTablet:", isTablet)
+    console.log("isDesktop:", isDesktop)
+  },[isMobile, isTablet, isDesktop])
   return (
     <div className='HeaderNavbarLogin'>
-      <img src={logo_desktop} alt="logo desktop" />
-      <ul className='HeaderNavbarLogin__list'>
-        <li className='pointer'>
-          <Link
-            className='links'
-            to='/login'
-          >
-            Iniciar sesión
-          </Link>
-        </li>
-        <li className='pointer'>
-          <Link
-            className='links'
-            to='/register'
-          >
-            crear una cuenta
-          </Link>
-        </li>
-      </ul>
+      <div className='HeaderNavbarLogin__wrapper'>
+        <img src={logo_desktop} alt="logo desktop" />
+        <ul className='HeaderNavbarLogin__list'>
+          <li className='pointer'>
+            <NavLinkHeader
+              to='/login'
+            >
+              Iniciar sesión
+            </NavLinkHeader>
+          </li>
+          <li className='pointer'>
+            <NavLinkHeader
+              to='/register'
+            >
+              crear una cuenta
+            </NavLinkHeader>
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }
