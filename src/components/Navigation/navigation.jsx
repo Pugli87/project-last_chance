@@ -8,8 +8,8 @@ const Navigation = () => {
   return (
     <ContainerNavigation>
       <LogoComponent></LogoComponent>
-      <NavigationLink to="/login">LOG IN </NavigationLink>
-      <NavigationLink to="/register">REGISTRATION</NavigationLink>
+      <NavigationLink to="/login">INICIAR SESION </NavigationLink>
+      <NavigationLink to="/register">CREAR UNA CUENTA</NavigationLink>
     </ContainerNavigation>
   );
 };
