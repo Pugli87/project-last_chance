@@ -8,7 +8,7 @@ import FruitsLogin from "components/auth/Fruits/FruitsLogin";
 const GeneralLayout = ({ children }) => {
     const location = useLocation();
 
-    const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
+    const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [ //rutas donde nos se ven el headerLogin 
         "/diary",
         "/calculator",
     ];

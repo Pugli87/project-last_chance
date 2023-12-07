@@ -1,9 +1,14 @@
-import React from 'react'
+import { Container } from './calculator.styled';
+import DataForm from 'components/DataForm/DataForm';
 
-function Calculator() {
+const Calculator = () => {
   return (
-    <div>Calculator</div>
-  )
-}
+    <Container>
+      <div>
+        <DataForm></DataForm>
+      </div>
 
-export default Calculator
+    </Container>
+  );
+};
+export default Calculator;
