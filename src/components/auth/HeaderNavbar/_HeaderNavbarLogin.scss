@@ -1,0 +1,28 @@
+@import '../../../assets/sass/base/variables';
+.HeaderNavbarLogin {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 20px 0;
+        border-left: 2px solid #E0E0E0;
+        
+        &>li {
+            transition: $salud-transition;
+            color: $salud-gray;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.56px;
+            text-transform: uppercase;
+
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+}
+
