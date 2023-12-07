@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
  const Text = styled.p`
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-top: 60px;
   color : #9B9FAA;
   font-family : verdana;
 `;
@@ -12,7 +12,8 @@ import styled from 'styled-components';
  const ProductList = styled.ul`
   list-style-type: none;
   padding: 0;
-  background-color: orange;
+  margin-top:50px;
+ 
 `;
 
  const ProductItem = styled.li`
