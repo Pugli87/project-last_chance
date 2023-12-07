@@ -1,5 +1,5 @@
-import Home from './home/home';
+import Calculator from './calculator/calculator';
 
 export const App = () => {
-  return <Home></Home>;
+  return <Calculator></Calculator>;
 };

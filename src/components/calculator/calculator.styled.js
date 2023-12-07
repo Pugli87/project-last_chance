@@ -5,4 +5,5 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: start;
   padding: 20px;
+  margin-top: 80px;
 `;

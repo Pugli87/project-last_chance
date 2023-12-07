@@ -14,8 +14,8 @@ text-align: center;
 color: #9B9FAA;
 padding: 40px 10px;
 
-  &.active {
-    color: #9B9FAA;
+  &:active {
+    color: #212121
   }
 
   &:hover,
