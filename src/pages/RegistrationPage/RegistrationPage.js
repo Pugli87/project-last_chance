@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Container } from '../../components/Container';
 import { MainBox } from '../MainPage/MainPage.styled';
-import { LoginRegisterWrapper } from '../LoginPage/LoginPage.styled';
+import { LoginRegisterWrapper } from '../Login/LoginPage.styled';
 import RegistrationForm from '../../components/AuthForms/RegistrationForm';
 
 export default function RegistrationPage() {
