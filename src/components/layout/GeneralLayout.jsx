@@ -1,11 +1,11 @@
-import HeaderNavbar from "components/HeaderNavbar/HeaderNavbar";
-import HeaderNavbarLogin from "components/auth/HeaderNavbar/HeaderNavbarLogin";
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
+import HeaderNavbar from "../../components/Header/HeaderNavbar/HeaderNavbar";
+import HeaderNavbarLogin from "../../components/auth/HeaderNavbar/HeaderNavbarLogin";
+import FruitsLogin from "../../components/auth/Fruits/FruitsLogin";
+import Fruits from "../../components/Fruits/Fruits";
+import { useDeviceDetect } from "../../hooks/deviceDetect/useDeviceDetect";
 import './_GeneralLayout.scss'
-import FruitsLogin from "components/auth/Fruits/FruitsLogin";
-import Fruits from "components/Fruits/Fruits";
-import { useDeviceDetect } from "hooks/deviceDetect/useDeviceDetect";
 
 const GeneralLayout = ({ children }) => {
     const location = useLocation();
