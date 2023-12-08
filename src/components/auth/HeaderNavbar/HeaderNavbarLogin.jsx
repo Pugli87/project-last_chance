@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png'
 import logo_tablet from '../../../assets/images/logos/logo-tablet.png'
 import logo_mobile from '../../../assets/images/logos/logo-mobile.png'
