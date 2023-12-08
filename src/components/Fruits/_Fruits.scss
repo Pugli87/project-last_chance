@@ -15,7 +15,13 @@
     }
 
     @media (max-width: 1024px) {
-        height: 40%;
-        width: 100vw;
+        height: 40vh;
+        position: relative;
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        height: 30vh;
+        max-height: 360px;
     }
 }

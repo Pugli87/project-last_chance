@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 50px;
-  position: absolute;
   width: 608px;
   align-items: left;
 `;
