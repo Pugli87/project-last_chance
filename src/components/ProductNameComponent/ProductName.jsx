@@ -1,11 +1,22 @@
-import React from 'react';
-import {Text,ProductList,ProductItem} from './ProductStyled'
+import React, { useState } from 'react';
+import {  ProductList, ProductItem ,StyledInput  } from './ProductStyled';
+
 const ProductNameComponent = () => {
+  const [productName, setProductName] = useState('');
   const products = ['berenjena', 'carne de res', 'pan', 'nuez', 'carne de cerdo'];
+
+  const handleInputChange = (event) => {
+    setProductName(event.target.value);
+  };
 
   return (
     <div>
-      <Text>Ingresa el nombre del producto</Text>
+      <StyledInput
+        type="text"
+        value={productName}
+        onChange={handleInputChange}
+        placeholder="Ingresa el nombre del producto"
+      />
       <ProductList>
         {products.map((product, index) => (
           <ProductItem key={index}>{product}</ProductItem>

@@ -1,21 +1,4 @@
-/* import React from 'react';
-import { CaloriesList,CaloriesItem,Container  } from './KaloriesStyled'; 
-
-const KaloriesComponent = () => {
-const calorieValues = ['320kcal', '480kcal', '210kcal', '205kcal', '580kcal'];
-  
-    return (
-        <Container>
-          <CaloriesList>
-            {calorieValues.map((calorie, index) => (
-              <CaloriesItem key={index}>{calorie}</CaloriesItem>
-            ))}
-          </CaloriesList>
-        </Container>
-      );
-    };
-  export default KaloriesComponent; */
-  import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   CaloriesList,
   CaloriesItem,

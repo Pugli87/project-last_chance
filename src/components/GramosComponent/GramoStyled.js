@@ -7,17 +7,21 @@ export const GramosList = styled.ul`
 export const GramosItem = styled.li`
   
 font-size: 16px;
-  color : #9B9FAA;
+  color : #212121;
   margin-bottom: 5px;
   font-family : verdana;
   padding-top : 30px;
 `;
 
-export const GramosText = styled.p`
+export const GramosText = styled.input`
 font-size: 18px;
 color : #9B9FAA;
 font-family : verdana;
 margin-top: 38px;
+border: none;
+ outline: none;
+ border-bottom: 1px solid #e0e0e0;
+ width: 100px;
 `;
 
 export const Container = styled.div`
@@ -27,7 +31,7 @@ display: flex;
   justify-content: flex-start;
   text-align: center;
   position: relative;
-  top: -375px; 
+  top: -380px; 
   left: -250px;
 `;
 

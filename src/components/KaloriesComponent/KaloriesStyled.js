@@ -7,7 +7,7 @@ align-items: center;
 justify-content: flex-start;
 text-align: center;
 position: relative;
-top: -692px; 
+top: -700px; 
 left: -100px;
 `;
 
@@ -19,7 +19,7 @@ export const CaloriesList = styled.ul`
 
 export const CaloriesItem = styled.li`
 font-size: 16px;
-color : #9B9FAA;
+color : #212121;
 font-family : verdana;
 padding-top : 30px;
 `;
