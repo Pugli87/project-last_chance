@@ -33,7 +33,7 @@ ul {
   padding-left: 0px;
   margin: 0px;
 }
-.links {
+.links, a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -47,4 +47,13 @@ ul {
 }
 .hide {
   display: none;
+}
+
+.containerDefault {
+  margin: 0 auto;
+  width: 100%;
+
+  @media screen and (min-width: 1900px) {
+      max-width: 1900px;
+  }
 }
