@@ -18,6 +18,7 @@ function HeaderMenuMobile() {
                 <li className='pointer'>
                     <NavLinkHeader
                         onClick={handleIsActive}
+                        className='--modal'
                         to='/diary'
                     >
                         Diario
@@ -26,6 +27,7 @@ function HeaderMenuMobile() {
                 <li className='pointer'>
                     <NavLinkHeader
                         onClick={handleIsActive}
+                        className='--modal'
                         to='/calculator'
                     >
                         Calculadora

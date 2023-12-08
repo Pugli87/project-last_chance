@@ -38,7 +38,7 @@ const GeneralLayout = ({ children }) => {
                     <div className='contentLayout'>
                         <HeaderNavbar />
                     </div>
-                    { !isMobile && <Fruits /> }
+                    <Fruits />
                 </>}
             <div className='contentLayout appLayout'>{ children }</div>
         </div>
