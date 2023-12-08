@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 350px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 50px;
 `;
 
 export const Title = styled.h2`
@@ -15,8 +12,10 @@ export const Title = styled.h2`
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-align: left;
+  text-align: center;
   margin 150px;
+  color: #FC842D;
+  margin: 60px 40px;
 `;
 
 export const SubTitle = styled.h3`
@@ -25,7 +24,8 @@ export const SubTitle = styled.h3`
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-align: left;
+  color: #fc842d;
+  margin: 40px 0px;
 `;
 
 export const FormGroup = styled.div`
@@ -39,10 +39,11 @@ export const Label = styled.label`
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
+  color: #9b9faa;
 `;
 
 export const Input = styled.input`
-  width: 200px;
+  width: 240px;
   padding: 5px;
   font-size: 1em;
   border: none;
