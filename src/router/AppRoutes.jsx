@@ -10,9 +10,9 @@ const AppRoutes = [
         title: "Intro",
         name: "intro",
         path: "/",
-        element: () => <Intro />,
+        element: () => <Calculator />,
         checkAuth: false,
-        redirectRoute: '/diary',
+        redirectRoute: '/',
     },
     {
         title: "Diary",
