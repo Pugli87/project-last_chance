@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Calculator from '../Calculator/Calculator';
 
-function Login() {
+const Intro = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div>
+      <Calculator></Calculator>
+    </div>
+  );
+};
 
-export default Login
+export default Intro;
