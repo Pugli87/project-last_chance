@@ -8,9 +8,10 @@ import {
   RadioGroup,
   RadioLabel,
   RadioInput,
-  Button,
+  BoxButton,
   Form,
 } from './dataForm.styled';
+import { Button } from 'components/Button/Button';
 
 const DataForm = () => {
   const [datos, setDatos] = useState({
@@ -108,7 +109,9 @@ const DataForm = () => {
             </RadioGroup>
           </FormGroup>
         </Form>
-        <Button type="submit">Comienza a perder peso</Button>
+        <BoxButton>
+          <Button type="submit" text="Comienza a perder peso" />
+        </BoxButton>
       </form>
     </Container>
   );
