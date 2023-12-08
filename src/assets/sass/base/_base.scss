@@ -1,0 +1,60 @@
+@import-normalize; /* bring in normalize.css styles */
+@font-face {
+  font-family: 'Verdana';
+  src: url('../../Fonts/verdanab.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Verdana' , sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #212121;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+ul {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.links, a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  border: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+
+.containerDefault {
+  margin: 0 auto;
+  width: 100%;
+
+  @media screen and (min-width: 1900px) {
+      max-width: 1900px;
+  }
+}
