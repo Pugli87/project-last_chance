@@ -3,13 +3,13 @@ import AppRouter from "./AppRouter";
 import GeneralLayout from "../components/layout/GeneralLayout";
 
 const App = () => {
-    return (
-        <BrowserRouter>
-            <GeneralLayout>
-                <AppRouter />
-            </GeneralLayout>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <GeneralLayout>
+        <AppRouter />
+      </GeneralLayout>
+    </BrowserRouter>
+  );
 };
 
 export default App;

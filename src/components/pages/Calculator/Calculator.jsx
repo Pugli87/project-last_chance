@@ -7,7 +7,6 @@ const Calculator = () => {
       <div>
         <DataForm></DataForm>
       </div>
-
     </Container>
   );
 };
