@@ -6,3 +6,10 @@ export const Container = styled.div`
   margin-bottom: 200px;
 `;
 
+export const Button = styled.button`
+  
+`;
+
+export const Div = styled.div`
+  
+`;
