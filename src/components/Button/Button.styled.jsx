@@ -21,3 +21,8 @@ export const Btn = styled.button`
     background-color: #fc842d80;
   }
 `;
+
+export const BoxButton = styled.div`
+  margin: auto;
+  margin-top: 40px;
+`;

@@ -12,6 +12,10 @@ import {
   Form,
 } from './dataForm.styled';
 import { Button } from 'components/Button/Button';
+import {
+  useModalContext,
+  ModalProvider,
+} from '../Modal/ModalContent/ModalContent';
 
 const DataForm = () => {
   const [datos, setDatos] = useState({
@@ -111,9 +115,6 @@ const DataForm = () => {
             </RadioGroup>
           </FormGroup>
         </Form>
-        <BoxButton>
-          <Button type="submit" text="Comienza a perder peso" />
-        </BoxButton>
       </form>
     </Container>
   );

@@ -1,51 +1,28 @@
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
+import React from 'react';
+import {
+  Overlay,
+  ContentModal,
+  Headermodal,
+  ButtonClose,
+} from './Modal.styled';
 
-import { ModalContent } from './ModalContent/ModalContent';
-import { MobileModal } from 'components/MobileModal';
-import { useMedia, useMobileModal } from 'hooks/ui';
-
-const MuiDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    width: 672,
-    height: 560,
-  },
-}));
-
-export const Modal = ({ showModal, setShowModal }) => {
-  const { isMobile } = useMedia();
-
-  const [showMobileModal, , hideMobileModal] = useMobileModal();
-
-  const handleClose = () => {
-    setShowModal(prev => !prev);
-
-    if (showMobileModal) {
-      hideMobileModal();
-    }
-  };
-
+const Modal = ({ children, state, changestate }) => {
   return (
-    <div>
-      {!isMobile ? (
-        <div>
-          <MuiDialog
-            onClose={handleClose}
-            aria-labelledby="customized-dialog-title"
-            open={showModal || showMobileModal}
-            maxWidth={false}
-          >
-            <DialogContent>
-              <ModalContent handleClose={handleClose} />
-            </DialogContent>
-          </MuiDialog>
-        </div>
-      ) : (
-        <MobileModal hideMobileModal={hideMobileModal}>
-          <ModalContent />
-        </MobileModal>
+    <>
+      {state && (
+        <Overlay>
+          <ContentModal>
+            <Headermodal>
+              <h3> Bienvenido</h3>
+            </Headermodal>
+
+            <ButtonClose onClick={() => changestate(false)}>X</ButtonClose>
+            {children}
+          </ContentModal>
+        </Overlay>
       )}
-    </div>
+    </>
   );
 };
+
+export default Modal;

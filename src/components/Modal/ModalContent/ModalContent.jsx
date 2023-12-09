@@ -1,20 +1,29 @@
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import Modal from '../Modal';
 import { Button } from 'components/Button/Button';
-import { Content, CloseModalButton } from '../Modal.styled';
+import { BoxButton } from 'components/dataForm/dataForm.styled';
+import { Container } from '../Modal.styled';
 
-export const ModalContent = ({ handleClose }) => {
-  const navigate = useNavigate();
+const ModalHome = () => {
+  const [stateModal1, changestateModal1] = useState(false);
 
   return (
-    <>
-      <Content>
+    <div>
+      <BoxButton>
         <Button
-          autoFocus
+          type="submit"
           text="Comienza a perder peso"
-          onClick={() => navigate('/signup')}
-        ></Button>
-      </Content>
-      <CloseModalButton aria-label="Close modal" onClick={handleClose} />
-    </>
+          onClick={() => changestateModal1(!stateModal1)}
+        />
+      </BoxButton>
+      <Modal state={stateModal1} changestate={changestateModal1}>
+        <Container>
+          <h3> Tu ingesta diaria recomendada de calorías es: </h3>
+          <Button type="submit" text="Comienza a perder peso" />
+        </Container>
+      </Modal>
+    </div>
   );
 };
+
+export default ModalHome;
