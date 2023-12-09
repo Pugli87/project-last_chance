@@ -1,11 +1,11 @@
 import React from 'react';
-import Calculator from '../Calculator/Calculator';
+import DataForm from '../../dataForm/dataForm';
 import ModalHome from 'components/Modal/ModalContent/ModalContent';
 
 function Home() {
   return (
     <div>
-      <Calculator />
+      <DataForm></DataForm>
       <ModalHome />
     </div>
   );

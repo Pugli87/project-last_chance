@@ -7,6 +7,7 @@ const Calculator = () => {
     <Container>
       <div>
         <DataForm></DataForm>
+        <Button type="submit" text="Comienza a perder peso" />
       </div>
     </Container>
   );
