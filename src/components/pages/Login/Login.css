@@ -23,7 +23,11 @@
     border-left: none;
     border-top: none;
     border-right: none;
-    outline: none;
+    outline: none; 
+    
+    &:hover{
+        border: 1px solid #FC842D;
+    }
     
 }
 
@@ -92,7 +96,6 @@
         margin-top: 32px;
         margin-left: 10px;
         margin-right: 10px;
-        border: 1px solid black;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -104,7 +107,6 @@
         display: flex;
         flex-direction: column;
         max-width: 100%;
-        border: 1px solid black;
         align-items: center;
         height: 110px;
     }
