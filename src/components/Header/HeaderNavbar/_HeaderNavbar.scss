@@ -1,16 +1,27 @@
-@import '../../assets/sass/base/variables';
+@import '../../../assets/sass/base/variables';
 .HeaderNavbar {
     display: flex;
     gap: 20px;
     align-items: flex-end;
     z-index: 2;
     position: relative;
+    padding: 0 16px;
 
     &__wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
+
+        @media (max-width: 1024px) {
+            width: auto;
+        }
+    }
+
+    &__box {
+        display: flex;
+        align-items: flex-end;
+        gap: 40px;
     }
 
     &__list-navbar {
@@ -19,19 +30,6 @@
         gap: 15px;
         padding: 10px 20px 0;
         border-left: 2px solid #E0E0E0;
-        
-        &>li {
-            transition: $salud-transition;
-            color: $salud-gray;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 0.56px;
-            text-transform: uppercase;
-
-            &:hover {
-                color: #000;
-            }
-        }
     }
 
     &__list-menu {
@@ -39,6 +37,13 @@
         align-items: center;
         gap: 20px;
         padding-top: 10px;
+
+        @media (max-width: 767px) {
+            gap: 32px;
+            padding: 4px 20px 0 0;
+            justify-content: flex-end;
+            background-color: $salud-gray-light;
+        }
         
         &>li {
             transition: $salud-transition;
@@ -47,9 +52,18 @@
             font-weight: 700;
             letter-spacing: 0.56px;
 
+            &:first-child {
+                color: #000;
+            }
+
             &:last-child {
                 border-left: 2px solid #E0E0E0;
                 padding-left: 20px;
+            }
+
+            @media (max-width: 767px) {
+                border: none !important;
+                padding: 11px 0 !important;
             }
 
             &:hover {
@@ -57,15 +71,17 @@
             }
         }
     }
-}
 
-.backdrop-gray {
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    top: 0;
-    width: 40%;
-    height: 100vh;
-    background-color: $salud-gray-light;
+    @media (max-width: 1024px) {
+        justify-content: space-between;
+        border-bottom: 2px solid #E0E0E0;
+        padding-bottom: 22px;
+    }
+
+    &__item-separator {
+        width: 1px;
+        height: 32px;
+        background-color: #E0E0E0;
+    }
 }
 

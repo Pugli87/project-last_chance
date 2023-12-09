@@ -54,30 +54,6 @@ const DataForm = () => {
           </FormGroup>
 
           <FormGroup>
-            <Label htmlFor="edad">Edad:</Label>
-            <Input
-              type="number"
-              id="edad"
-              name="edad"
-              value={datos.edad}
-              onChange={handleChange}
-              required
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label htmlFor="pesoActual">Peso Actual:</Label>
-            <Input
-              type="number"
-              id="pesoActual"
-              name="pesoActual"
-              value={datos.pesoActual}
-              onChange={handleChange}
-              required
-            />
-          </FormGroup>
-
-          <FormGroup>
             <Label htmlFor="pesoDeseado">Peso Deseado:</Label>
             <Input
               type="number"
@@ -90,9 +66,35 @@ const DataForm = () => {
           </FormGroup>
 
           <FormGroup>
+            <Label htmlFor="edad">Edad:</Label>
+            <Input
+              type="number"
+              id="edad"
+              name="edad"
+              value={datos.edad}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+        </Form>
+
+        <Form>
+          <FormGroup>
+            <Label htmlFor="pesoActual">Peso Actual:</Label>
+            <Input
+              type="number"
+              id="pesoActual"
+              name="pesoActual"
+              value={datos.pesoActual}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
             <Label>Grupo Sanguíneo:</Label>
+            <hr></hr>
             <RadioGroup>
-              {[1, 2, 3, 4, 5].map(grupo => (
+              {[1, 2, 3, 4].map(grupo => (
                 <RadioLabel key={grupo}>
                   <RadioInput
                     type="radio"

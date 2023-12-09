@@ -1,11 +1,9 @@
-// Estilos en un archivo separado, por ejemplo: FormularioEstilos.js
 import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 50px;
-  position: absolute;
   width: 608px;
-  margin-top: 60px;
+  align-items: left;
 `;
 
 export const Title = styled.h2`
@@ -15,6 +13,7 @@ export const Title = styled.h2`
   line-height: 48px;
   letter-spacing: 0em;
   text-align: left;
+  margin-bottom: 60px;
 `;
 
 export const FormGroup = styled.div`
@@ -62,10 +61,9 @@ export const RadioInput = styled.input`
 
 export const Form = styled.div`
   display: flex;
-  justify-content: start;
-  align-items: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 70px;
 `;
 export const BoxButton = styled.div`
   margin: auto;

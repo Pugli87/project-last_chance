@@ -1,12 +1,8 @@
 import React from 'react';
-import Calculator from '../Calculator/Calculator';
+import LoginForm from '../../loginForm/LoginForm';
 
-const Intro = () => {
-  return (
-    <div>
-      <Calculator></Calculator>
-    </div>
-  );
-};
+function Login() {
+  return <LoginForm></LoginForm>;
+}
 
-export default Intro;
+export default Login;

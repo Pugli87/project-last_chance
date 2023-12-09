@@ -11,6 +11,7 @@ body {
   font-family: 'Verdana' , sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #212121;
 }
 
 *,
@@ -33,12 +34,12 @@ ul {
   padding-left: 0px;
   margin: 0px;
 }
-.links {
+.links, a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
-.buttons {
+button {
   border: none;
 }
 
@@ -47,4 +48,13 @@ ul {
 }
 .hide {
   display: none;
+}
+
+.containerDefault {
+  margin: 0 auto;
+  width: 100%;
+
+  @media screen and (min-width: 1900px) {
+      max-width: 1900px;
+  }
 }
