@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  ProductList, ProductItem ,StyledInput  } from './ProductStyled';
+import {  ProductList, ProductItem ,StyledInput} from './ProductStyled';
 
 const ProductNameComponent = () => {
   const [productName, setProductName] = useState('');
@@ -8,7 +8,6 @@ const ProductNameComponent = () => {
   const handleInputChange = (event) => {
     setProductName(event.target.value);
   };
-
   return (
     <div>
       <StyledInput
@@ -23,7 +22,7 @@ const ProductNameComponent = () => {
         ))}
       </ProductList>
     </div>
-  );
-};
-
-export default ProductNameComponent;
+    );
+  };
+  
+  export default ProductNameComponent; 

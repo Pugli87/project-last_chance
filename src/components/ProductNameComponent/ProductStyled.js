@@ -9,7 +9,7 @@
  margin-top: 50px;
  color: #9B9FAA;
  font-family: verdana;
- width: 300px;
+ width:500px;
 `;
 
 
@@ -27,6 +27,8 @@
   font-family : verdana;
   padding-top : 30px;
 `;
+
+
 
 
 
