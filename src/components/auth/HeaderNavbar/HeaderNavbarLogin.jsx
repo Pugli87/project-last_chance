@@ -5,6 +5,7 @@ import logo_mobile from '../../../assets/images/logos/logo-mobile.png'
 import NavLinkHeader from '../../Header/NavLinkHeader/NavLinkHeader'
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect'
 import './_HeaderNavbarLogin.scss'
+import { Link } from 'react-router-dom'
 
 function HeaderNavbarLogin() {
   const { isTablet, isDesktop } = useDeviceDetect()
@@ -12,7 +13,11 @@ function HeaderNavbarLogin() {
   return (
     <div className='HeaderNavbarLogin'>
       <div className='HeaderNavbarLogin__wrapper'>
-        <img src={isDesktop ? logo_desktop : isTablet ? logo_tablet : logo_mobile} alt="logo desktop" />
+        <Link
+          to='/'
+        >
+          <img src={isDesktop ? logo_desktop : isTablet ? logo_tablet : logo_mobile} alt="logo desktop" />
+        </Link>
         <ul className='HeaderNavbarLogin__list'>
           <li className='pointer'>
             <NavLinkHeader

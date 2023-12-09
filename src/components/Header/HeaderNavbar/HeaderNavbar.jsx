@@ -1,9 +1,11 @@
 import React from 'react'
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png'
+import logo_tablet from '../../../assets/images/logos/logo-tablet.png'
 import './_HeaderNavbar.scss'
 import NavLinkHeader from '../NavLinkHeader/NavLinkHeader'
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect'
 import HeaderMenuMobile from '../HeaderMenuMobile/HeaderMenuMobile'
+import { Link } from 'react-router-dom'
 
 function HeaderNavbar() {
   const { isDesktop, isMobile } = useDeviceDetect()
@@ -11,7 +13,11 @@ function HeaderNavbar() {
   return (
     <>
       <div className='HeaderNavbar'>
-        <img src={logo_desktop} alt="logo desktop" />
+        <Link
+          to='/diary'
+        >
+          <img src={isDesktop ? logo_desktop : logo_tablet} alt="logo desktop" />
+        </Link>
         <div className='HeaderNavbar__wrapper'>
           {isDesktop && <ul className='HeaderNavbar__list-navbar'>
             <li className='pointer'>
