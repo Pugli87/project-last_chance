@@ -4,13 +4,6 @@ import Home from 'components/pages/Home/Home';
 import Login from 'components/pages/Login/Login';
 import SignUp from 'components/pages/SignUp/SignUp';
 import { useEffect } from 'react';
-import Calculator from 'components/pages/Calculator/Calculator';
-import Diary from 'components/pages/Diary/Diary';
-import Home from 'components/pages/Home/Home';
-import Login from 'components/pages/Login/Login';
-import SignUp from 'components/pages/SignUp/SignUp';
-import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-import { useEffect } from 'react';
 
 const AppRoutes = [
   {
