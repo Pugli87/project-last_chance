@@ -8,7 +8,6 @@ import {
   RadioGroup,
   RadioLabel,
   RadioInput,
-  Button,
   Form,
 } from './dataForm.styled';
 
@@ -110,8 +109,6 @@ const DataForm = () => {
             </RadioGroup>
           </FormGroup>
         </Form>
-
-        <Button type="submit">Comienza a perder peso</Button>
       </form>
     </Container>
   );
