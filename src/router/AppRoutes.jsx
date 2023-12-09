@@ -1,8 +1,9 @@
-// import Calculator from "components/pages/Calculator/Calculator";
+import Calculator from 'components/pages/Calculator/Calculator';
 import Diary from 'components/pages/Diary/Diary';
 import Home from 'components/pages/Home/Home';
 import Login from 'components/pages/Login/Login';
 import SignUp from 'components/pages/SignUp/SignUp';
+import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
 import { useEffect } from 'react';
 
 const AppRoutes = [
@@ -22,14 +23,14 @@ const AppRoutes = [
     checkAuth: true,
     redirectRoute: '/login',
   },
-  //   {
-  //     title: 'Calculator',
-  //     name: 'calculator',
-  //     path: '/calculator',
-  //     element: () => <Calculator />,
-  //     checkAuth: true,
-  //     redirectRoute: '/login',
-  //   },
+  {
+    title: 'Calculator',
+    name: 'calculator',
+    path: '/calculator',
+    element: () => <Calculator />,
+    checkAuth: true,
+    redirectRoute: '/login',
+  },
   {
     title: 'Log In',
     name: 'logIn',
@@ -45,6 +46,14 @@ const AppRoutes = [
     element: () => <SignUp />,
     checkAuth: false,
     redirectRoute: '/diary',
+  },
+  {
+    title: 'Registration Form',
+    name: 'RegistrationForm',
+    path: '/Register',
+    element: () => <RegistrationForm />,
+    checkAuth: false,
+    redirectRoute: '/login',
   },
   {
     title: 'Login',
