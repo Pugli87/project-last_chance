@@ -1,5 +1,5 @@
 import { Container } from './calculator.styled';
-import DataForm from '../../dataForm/dataForm';
+import DataForm from '../../dataForm/DataForm';
 import { Button } from 'components/Button/Button';
 
 const Calculator = () => {
