@@ -7,7 +7,7 @@ const ProtectedRoute = ({
     element,
     checkAuth,
 }) => {
-    const [token, setToken] = useState(true)
+    const [token, setToken] = useState(false)
 
     try {
         document.title = (title ? title + " | " : "") + "SlimMom"; //modifica el titulo de la page

@@ -12,7 +12,7 @@ const AppRoutes = [
         path: "/",
         element: () => <Home />,
         checkAuth: false,
-        redirectRoute: '/',
+        redirectRoute: '/diary',
     },
     {
         title: "Diary",
