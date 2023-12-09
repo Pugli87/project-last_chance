@@ -11,8 +11,8 @@ const AppRoutes = [
     name: 'home',
     path: '/',
     element: () => <Home />,
-    checkAuth: true,
-    redirectRoute: '/',
+    checkAuth: false,
+    redirectRoute: '/diary',
   },
   {
     title: 'Diary',

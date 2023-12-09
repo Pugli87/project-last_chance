@@ -1,8 +1,8 @@
 import React from 'react'
-import LoginForm from '../../loginForm/LoginForm';
+import RegistrationForm from '../../RegistrationForm/RegistrationForm';
 
 function SignUp() {
-  return <LoginForm />
+  return <RegistrationForm />
 }
 
 export default SignUp
