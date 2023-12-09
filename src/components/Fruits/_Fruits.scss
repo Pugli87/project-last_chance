@@ -1,0 +1,27 @@
+@import '../../assets/sass/base/variables';
+.fruits {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 100vh;
+    background-color: $salud-gray-light;
+
+    img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+    }
+
+    @media (max-width: 1024px) {
+        height: 40vh;
+        position: relative;
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        height: 30vh;
+        max-height: 360px;
+    }
+}

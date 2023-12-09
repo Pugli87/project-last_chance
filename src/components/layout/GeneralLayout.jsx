@@ -1,12 +1,15 @@
-import HeaderNavbar from "components/HeaderNavbar/HeaderNavbar";
-import HeaderNavbarLogin from "components/auth/HeaderNavbar/HeaderNavbarLogin";
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
+import HeaderNavbar from "../../components/Header/HeaderNavbar/HeaderNavbar";
+import HeaderNavbarLogin from "../../components/auth/HeaderNavbar/HeaderNavbarLogin";
+import FruitsLogin from "../../components/auth/Fruits/FruitsLogin";
+import Fruits from "../../components/Fruits/Fruits";
+import { useDeviceDetect } from "../../hooks/deviceDetect/useDeviceDetect";
 import './_GeneralLayout.scss'
-import FruitsLogin from "components/auth/Fruits/FruitsLogin";
 
 const GeneralLayout = ({ children }) => {
     const location = useLocation();
+    const { isMobile } = useDeviceDetect()
 
     const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [ //rutas donde nos se ven el headerLogin 
         "/diary",
@@ -23,20 +26,21 @@ const GeneralLayout = ({ children }) => {
     }, [location.pathname]);
 
     return (
-        <div className="GeneralLayout">
+        <div className="GeneralLayout containerDefault">
             {showComponent ?    
                 <>
                     <div className='contentLayout'>
                         <HeaderNavbarLogin />
                     </div>
-                    <FruitsLogin />
+                    { !isMobile && <FruitsLogin /> }
                 </> : 
                 <>
                     <div className='contentLayout'>
                         <HeaderNavbar />
                     </div>
                 </>}
-            <div className='contentLayout'>{ children }</div>
+            <div className='contentLayout appLayout'>{ children }</div>
+            { !showComponent && <Fruits /> }
         </div>
     );
 };

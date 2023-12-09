@@ -1,16 +1,16 @@
 import Calculator from "components/pages/Calculator/Calculator";
 import Diary from "components/pages/Diary/Diary";
-import Intro from "components/pages/Intro/Intro";
+import Home from "components/pages/Home/Home";
 import Login from "components/pages/Login/Login";
 import SignUp from "components/pages/SignUp/SignUp";
 import { useEffect } from "react";
 
 const AppRoutes = [
     {
-        title: "Intro",
-        name: "intro",
+        title: "Home",
+        name: "home",
         path: "/",
-        element: () => <Intro />,
+        element: () => <Home />,
         checkAuth: false,
         redirectRoute: '/diary',
     },
