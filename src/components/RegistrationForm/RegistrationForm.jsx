@@ -5,8 +5,8 @@ import {
   FormGroup,
   Label,
   Input,
-} from './LoginForm.styled';
-const LoginForm = () => {
+} from './RegistrationForm.styled';
+const RegistrationForm = () => {
   return (
     <FormContainer>
       <Title>CREAR UNA CUENTA</Title>
@@ -30,4 +30,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
