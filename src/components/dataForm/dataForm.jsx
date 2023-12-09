@@ -8,14 +8,8 @@ import {
   RadioGroup,
   RadioLabel,
   RadioInput,
-  BoxButton,
   Form,
 } from './dataForm.styled';
-import { Button } from 'components/Button/Button';
-import {
-  useModalContext,
-  ModalProvider,
-} from '../Modal/ModalContent/ModalContent';
 
 const DataForm = () => {
   const [datos, setDatos] = useState({
