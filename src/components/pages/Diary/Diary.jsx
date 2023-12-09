@@ -4,11 +4,11 @@ import ButtonComponent from '../../ButtonComponent/ButtonComponent';
 import ProductNameComponent from '../../ProductNameComponent/ProductName';
 import KaloriesComponent from '../../KaloriesComponent/KaloriesComponent';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container } from './DiaryStyled';
+import { Container, Button} from './DiaryStyled';
 import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg'; // Importa tu SVG
+import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
 
 const Diary = () => {
   const [date, setDate] = useState(new Date());
@@ -16,12 +16,12 @@ const Diary = () => {
 
   const handleDateChange = (selectedDate) => {
     setDate(selectedDate);
-    setShowCalendar(false); // Oculta el calendario después de seleccionar una fecha
+    setShowCalendar(false); 
   }
 
   return (
-    <Container>
-      <button onClick={() => setShowCalendar(!showCalendar)}>
+    <Container className='containerDiary'>
+      <button className='btnDiary' onClick={() => setShowCalendar(!showCalendar)}>
         <YourSvg />
       </button>
       {showCalendar && (
