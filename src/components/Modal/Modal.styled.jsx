@@ -49,6 +49,9 @@ export const ButtonClose = styled.div`
   transition: 0.3s ease all;
   border-radius: 5px;
   color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &: hover {
     background: #f2f2f2;
