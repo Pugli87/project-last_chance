@@ -25,11 +25,34 @@
     border-right: none;
     outline: none; 
     
-    &:hover{
+    &:focus{
         border: 1px solid #FC842D;
+        border-left: none;
+        border-top: none;
+        border-right: none;
     }
     
 }
+
+.contCorreo .contContra{
+    &:hover{
+        .Input{
+            border: 1px solid #FC842D;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+        }
+        .subTittle{
+            color: #FC842D;
+        }
+        
+    }
+}
+
+.contCorreo{
+    margin-bottom: 15px;
+}
+
 
 .subTittle{
     color: #9B9FAA;
@@ -60,6 +83,9 @@
 .ButtonCrear{
     background-color: #fff;
     border: 2px solid #FC842D;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
 .textButtonIniciar{
@@ -70,6 +96,9 @@
 .textButtonCrear{
     width: 108px;
     color: #FC842D;
+    display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
 .textButton{
