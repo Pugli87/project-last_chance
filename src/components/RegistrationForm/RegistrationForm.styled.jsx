@@ -89,6 +89,10 @@ export const BtnRegister = styled.button`
 export const BtnLogin = styled(BtnRegister)`
   background-color: #fff;
   border: 2px solid #fc842d;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 // Text button styles
