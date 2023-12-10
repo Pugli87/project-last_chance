@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal';
 import { Button } from 'components/Button/Button';
-import BoxButton from '../../DataForm/DataForm';
+import { BoxButton } from '../../DataForm/dataForm.styled';
 import { Container } from '../Modal.styled';
 
 const ModalHome = () => {
