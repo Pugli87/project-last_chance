@@ -6,7 +6,7 @@ padding: 20px;
 max-width: 300px;
 margin-left: auto;
 margin-right: 150px;
-margin-top: 100px; 
+margin-top: 150px; 
   @media (min-width: 768px) and (max-width: 1023px) {
 position: fixed;
 bottom: 50px;
