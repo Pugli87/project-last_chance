@@ -4,6 +4,9 @@ export const Container = styled.div`
   padding: 50px;
   width: 608px;
   align-items: left;
+  @media (max-width: 768px) {
+    width: auto;
+  }
 `;
 
 export const Title = styled.h2`
@@ -14,6 +17,10 @@ export const Title = styled.h2`
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 60px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 `;
 
 export const FormGroup = styled.div`
@@ -49,40 +56,29 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   margin-right: 10px;
+  color: ${({ isSelected }) => (isSelected ? '#fc842d' : 'inherit')} !important;
 `;
 
 export const RadioInput = styled.input`
   margin-right: 5px;
-  &: active {
-    color: #fc842d;
-    background-color: #fc842d;
-  }
+  accent-color: #fc842d;
 `;
 
-export const Button = styled.button`
-  box-shadow: 0px 4px 10px 0px #fc842d80;
-  background-color: #fc842d;
-  color: #fff;
-  padding: 10px 15px;
-  font-family: Verdana;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  text-align: center;
-  font-size: 1em;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 50px 100px;
-
-  &:hover {
-    background-color: #fc842d80;
-  }
-`;
 export const Form = styled.div`
+  height: 200px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  align-items: center;
+  @media (max-width: 768px) {
+    height: 400px;
+  }
+`;
+export const BoxButton = styled.div`
+  margin: auto;
+  margin-top: 40px;
+  @media (max-width: 768px) {
+    margin-top: 0px;
+  }
 `;
