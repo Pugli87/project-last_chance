@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import GramosComponent from '../../GramosComponent/GramosComponent';
-import ButtonComponent from '../../ButtonComponent/ButtonComponent';
-import ProductNameComponent from '../../ProductNameComponent/ProductName';
-import KaloriesComponent from '../../KaloriesComponent/KaloriesComponent';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
 import { Container, Button, Div } from './DiaryStyled';
 import DateComponnet from 'components/DateComponent/DateComponent';
@@ -28,9 +24,6 @@ const Diary = () => {
         <button className='btnDiary' onClick={() => setShowCalendar(!showCalendar)}>
           <YourSvg />
         </button>
-        <ProductNameComponent />
-        <GramosComponent />
-        <KaloriesComponent />
         <ListnotFood/>
         <DateComponnet/>
       </div>
