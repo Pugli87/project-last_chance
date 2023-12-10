@@ -1,28 +1,22 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({
-    title,
-    redirectRoute,
-    element,
-    checkAuth,
-}) => {
-    const [token, setToken] = useState(false)
+const ProtectedRoute = ({ title, redirectRoute, element, checkAuth }) => {
+  const [token /*, setToken*/] = useState(true);
 
-    try {
-        document.title = (title ? title + " | " : "") + "SlimMom"; //modifica el titulo de la page
-    } catch (e) {}
+  try {
+    document.title = (title ? title + ' | ' : '') + 'SlimMom'; //modifica el titulo de la page
+  } catch (e) {}
 
+  if (checkAuth && !token) {
+    return <Navigate to={redirectRoute} replace />;
+  }
 
-    if (checkAuth && !token) {
-        return <Navigate to={redirectRoute} replace />;
-    }
+  if (!checkAuth && token) {
+    return <Navigate to={redirectRoute} replace />;
+  }
 
-    if (!checkAuth && token) {
-        return <Navigate to={redirectRoute} replace />;
-    }
-
-    return <>{element}</>;
+  return <>{element}</>;
 };
 
 export default ProtectedRoute;

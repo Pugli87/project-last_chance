@@ -2,6 +2,7 @@ import Calculator from 'components/pages/Calculator/Calculator';
 import Diary from 'components/pages/Diary/Diary';
 import Home from 'components/pages/Home/Home';
 import Login from 'components/pages/Login/Login';
+import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
 import SignUp from 'components/pages/SignUp/SignUp';
 import { useEffect } from 'react';
 
@@ -35,6 +36,14 @@ const AppRoutes = [
     name: 'logIn',
     path: '/login',
     element: () => <Login />,
+    checkAuth: false,
+    redirectRoute: '/diary',
+  },
+  {
+    title: 'RegistrationForm',
+    name: 'Registration Form',
+    path: '/RegistrationForm',
+    element: () => <RegistrationForm />,
     checkAuth: false,
     redirectRoute: '/diary',
   },
