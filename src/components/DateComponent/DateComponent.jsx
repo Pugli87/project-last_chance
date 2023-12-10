@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, SubtitleDate, CaloricValue } from './dateStyled';
+import { Container, Title, SubtitleDate, CaloricValue } from './DateStyled';
 
 const DateComponnet = () => {
   return (
