@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container, Button, Div } from './DiaryStyled';
+import { Container /*, Button, Div*/ } from './DiaryStyled';
 import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,25 +10,28 @@ const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
-  const handleDateChange = (selectedDate) => {
+  const handleDateChange = selectedDate => {
     setDate(selectedDate);
-    setShowCalendar(false); 
-  }
+    setShowCalendar(false);
+  };
   return (
     <Container>
-      <div className='containerDiary'>
+      <div className="containerDiary">
         {showCalendar && (
           <DatePicker selected={date} onChange={handleDateChange} inline />
         )}
         <h1>{date.toLocaleDateString()}</h1>
-        <button className='btnDiary' onClick={() => setShowCalendar(!showCalendar)}>
+        <button
+          className="btnDiary"
+          onClick={() => setShowCalendar(!showCalendar)}
+        >
           <YourSvg />
         </button>
-        <ListnotFood/>
-        <DateComponnet/>
+        <ListnotFood />
+        <DateComponnet />
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Diary
+export default Diary;
