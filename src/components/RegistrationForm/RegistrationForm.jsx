@@ -12,7 +12,6 @@ import {
   BtnLogin,
   TextButtonRegister,
   TextButtonLogin,
-  TextButton,
 } from './RegistrationForm.styled';
 const RegistrationForm = () => {
   /**/
