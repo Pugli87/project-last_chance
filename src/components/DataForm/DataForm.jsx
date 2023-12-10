@@ -9,7 +9,7 @@ import {
   RadioLabel,
   RadioInput,
   Form,
-} from './DataForm.styled';
+} from './dataForm.styled';
 
 const DataForm = () => {
   const [datos, setDatos] = useState({
