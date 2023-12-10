@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container /*, Button, Div*/ } from './DiaryStyled';
+import { Container, Button, Div } from './DiaryStyled';
 import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -27,11 +27,23 @@ const Diary = () => {
         >
           <YourSvg />
         </button>
-        <ListnotFood />
-        <DateComponnet />
       </div>
+        {showCalendar && (
+          <DatePicker 
+            selected={date} 
+            onChange={handleDateChange} 
+            inline 
+            maxDate={new Date()} 
+            className="customDatePicker" 
+          />
+        )}
+        <ProductNameComponent />
+        <GramosComponent />
+        <KaloriesComponent />
+        <ListnotFood/>
+        <DateComponnet/>
     </Container>
-  );
-};
+  )
+}
 
-export default Diary;
+export default Diary
