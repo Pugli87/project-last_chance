@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 50px;
   width: 608px;
-  align-items: left;
+  text-align: left;
+  margin-left: 0;
 `;
 
 export const Title = styled.h2`
@@ -66,6 +67,6 @@ export const Form = styled.div`
   flex-wrap: wrap;
 `;
 export const BoxButton = styled.div`
-  margin: auto;
-  margin-top: 40px;
+  margin-top: -20px;
+  text-align: right;
 `;

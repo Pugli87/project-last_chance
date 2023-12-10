@@ -9,7 +9,11 @@ import {
   RadioLabel,
   RadioInput,
   Form,
+  BoxButton,
 } from './dataForm.styled';
+import Modal from 'components/Modal/Modal';
+import { Button } from 'components/Button/Button';
+import { ContainerB } from 'components/Modal/Modal.styled';
 
 const DataForm = () => {
   const [datos, setDatos] = useState({
@@ -20,6 +24,8 @@ const DataForm = () => {
     grupoSanguineo: '1',
   });
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   const handleChange = e => {
     const { name, value } = e.target;
     setDatos({
@@ -27,10 +33,53 @@ const DataForm = () => {
       [name]: value,
     });
   };
+  const validarDatos = () => {
+    // Validar que ningún campo esté vacío
+    if (
+      !datos.altura ||
+      !datos.edad ||
+      !datos.pesoActual ||
+      !datos.pesoDeseado
+    ) {
+      alert('Todos los campos son obligatorios.');
+      return false;
+    }
+
+    // Validar que la altura esté en un rango razonable (por ejemplo, 100-250 cm)
+    if (datos.altura < 100 || datos.altura > 250) {
+      alert('La altura debe estar entre 100 y 250 cm.');
+      return false;
+    }
+
+    // Validar que el peso actual y el peso deseado estén en un rango razonable
+    if (
+      datos.pesoActual < 30 ||
+      datos.pesoActual > 300 ||
+      datos.pesoDeseado < 30 ||
+      datos.pesoDeseado > 300
+    ) {
+      alert('El peso debe estar entre 30 y 300 kg.');
+      return false;
+    }
+
+    // Validar que la edad sea razonable (por ejemplo, 10-100 años)
+    if (datos.edad < 10 || datos.edad > 100) {
+      alert('La edad debe estar entre 10 y 100 años.');
+      return false;
+    }
+
+    // Si todas las validaciones son correctas
+    return true;
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Datos enviados:', datos);
+    if (validarDatos()) {
+      console.log('Datos enviados:', datos);
+      setModalVisible(true); // Abre el modal si la validación es exitosa
+    } else {
+      // Manejo de error si la validación falla
+    }
   };
 
   return (
@@ -109,7 +158,17 @@ const DataForm = () => {
             </RadioGroup>
           </FormGroup>
         </Form>
+        <BoxButton>
+          <Button type="submit" text="Comienza a perder peso" />
+        </BoxButton>
       </form>
+      <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
+        <ContainerB>
+          <h3> Tu ingesta diaria recomendada de calorías es: </h3>
+          {/* Otros contenidos del modal... */}
+          <Button type="submit" text="Comienza a perder peso" />
+        </ContainerB>
+      </Modal>
     </Container>
   );
 };

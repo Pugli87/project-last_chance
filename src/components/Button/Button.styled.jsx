@@ -10,12 +10,12 @@ export const Btn = styled.button`
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-align: center;
+  text-align: right;
   font-size: 1em;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin: 50px 100px;
+  margin: 50px -0px;
 
   &:hover {
     background-color: #fc842d80;
@@ -24,5 +24,5 @@ export const Btn = styled.button`
 
 export const BoxButton = styled.div`
   margin: auto;
-  margin-top: 40px;
+  margin-top: 10px;
 `;

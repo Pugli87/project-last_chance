@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../Modal';
 import { Button } from 'components/Button/Button';
 import { BoxButton } from '../../DataForm/dataForm.styled';
-import { Container } from '../Modal.styled';
+import { ContainerB } from '../Modal.styled';
 
 const ModalHome = () => {
   const [stateModal1, changestateModal1] = useState(false);
@@ -17,10 +17,10 @@ const ModalHome = () => {
         />
       </BoxButton>
       <Modal state={stateModal1} changestate={changestateModal1}>
-        <Container>
+        <ContainerB>
           <h3> Tu ingesta diaria recomendada de calorías es: </h3>
           <Button type="submit" text="Comienza a perder peso" />
-        </Container>
+        </ContainerB>
       </Modal>
     </div>
   );
