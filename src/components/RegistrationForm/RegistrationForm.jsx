@@ -87,6 +87,9 @@ const RegistrationForm = () => {
           onChange={handleChange}
           style={{ borderColor: formErrors.nombre ? 'red' : '' }}
         />
+        {formErrors.nombre && (
+          <p style={{ color: 'red' }}>El nombre es requerido</p>
+        )}
       </FormGroup>
       <FormGroup>
         <Label htmlFor="correo">Correo Electrónico *</Label>
@@ -98,6 +101,9 @@ const RegistrationForm = () => {
           onChange={handleChange}
           style={{ borderColor: formErrors.correo ? 'red' : '' }}
         />
+        {formErrors.correo && (
+          <p style={{ color: 'red' }}>El correo es requerido</p>
+        )}
       </FormGroup>
       <FormGroup>
         <Label htmlFor="contrasena">Contraseña *</Label>
@@ -109,6 +115,9 @@ const RegistrationForm = () => {
           onChange={handleChange}
           style={{ borderColor: formErrors.contrasena ? 'red' : '' }}
         />
+        {formErrors.contrasena && (
+          <p style={{ color: 'red' }}>La contraseña es requerida</p>
+        )}
       </FormGroup>
 
       <ContButton>
