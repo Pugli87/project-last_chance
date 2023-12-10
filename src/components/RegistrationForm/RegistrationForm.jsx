@@ -20,7 +20,6 @@ import {
 const RegistrationForm = () => {
   const { t } = useTranslation();
 
-  // Formik setup
   const formik = useFormik({});
 
   const btnRegister = <Button type="submit">{t('auth.register')}</Button>;
