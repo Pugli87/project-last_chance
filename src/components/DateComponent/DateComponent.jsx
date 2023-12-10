@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import {  Container,Title,SubtitleDate,CaloricValue } from './DateStyled';
 
 const DateComponnet = () => {
@@ -15,4 +15,7 @@ const DateComponnet = () => {
   );
 };
 
-export default DateComponnet;
+export default DateComponnet; 
+
+
+
