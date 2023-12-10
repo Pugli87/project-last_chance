@@ -7,7 +7,6 @@ import {
   FormGroup,
   Label,
   Input,
-  //
   ContButton,
   BtnRegister,
   BtnLogin,
@@ -45,12 +44,9 @@ const RegistrationForm = () => {
     });
 
     if (Object.keys(errors).length > 0) {
-      // Al menos un campo está vacío, establecer errores y detener el registro
       setFormErrors(errors);
     } else {
-      // Todos los campos están llenos, continuar con el registro (puedes enviar los datos al servidor aquí)
       console.log('Registro exitoso:', formData);
-      // También puedes reiniciar el formulario si es necesario
       setFormData({
         nombre: '',
         correo: '',
@@ -67,12 +63,8 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const handleLoginClick = () => {
     console.log('Login button clicked');
-    // Redirigir a la página de inicio de sesión
     navigate('/src/components/pages/Login');
-    // Aquí podrías redirigir a la página de inicio de sesión o ejecutar alguna otra lógica de inicio de sesión
   };
-
-  //
   return (
     <FormContainer>
       <Title>CREAR UNA CUENTA</Title>
