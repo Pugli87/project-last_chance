@@ -18,6 +18,8 @@ export const Title = styled.h2`
   margin 150px;
   color: #FC842D;
   margin: 60px 40px;
+    @media (max-width: 1024px) {
+    display: none;
 `;
 
 export const SubTitle = styled.h3`

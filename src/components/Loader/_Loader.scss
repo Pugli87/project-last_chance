@@ -1,0 +1,27 @@
+@import '../../assets/sass/base/variables';
+
+.loader {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: gray;
+    box-shadow: 20px 0 gray, -20px 0 gray;
+    position: relative;
+    animation: flash 0.5s ease-out infinite alternate;
+}
+
+    @keyframes flash {
+        0% {
+            background-color: #FFF2;
+            box-shadow: 20px 0 #FFF2, -20px 0 gray;
+        }
+        50% {
+            background-color: gray;
+            box-shadow: 20px 0 #FFF2, -20px 0 #FFF2;
+        }
+        100% {
+            background-color: #FFF2;
+            box-shadow: 20px 0 gray, -20px 0 #FFF2;
+        }
+    }
+        

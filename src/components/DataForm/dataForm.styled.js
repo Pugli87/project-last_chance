@@ -4,6 +4,9 @@ export const Container = styled.div`
   padding: 50px;
   width: 608px;
   align-items: left;
+  @media (max-width: 768px) {
+    width: auto;
+  }
 `;
 
 export const Title = styled.h2`
@@ -14,6 +17,10 @@ export const Title = styled.h2`
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 60px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 `;
 
 export const FormGroup = styled.div`
@@ -49,23 +56,29 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   margin-right: 10px;
+  color: ${({ isSelected }) => (isSelected ? '#fc842d' : 'inherit')} !important;
 `;
 
 export const RadioInput = styled.input`
   margin-right: 5px;
-  &: active {
-    color: #fc842d;
-    background-color: #fc842d;
-  }
+  accent-color: #fc842d;
 `;
 
 export const Form = styled.div`
+  height: 200px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  align-items: center;
+  @media (max-width: 768px) {
+    height: 400px;
+  }
 `;
 export const BoxButton = styled.div`
   margin: auto;
   margin-top: 40px;
+  @media (max-width: 768px) {
+    margin-top: 0px;
+  }
 `;
