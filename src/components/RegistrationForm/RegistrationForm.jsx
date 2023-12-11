@@ -13,6 +13,7 @@ import {
   TextButtonRegister,
   TextButtonLogin,
 } from './RegistrationForm.styled';
+
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -24,15 +25,17 @@ const RegistrationForm = () => {
     correo: false,
     contrasena: false,
   });
+
   const handleChange = e => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prevData => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = e => {
+    console.log('Submit button clicked');
     e.preventDefault();
 
     // Validación de campos
@@ -45,82 +48,93 @@ const RegistrationForm = () => {
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
+      console.log(
+        'Tiene datos sin diligenciar,Por favor complete todos los campos.'
+      );
     } else {
       console.log('Registro exitoso:', formData);
-      setFormData({
-        nombre: '',
-        correo: '',
-        contrasena: '',
-      });
-      setFormErrors({
-        nombre: false,
-        correo: false,
-        contrasena: false,
-      });
+      resetForm();
     }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      nombre: '',
+      correo: '',
+      contrasena: '',
+    });
+    setFormErrors({
+      nombre: false,
+      correo: false,
+      contrasena: false,
+    });
   };
 
   const navigate = useNavigate();
   const handleLoginClick = () => {
     console.log('Login button clicked');
-    navigate('/login');
+    navigate('/Login');
   };
+
   return (
     <FormContainer>
-      <Title>CREAR UNA CUENTA</Title>
-      <SubTitle>CREAR UNA CUENTA</SubTitle>
-      <FormGroup>
-        <Label htmlFor="nombre">Nombre *</Label>
-        <Input
-          type="text"
-          id="nombre"
-          name="nombre"
-          value={formData.nombre}
-          onChange={handleChange}
-          style={{ borderColor: formErrors.nombre ? 'red' : '' }}
-        />
-        {formErrors.nombre && (
-          <p style={{ color: 'red' }}>El nombre es requerido</p>
-        )}
-      </FormGroup>
-      <FormGroup>
-        <Label htmlFor="correo">Correo Electrónico *</Label>
-        <Input
-          type="email"
-          id="correo"
-          name="correo"
-          value={formData.correo}
-          onChange={handleChange}
-          style={{ borderColor: formErrors.correo ? 'red' : '' }}
-        />
-        {formErrors.correo && (
-          <p style={{ color: 'red' }}>El correo es requerido</p>
-        )}
-      </FormGroup>
-      <FormGroup>
-        <Label htmlFor="contrasena">Contraseña *</Label>
-        <Input
-          type="password"
-          id="contrasena"
-          name="contrasena"
-          value={formData.contrasena}
-          onChange={handleChange}
-          style={{ borderColor: formErrors.contrasena ? 'red' : '' }}
-        />
-        {formErrors.contrasena && (
-          <p style={{ color: 'red' }}>La contraseña es requerida</p>
-        )}
-      </FormGroup>
+      <form onSubmit={handleSubmit}>
+        <Title>CREAR UNA CUENTA</Title>
+        <SubTitle>CREAR UNA CUENTA</SubTitle>
+        <FormGroup>
+          <Label htmlFor="nombre">Nombre *</Label>
+          <Input
+            type="text"
+            id="nombre"
+            name="nombre"
+            value={formData.nombre}
+            onChange={handleChange}
+            style={{ borderColor: formErrors.nombre ? 'red' : '' }}
+          />
+          {formErrors.nombre && (
+            <p style={{ color: 'red' }}>El nombre es requerido</p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="correo">Correo Electrónico *</Label>
+          <Input
+            type="email"
+            id="correo"
+            name="correo"
+            value={formData.correo}
+            onChange={handleChange}
+            style={{ borderColor: formErrors.correo ? 'red' : '' }}
+          />
+          {formErrors.correo && (
+            <p style={{ color: 'red' }}>El correo es requerido</p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="contrasena">Contraseña *</Label>
+          <Input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            value={formData.contrasena}
+            onChange={handleChange}
+            style={{ borderColor: formErrors.contrasena ? 'red' : '' }}
+          />
+          {formErrors.contrasena && (
+            <p style={{ color: 'red' }}>La contraseña es requerida</p>
+          )}
+        </FormGroup>
 
-      <ContButton>
-        <BtnRegister type="submit" onClick={handleSubmit}>
-          <TextButtonRegister>Register</TextButtonRegister>
-        </BtnRegister>
-        <BtnLogin onClick={handleLoginClick} variant="contained">
-          <TextButtonLogin>Login</TextButtonLogin>
-        </BtnLogin>
-      </ContButton>
+        <ContButton>
+          <BtnRegister type="submit">
+            <TextButtonRegister>Register</TextButtonRegister>
+          </BtnRegister>
+          <BtnLogin onClick={handleLoginClick} variant="contained">
+            <TextButtonLogin>Login</TextButtonLogin>
+          </BtnLogin>
+        </ContButton>
+      </form>
     </FormContainer>
   );
 };
+
 export default RegistrationForm;
