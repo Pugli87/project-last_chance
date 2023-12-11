@@ -1,5 +1,5 @@
 import React from 'react';
-import DataForm from '../../DataForm/dataForm';
+import DataForm from '../../DataForm/DataForm';
 import ModalHome from '../../Modal/ModalContent/ModalContent';
 
 function Home() {

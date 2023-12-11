@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png';
 import logo_tablet from '../../../assets/images/logos/logo-tablet.png';
 import './_HeaderNavbar.scss';
@@ -20,6 +20,18 @@ function HeaderNavbar() {
     dispatch(logOutUser());
     setShowModal(false);
   };
+
+  useEffect(() => {
+    const closeModal = event => {
+      if (event.key === 'Escape') {
+        setShowModal(false);
+      }
+    };
+    document.addEventListener('keydown', closeModal);
+    return () => {
+      document.removeEventListener('keydown', closeModal);
+    };
+  }, []);
 
   return (
     <>
