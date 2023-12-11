@@ -3,20 +3,22 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  //margin: 20px;
   padding: 20px;
   max-width: 300px;
-  //margin-left: auto;
-  //margin-right: 150px;
+
 
   @media (min-width: 767px) and (max-width: 1023px) {
-    bottom: 0;
-    margin-top: 100px;
-    padding: 20px;
-    max-width: 300px;
+  bottom: 0;
+  margin-top: 100px;
+  padding: 20px;
+  max-width: 300px;
   }
   @media (max-width: 767px) {
   }
+`;
+  export const ContainerLi  = styled.div`
+  display: flex; 
+  justify-content: space-between;
 `;
 
 export const Title = styled.h2`
