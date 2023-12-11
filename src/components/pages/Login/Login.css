@@ -11,26 +11,19 @@
     display: flex;
     flex-direction: row;
     max-width: 100%;
-
     justify-content: space-between;
 }
 
-.Input{
-    width: 240px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #9B9FAA;
-    border-left: none;
-    border-top: none;
-    border-right: none;
-    outline: none; 
-    
+.input{
     &:focus{
         border: 1px solid #FC842D;
         border-left: none;
         border-top: none;
         border-right: none;
     }
+
+
+    
     
 }
 
@@ -119,24 +112,3 @@
 
 /* /////////////////////////////////////////////////////////////////////////// */
 
-@media screen and (max-width:320px) {
-    .Container{
-        width: 280px;
-        margin-top: 32px;
-        margin-left: 10px;
-        margin-right: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .ContButton{
-        margin-top: 60px;
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
-        align-items: center;
-        height: 110px;
-    }
-}
