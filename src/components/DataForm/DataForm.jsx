@@ -16,13 +16,18 @@ import { Button } from 'components/Button/Button';
 import { ContainerB } from 'components/Modal/Modal.styled';
 
 const DataForm = () => {
-  const [datos, setDatos] = useState({
+  const valoresIniciales = {
     altura: '',
     edad: '',
     pesoActual: '',
     pesoDeseado: '',
     grupoSanguineo: '1',
-  });
+  };
+
+  const [datos, setDatos] = useState(valoresIniciales);
+  const CleanForm = () => {
+    setDatos(valoresIniciales);
+  };
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -33,8 +38,14 @@ const DataForm = () => {
       [name]: value,
     });
   };
+
+  const [infoNutricional] = useState({
+    kilocalorias: 2000,
+    alimentosEvitar: ['Azúcar', 'Pan blanco', 'Refrescos'],
+  });
+
   const validarDatos = () => {
-    // Validar que ningún campo esté vacío
+    // Verificar que ningun campo este vacio
     if (
       !datos.altura ||
       !datos.edad ||
@@ -45,7 +56,7 @@ const DataForm = () => {
       return false;
     }
 
-    // Validar que la altura esté en un rango razonable (por ejemplo, 100-250 cm)
+    // Verificar altura rango de (por ejemplo, 100-250 cm)
     if (datos.altura < 100 || datos.altura > 250) {
       alert('La altura debe estar entre 100 y 250 cm.');
       return false;
@@ -77,8 +88,9 @@ const DataForm = () => {
     if (validarDatos()) {
       console.log('Datos enviados:', datos);
       setModalVisible(true); // Abre el modal si la validación es exitosa
+      CleanForm(); // limpia el formulario
     } else {
-      // Manejo de error si la validación falla
+      CleanForm(); // Manejo de error si la validación falla
     }
   };
 
@@ -164,9 +176,22 @@ const DataForm = () => {
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
         <ContainerB>
-          <h3> Tu ingesta diaria recomendada de calorías es: </h3>
-          {/* Otros contenidos del modal... */}
-          <Button type="submit" text="Comienza a perder peso" />
+          <h3>
+            {' '}
+            Tu ingesta diaria recomendada de calorías es: <br></br>
+            {infoNutricional.kilocalorias} kcal
+          </h3>
+          <p>Alimentos a evitar:</p>
+          <ul>
+            {infoNutricional.alimentosEvitar.map((alimento, index) => (
+              <li key={index}>{alimento}</li>
+            ))}
+          </ul>
+          <Button
+            type="submit"
+            text="Comienza a perder peso"
+            onClick={() => setModalVisible(false)}
+          />
         </ContainerB>
       </Modal>
     </Container>
