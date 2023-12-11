@@ -1,8 +1,10 @@
+import React from 'react'
 import { Container } from './calculator.styled';
 import DataForm from '../../DataForm/DataForm';
 import { Button } from 'components/Button/Button';
 
 const Calculator = () => {
+
   return (
     <Container>
       <div>
