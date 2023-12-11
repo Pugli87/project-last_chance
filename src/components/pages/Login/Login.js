@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../redux/thunks';
 import "./Login.css"
 
 const Login = () => {
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,13 +12,14 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    dispatch(loginUser({email, password}))
   };
+  
 
   return (
     <div className='Container'>
       <h3 className='tittle'>Iniciar sesión</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h3 className='subTittle'>Correo electrónico *</h3>
         <input 
           className='Input'
@@ -33,7 +37,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className='ContButton'>
-        <button className='Button ButtonIniciar' type="submit"><p className='textButton textButtonIniciar'>INICIAR SESION</p></button>
+        <button className='Button ButtonIniciar' type="submit" onClick={handleSubmit}><p className='textButton textButtonIniciar'>INICIAR SESION</p></button>
         <button className='Button ButtonCrear' type="button"><p className='textButton textButtonCrear'>CREAR UNA CUENTA</p></button>
         </div>
       </form>

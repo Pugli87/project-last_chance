@@ -1,4 +1,3 @@
-// HeaderNavbar.jsx
 import React, { useState } from 'react';
 import logo_desktop from '../../../assets/images/logos/logo-desktop.png';
 import logo_tablet from '../../../assets/images/logos/logo-tablet.png';
@@ -7,20 +6,18 @@ import NavLinkHeader from '../NavLinkHeader/NavLinkHeader';
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect';
 import HeaderMenuMobile from '../HeaderMenuMobile/HeaderMenuMobile';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutUser } from '../../../redux/thunks';
 import Modal from '../../Modal/ModalCalculator';
 
 function HeaderNavbar() {
   const { isDesktop, isMobile } = useDeviceDetect();
+  const token = useSelector(state => state.auth.token);
+  const dispatch = useDispatch();
+
   const [showModal, setShowModal] = useState(false);
-
   const handleYesClick = () => {
-    // Handle logic for 'Yes' button (redirect to homepage)
-    // For now, simply redirect to '/'
-    window.location.href = '/';
-  };
-
-  const handleNoClick = () => {
-    // Handle logic for 'No' button (close the modal)
+    dispatch(logOutUser());
     setShowModal(false);
   };
 
@@ -39,8 +36,8 @@ function HeaderNavbar() {
               <li className="pointer">
                 <NavLinkHeader to="/diary">Diario</NavLinkHeader>
               </li>
-              <li className="pointer">
-                <NavLinkHeader to="/calculator">Calculadora</NavLinkHeader>
+              <li className="pointer" onClick={() => setShowModal(true)}>
+                Salir
               </li>
             </ul>
           )}
@@ -73,7 +70,7 @@ function HeaderNavbar() {
         <Modal
           title="Are you sure you want to exit?"
           onYesClick={handleYesClick}
-          onNoClick={handleNoClick}
+          onNoClick={() => setShowModal(false)}
         />
       )}
     </>
