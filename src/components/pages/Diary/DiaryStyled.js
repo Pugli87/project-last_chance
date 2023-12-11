@@ -1,5 +1,24 @@
 import styled, { css } from 'styled-components';
 
+export const Container = styled.div`
+  margin-top: 100px;
+  margin-bottom: 200px;
+`;
+export const Wrapper = styled.div`
+  display: flex;
+`;
+export const WrapperResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+`;
+export const WrapperDaily = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 94px;
+`;
+
 export const ContainerDiary = styled.div`
   display: flex;
 `;
@@ -90,76 +109,6 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const DatePicker = styled.div`
-  top: 3em !important;
-  left: 1em !important;
-  position: absolute !important;
-  z-index: 1000 !important;
-  font-size: 1em !important;
-  background-color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 6px rgba(60,64,67,0.3), 0 1px 2px rgba(60,64,67,0.15) !important;
+export const Button = styled.button``;
 
-  all: initial;
-  * {
-    all: unset;
-  }
-`;
-
-export const DatePickerHeader = styled.div`
-  background-color: white !important;
-  border: none !important;
-  display: flex;
-  flex-direction: column;
-  font-size: 1.1em;
-  font-weight: 700;
-`;
-
-export const DatePickerDay = styled.div`
-  margin: 5px !important;
-
-  &:hover {
-    border-radius: 50% !important;
-    background-color: #e8f0fe !important;
-    color: #1a73e8 !important;
-  }
-
-  ${props => props.selected && css`
-    border-radius: 50% !important;
-    background-color: #1a73e8 !important;
-    color: white !important;
-  `}
-
-  ${props => props.today && css`
-    border: 1px solid #1a73e8 !important;
-  `}
-`;
-
-export const DatePickerDayName = styled.div`
-  margin: 5px !important;
-  color: #3c4043 !important;
-`;
-
-export const DatePickerMonth = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const DatePickerCurrentMonth = styled.div`
-  font-size: 1.1em !important;
-  font-weight: 700 !important;
-`;
-
-export const DatePickerNavigation = styled.div`
-  line-height: 18px !important;
-`;
-
-export const DatePickerNavigationPrevious = styled(DatePickerNavigation)`
-  position: absolute !important;
-  right: 3em !important;
-`;
-
-export const DatePickerDayDisabled = styled(DatePickerDay)`
-  color: #ccc !important;
-`;
+export const Div = styled.div``;
