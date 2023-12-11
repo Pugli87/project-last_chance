@@ -6,10 +6,14 @@ import FruitsLogin from '../auth/Fruits/FruitsLogin';
 import Fruits from '../Fruits/Fruits';
 import { useDeviceDetect } from '../../hooks/deviceDetect/useDeviceDetect';
 import './_GeneralLayout.scss';
+import Loader from 'components/Loader/Loader';
+import { useSelector } from 'react-redux';
 
 const GeneralLayout = ({ children }) => {
   const location = useLocation();
   const { isMobile } = useDeviceDetect();
+
+  const loading = useSelector((state) => state.auth.isLoading)
 
   const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
     //rutas donde nos se ven el headerLogin
@@ -43,6 +47,7 @@ const GeneralLayout = ({ children }) => {
       )}
       <div className="contentLayout appLayout">{children}</div>
       {!showComponent && <Fruits />}
+      <Loader variant='circle' active={loading}/>
     </div>
   );
 };
