@@ -62,7 +62,6 @@ const DataForm = () => {
               required
             />
           </FormGroup>
-
           <FormGroup>
             <Label htmlFor="edad">Edad:</Label>
             <Input
@@ -74,9 +73,7 @@ const DataForm = () => {
               required
             />
           </FormGroup>
-        </Form>
 
-        <Form>
           <FormGroup>
             <Label htmlFor="pesoActual">Peso Actual:</Label>
             <Input
@@ -93,7 +90,10 @@ const DataForm = () => {
             <hr></hr>
             <RadioGroup>
               {[1, 2, 3, 4].map(grupo => (
-                <RadioLabel key={grupo}>
+                <RadioLabel
+                  key={grupo}
+                  isSelected={datos.grupoSanguineo === grupo.toString()}
+                >
                   <RadioInput
                     type="radio"
                     id={`grupoSanguineo${grupo}`}

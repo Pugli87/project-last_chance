@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({
     title,
@@ -9,20 +9,19 @@ const ProtectedRoute = ({
 }) => {
     const [token, setToken] = useState(false)
 
-    try {
-        document.title = (title ? title + " | " : "") + "SlimMom"; //modifica el titulo de la page
-    } catch (e) {}
+  try {
+    document.title = (title ? title + ' | ' : '') + 'SlimMom'; //modifica el titulo de la page
+  } catch (e) {}
 
+  if (checkAuth && !token) {
+    return <Navigate to={redirectRoute} replace />;
+  }
 
-    if (checkAuth && !token) {
-        return <Navigate to={redirectRoute} replace />;
-    }
+  if (!checkAuth && token) {
+    return <Navigate to={redirectRoute} replace />;
+  }
 
-    if (!checkAuth && token) {
-        return <Navigate to={redirectRoute} replace />;
-    }
-
-    return <>{element}</>;
+  return <>{element}</>;
 };
 
 export default ProtectedRoute;
