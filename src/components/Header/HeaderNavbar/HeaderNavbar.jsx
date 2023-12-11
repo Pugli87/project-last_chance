@@ -6,9 +6,15 @@ import NavLinkHeader from '../NavLinkHeader/NavLinkHeader'
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect'
 import HeaderMenuMobile from '../HeaderMenuMobile/HeaderMenuMobile'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logOutUser } from '../../../redux/thunks'
 
 function HeaderNavbar() {
   const { isDesktop, isMobile } = useDeviceDetect()
+  const token = useSelector((state) => state.auth.token)
+  const dispatch = useDispatch()
+
+
 
   return (
     <>
@@ -40,7 +46,7 @@ function HeaderNavbar() {
               <li className='pointer'>
                   Nic
               </li>
-              <li className='pointer'>
+              <li className='pointer' onClick={()=>dispatch(logOutUser(token))}>
                 Salir
               </li>
             </ul> }
@@ -53,7 +59,7 @@ function HeaderNavbar() {
             Nic
         </li>
         <li className='HeaderNavbar__item-separator'></li>
-        <li className='pointer'>
+        <li className='pointer' onClick={()=>dispatch(logOutUser(token))}>
           Salir
         </li>
       </ul> }
