@@ -126,10 +126,10 @@ const RegistrationForm = () => {
 
         <ContButton>
           <BtnRegister type="submit">
-            <TextButtonRegister>Register</TextButtonRegister>
+            <TextButtonRegister>Crear cuenta</TextButtonRegister>
           </BtnRegister>
           <BtnLogin onClick={handleLoginClick} variant="contained">
-            <TextButtonLogin>Login</TextButtonLogin>
+            <TextButtonLogin>Iniciar Sesión</TextButtonLogin>
           </BtnLogin>
         </ContButton>
       </form>
