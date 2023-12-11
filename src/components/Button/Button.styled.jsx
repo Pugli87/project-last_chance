@@ -15,7 +15,7 @@ export const Btn = styled.button`
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin: 50px -0px;
+  margin: 30px -0px;
 
   &:hover {
     background-color: #fc842d80;
@@ -25,4 +25,5 @@ export const Btn = styled.button`
 export const BoxButton = styled.div`
   margin: auto;
   margin-top: 10px;
+  text-align: right;
 `;

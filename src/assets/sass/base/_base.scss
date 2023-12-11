@@ -8,10 +8,9 @@
 
 body {
   margin: 0;
-  font-family: 'Verdana' , sans-serif;
+  font-family: 'Verdana', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #212121;
 }
 
 *,
@@ -34,7 +33,8 @@ ul {
   padding-left: 0px;
   margin: 0px;
 }
-.links, a {
+.links,
+a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -55,6 +55,6 @@ button {
   width: 100%;
 
   @media screen and (min-width: 1900px) {
-      max-width: 1900px;
+    max-width: 1900px;
   }
 }

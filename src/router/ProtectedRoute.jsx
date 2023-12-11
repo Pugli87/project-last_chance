@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ title, redirectRoute, element, checkAuth }) => {
-  const [token /*, setToken*/] = useState(true);
+  const [token /*, setToken*/] = useState(false);
 
   try {
     document.title = (title ? title + ' | ' : '') + 'SlimMom'; //modifica el titulo de la page
