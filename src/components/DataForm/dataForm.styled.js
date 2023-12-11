@@ -78,4 +78,7 @@ export const Form = styled.div`
 export const BoxButton = styled.div`
   margin: auto;
   margin-top: 40px;
+  @media (max-width: 768px) {
+    margin-top: 0px;
+  }
 `;
