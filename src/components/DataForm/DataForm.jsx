@@ -1,4 +1,4 @@
-import { LoginUser } from 'react-router-dom';
+import { Login } from 'react-router-dom';
 import React, { useState } from 'react';
 import {
   Container,
@@ -25,12 +25,6 @@ const DataForm = () => {
     grupoSanguineo: '1',
   };
 
-  /*const Login = LoginUser();
-  const PageLoginUser = () => {
-    setModalVisible(false);
-    Login.push('../pages/Login/Login');
-  };
-*/
   const [datos, setDatos] = useState(valoresIniciales);
   const CleanForm = () => {
     setDatos(valoresIniciales);
