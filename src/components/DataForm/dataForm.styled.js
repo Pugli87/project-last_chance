@@ -56,7 +56,7 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   margin-right: 10px;
-  color: ${({ isSelected }) => (isSelected ? '#fc842d' : 'inherit')} !important;
+  color: #9b9faa;
 `;
 
 export const RadioInput = styled.input`
@@ -76,8 +76,9 @@ export const Form = styled.div`
   }
 `;
 export const BoxButton = styled.div`
-  margin: auto;
-  margin-top: 40px;
+  margin-top: -90px;
+  text-align: right;
+
   @media (max-width: 768px) {
     margin-top: 0px;
   }

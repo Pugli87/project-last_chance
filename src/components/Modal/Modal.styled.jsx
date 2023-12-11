@@ -58,7 +58,7 @@ export const ButtonClose = styled.div`
   }
 `;
 
-export const Container = styled.div`
+export const ContainerB = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

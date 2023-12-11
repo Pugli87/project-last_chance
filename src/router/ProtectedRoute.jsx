@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ title, redirectRoute, element, checkAuth }) => {
 
+
   const token = useSelector((state) => state.auth.token)
   const userInfo = useSelector((state) => state.auth.userInfo)
 
