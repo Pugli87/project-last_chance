@@ -56,33 +56,35 @@ const Diary = () => {
           <YourSvg />
         </button>
         </div>
+        <div className="form-container">
+          <form onSubmit={handleSubmit} className="form">
+            <div className="input-group">
+              <label className='labelForm'>
+                Ingresa el nombre del producto
+                <input type="text" value={name} onChange={e => setName(e.target.value)} required />
+              </label>
+              <label className='labelForm'>
+                Gramos*
+                <input type="text" value={number} onChange={e => setNumber(e.target.value)} onKeyPress={event => {
+                  if (!/[0-9]/.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }} required />
+              </label>
+            </div>
+            <button className='btnSave' type="submit">+</button>
+          </form>
+          <ul className='formList'>
+            {items.map((item, index) => (
+              <li className='listForm' key={index}>
+                {item.name} - {item.number} g - {parseInt(item.number, 10) + 10} kcal
+                <button className='btnDelete' onClick={() => handleDelete(index)}>x</button>
+              </li>
+            ))}
+          </ul>
+        </div>
         <ListnotFood />
         <DateComponnet />
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>
-              Nombre del producto:
-              <input type="text" value={name} onChange={e => setName(e.target.value)} required />
-            </label>
-          </div>
-          <div>
-            <label>
-              Número:
-              <input type="number" value={number} onChange={e => setNumber(e.target.value)} required />
-            </label>
-          </div>
-          <div>
-            <button n type="submit">Guardar</button>
-          </div>
-        </form>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index}>
-              {item.name} - {item.number}
-              <button onClick={() => handleDelete(index)}>Eliminar</button>
-            </li>
-          ))}
-        </ul>
     </Container>
   );
 };
