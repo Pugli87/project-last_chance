@@ -79,6 +79,7 @@ export const BtnRegister = styled.button`
   cursor: pointer;
   background-color: #fc842d;
   box-shadow: -5px 11px 6px -8px rgba(252, 132, 45, 1);
+  margin-right: 20px;
 
   @media screen and (max-width: 320px) {
     width: 100%;

@@ -63,7 +63,7 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const handleLoginClick = () => {
     console.log('Login button clicked');
-    navigate('/src/components/pages/Login');
+    navigate('/login');
   };
   return (
     <FormContainer>
