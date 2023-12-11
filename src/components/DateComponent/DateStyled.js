@@ -1,30 +1,11 @@
  import styled from 'styled-components';
 
 export const Container = styled.div`
- display: flex;
+  display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin-left:90px;
   padding: 20px;
-  max-width: 300px; 
-  margin-left: auto; 
-  margin-right: 150px; 
-  margin-top: -450px; 
- 
- @media (min-width: 767px) and (max-width: 1023px)  {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  padding: 10px;
   max-width: 300px;
-  
-  }
-  @media  (max-width: 767px) {
-    position: fixed;
-    bottom: 0px;
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
-   }
 `; 
 
 
@@ -51,8 +32,8 @@ export const CaloricValue = styled.span`
    
 `; 
  export const SubtitleContainer = styled.div`
- display: flex;
- align-items: center;
- margin-bottom: 5px; 
- margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; 
+  margin-top: 10px;
 `;
