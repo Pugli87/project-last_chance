@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import {  ProductList, ProductItem ,StyledInput} from './ProductStyled';
+import { ProductList, ProductItem, StyledInput } from './ProductStyled';
 
 const ProductNameComponent = () => {
   const [productName, setProductName] = useState('');
-  const products = ['berenjena', 'carne de res', 'pan', 'nuez', 'carne de cerdo'];
+  const products = [
+    'berenjena',
+    'carne de res',
+    'pan',
+    'nuez',
+    'carne de cerdo',
+  ];
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     setProductName(event.target.value);
   };
   return (
@@ -22,7 +28,7 @@ const ProductNameComponent = () => {
         ))}
       </ProductList>
     </div>
-    );
-  };
-  
-  export default ProductNameComponent; 
+  );
+};
+
+export default ProductNameComponent;
