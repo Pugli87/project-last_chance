@@ -1,3 +1,4 @@
+import { LoginUser } from 'react-router-dom';
 import React, { useState } from 'react';
 import {
   Container,
@@ -24,6 +25,12 @@ const DataForm = () => {
     grupoSanguineo: '1',
   };
 
+  /*const Login = LoginUser();
+  const PageLoginUser = () => {
+    setModalVisible(false);
+    Login.push('../pages/Login/Login');
+  };
+*/
   const [datos, setDatos] = useState(valoresIniciales);
   const CleanForm = () => {
     setDatos(valoresIniciales);
@@ -45,7 +52,6 @@ const DataForm = () => {
   });
 
   const validarDatos = () => {
-    // Verificar que ningun campo este vacio
     if (
       !datos.altura ||
       !datos.edad ||
@@ -56,13 +62,11 @@ const DataForm = () => {
       return false;
     }
 
-    // Verificar altura rango de (por ejemplo, 100-250 cm)
     if (datos.altura < 100 || datos.altura > 250) {
       alert('La altura debe estar entre 100 y 250 cm.');
       return false;
     }
 
-    // Validar que el peso actual y el peso deseado estén en un rango razonable
     if (
       datos.pesoActual < 30 ||
       datos.pesoActual > 300 ||
@@ -73,13 +77,11 @@ const DataForm = () => {
       return false;
     }
 
-    // Validar que la edad sea razonable (por ejemplo, 10-100 años)
     if (datos.edad < 10 || datos.edad > 100) {
       alert('La edad debe estar entre 10 y 100 años.');
       return false;
     }
 
-    // Si todas las validaciones son correctas
     return true;
   };
 
