@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container /*, Button, Div*/ } from './DiaryStyled';
+import { Container, WrapperResult, WrapperDaily, Wrapper } from './DiaryStyled';
 import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -27,12 +27,18 @@ const Diary = () => {
           onClick={() => setShowCalendar(!showCalendar)}
         >
           <YourSvg />
-        </button>
-        <DailyIntake />
-
-        <ListnotFood />
-        <DateComponnet />
+        </button>{' '}
       </div>
+      <Wrapper>
+        <WrapperDaily>
+          <DailyIntake />
+        </WrapperDaily>
+
+        <WrapperResult>
+          <DateComponnet />
+          <ListnotFood />
+        </WrapperResult>
+      </Wrapper>
     </Container>
   );
 };
