@@ -16,7 +16,6 @@ export const WrapperDaily = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-left: 94px;
 `;
 
 export const ContainerDiary = styled.div`
@@ -37,9 +36,10 @@ export const BtnDiary = styled.button`
     background-color: #e7edf0;
   }
 `;
-
 export const FormContainer = styled.div`
   .form {
+    color: rgba(155, 159, 170, 1);
+    margin-top: 4em;
     display: flex;
     width: 100%;
 
@@ -53,15 +53,21 @@ export const FormContainer = styled.div`
         width: 300px;
 
         input {
+          border: 1px solid black;
+          outline: none;
           margin-top: 10px;
           border: none;
-          border-bottom: 2px solid #000;
+          border-bottom: 2px solid rgba(224, 224, 224, 1);
           padding: 5px;
           width: 100%;
+
+          &:focus {
+            border-bottom: 2px solid orange;
+          }
         }
       }
     }
-
+  }
     .btnSave {
       align-self: flex-end;
       padding: 15px 20px; 
