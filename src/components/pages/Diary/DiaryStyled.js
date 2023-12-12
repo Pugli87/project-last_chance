@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 100px;
-  margin-bottom: 200px;
+   margin-top: 100px; 
+   margin-bottom: 200px; 
 `;
 
 export const Wrapper = styled.div`
   display: flex;
+ 
 `;
 export const WrapperResult = styled.div`
   display: flex;

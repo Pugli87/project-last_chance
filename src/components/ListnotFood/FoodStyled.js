@@ -3,24 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
    padding: 20px;
    max-width: 300px;
- 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    
+   @media (max-width: 1023px) {
+    position: fixed;
     bottom: 0;
-    left: 20%;
-    transform: translateX(-50%);
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
-  }
-  @media (max-width: 767px) {
-  
-    bottom: 0;
-    left: 20%;
-    transform: translateX(-50%);
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
+    right: 0;
+    margin-right: 100px;
   }
 `;
 

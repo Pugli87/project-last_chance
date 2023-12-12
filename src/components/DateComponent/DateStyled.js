@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  padding: 20px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  max-width: 300px;
-
-
-  @media (min-width: 767px) and (max-width: 1023px) {
-  bottom: 0;
-  margin-top: 100px;
-  padding: 20px;
-  max-width: 300px;
+  @media  (max-width: 1023px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+   
   }
-  @media (max-width: 767px) {
-  }
+
 `;
   export const ContainerLi  = styled.div`
   display: flex; 
@@ -25,7 +22,7 @@ export const Title = styled.h2`
   font-size: 16px;
   color: #212121;
   font-family: verdana;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const SubtitleDate = styled.span`
@@ -33,6 +30,7 @@ export const SubtitleDate = styled.span`
   color: #9b9faa;
   font-family: verdana;
   margin-bottom: 10px;
+  padding-top: 10px;
 `;
 
 export const CaloricValue = styled.span`
@@ -40,4 +38,5 @@ export const CaloricValue = styled.span`
   color: #9b9faa;
   font-family: verdana;
   margin-left: auto;
+  padding-top: 10px;
 `;
