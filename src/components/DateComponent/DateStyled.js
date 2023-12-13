@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 20px;
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 1023px) {
-    //position: fixed;
-    bottom: 0;
-    left: 0;
-  }
 `;
 export const ContainerLi = styled.div`
   display: flex;
