@@ -14,8 +14,8 @@ const GeneralLayout = ({ children }) => {
   const location = useLocation();
   const { isMobile } = useDeviceDetect();
 
-  const loading = useSelector((state) => state.auth.isLoading)
-  const error = useSelector((state) => state.auth.error)
+  const loading = useSelector(state => state.auth.isLoading);
+  const error = useSelector(state => state.auth.error);
 
   const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
     //rutas donde nos se ven el headerLogin
@@ -29,17 +29,17 @@ const GeneralLayout = ({ children }) => {
     });
 
     return !shouldHide;
-  }, [location.pathname]);
+  }, [location.pathname, ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH]); //se agrego , {ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH} que mando error en el despliegue
 
-  useEffect(()=>{
-    if(error) return Notify.failure(error, {
-      backOverlay: true, 
-      fontSize: '16px', 
-      fontFamily: 'Verdana', 
-      cssAnimationStyle: 'from-right', 
-      
-    });
-  },[error])
+  useEffect(() => {
+    if (error)
+      return Notify.failure(error, {
+        backOverlay: true,
+        fontSize: '16px',
+        fontFamily: 'Verdana',
+        cssAnimationStyle: 'from-right',
+      });
+  }, [error]);
 
   return (
     <div className="GeneralLayout containerDefault">
@@ -59,7 +59,7 @@ const GeneralLayout = ({ children }) => {
       )}
       <div className="contentLayout appLayout">{children}</div>
       {!showComponent && <Fruits />}
-      <Loader variant='circle' active={loading}/>
+      <Loader variant="circle" active={loading} />
     </div>
   );
 };
