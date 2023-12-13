@@ -27,12 +27,12 @@ export const loginUser = createAsyncThunk(
         try {
             const { email, password } = userInfo 
 
-            const data = {
-                email,
-                password
-            };
+            if ( !email || !password) {
+                alert('Campos requeridos', 'Por favor, complete todos los campos.');
+                return thunkAPI.rejectWithValue('Campos requeridos');
+            }
 
-            const response = await axios.post(`${baseUrl}/login`, data)
+            const response = await axios.post(`${baseUrl}/login`, userInfo)
 
             const token = response.data.result.token
 
@@ -45,7 +45,7 @@ export const loginUser = createAsyncThunk(
 
         } catch (e) {
 
-            return thunkAPI.rejectWithValue(e.message)
+            return thunkAPI.rejectWithValue(e.response.data.message)
 
         }
     }
@@ -53,20 +53,40 @@ export const loginUser = createAsyncThunk(
 
 export const signUpUser = createAsyncThunk(
     "auth/signUpUser",
-    async (_, thunkAPI) => {
+    async (data, thunkAPI) => {
         try {
+            console.log('data desed signUp', data)
 
-            // const data = {
+            const { name, email, password } = data 
 
-            // };
+            if (!name || !email || !password) {
+                alert('Campos requeridos', 'Por favor, complete todos los campos.');
+                return thunkAPI.rejectWithValue('Campos requeridos');
+            }
 
-            // const response = await axios.post(`${baseUrl}/signUp`, data)
+            const userInfo = {
+                email,
+                password,
+            }
 
-            // return  response.json()
+            const response = await axios.post(`${baseUrl}/signUp`, userInfo);
+
+            if (response.status !== 201) {
+                alert('Error en SignUp', 'Hubo un problema al registrarse. Por favor, inténtelo de nuevo.');
+                return thunkAPI.rejectWithValue('Error en SignUp');
+            }
+
+            const responseUserAction = await thunkAPI.dispatch(loginUser(userInfo));
+
+            const responseUser = responseUserAction.payload;
+
+            console.log('loginUser', responseUser);
+
+            return responseUser
 
         } catch (e) {
 
-            return thunkAPI.rejectWithValue(e.message)
+            return thunkAPI.rejectWithValue(e.response.data.message);
 
         }
     }
@@ -90,7 +110,7 @@ export const logOutUser = createAsyncThunk(
             return response.data;
 
         } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
+            return thunkAPI.rejectWithValue(e.response.data.message);
         }
     }
 );
@@ -107,7 +127,7 @@ export const fetchFood = createAsyncThunk(
 
         } catch (e) {
 
-            return thunkAPI.rejectWithValue(e.message)
+            return thunkAPI.rejectWithValue(e.response.data.message)
 
         }
     }

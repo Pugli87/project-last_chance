@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signUpUser } from '../../redux/thunks';
+
 import {
   FormContainer,
   Title,
@@ -13,6 +15,7 @@ import {
   TextButtonRegister,
   TextButtonLogin,
 } from './RegistrationForm.styled';
+import { useDispatch } from 'react-redux';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +28,8 @@ const RegistrationForm = () => {
     correo: false,
     contrasena: false,
   });
+
+  const dispatch = useDispatch()
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -53,6 +58,11 @@ const RegistrationForm = () => {
       );
     } else {
       console.log('Registro exitoso:', formData);
+      dispatch(signUpUser({
+        name: formData.nombre,
+        email: formData.correo,
+        password: formData.contrasena,
+      }))
       resetForm();
     }
   };
