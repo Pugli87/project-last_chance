@@ -11,4 +11,5 @@ const Calculator = () => {
     </Container>
   );
 };
+
 export default Calculator;
