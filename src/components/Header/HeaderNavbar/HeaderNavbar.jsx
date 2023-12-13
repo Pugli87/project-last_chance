@@ -80,7 +80,7 @@ function HeaderNavbar() {
 
       {showModal && (
         <Modal
-          title="Are you sure you want to exit?"
+          title="¿ Estas seguro que deseas salir ?"
           onYesClick={handleYesClick}
           onNoClick={() => setShowModal(false)}
         />
