@@ -28,12 +28,18 @@
   }
 }
 .container {
+  @media (min-width: 1024px) {
+    margin-top: 230px;
+  }
   @media (max-width: 1024px) {
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
+    gap: 70px;
   }
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 }
