@@ -5,16 +5,14 @@ export const Container = styled.div`
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  @media  (max-width: 1023px) {
-    position: fixed;
+  @media (max-width: 1023px) {
+    //position: fixed;
     bottom: 0;
     left: 0;
-   
   }
-
 `;
-  export const ContainerLi  = styled.div`
-  display: flex; 
+export const ContainerLi = styled.div`
+  display: flex;
   justify-content: space-between;
 `;
 

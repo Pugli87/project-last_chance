@@ -35,7 +35,3 @@ const DailyIntake = () => {
   );
 };
 export default DailyIntake;
- 
-
-
-
