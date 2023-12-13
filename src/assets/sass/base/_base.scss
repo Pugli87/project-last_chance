@@ -1,0 +1,81 @@
+@import-normalize; /* bring in normalize.css styles */
+@import './variables';
+@font-face {
+  font-family: 'Verdana';
+  src: url('../../Fonts/verdanab.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Verdana', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+ul {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.links,
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  border: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+
+.containerDefault {
+  margin: 0 auto;
+  width: 100%;
+
+  @media screen and (min-width: 1900px) {
+    max-width: 1900px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  background-color: $salud-gray-light;
+  transition: all 400ms ease 0s;
+  
+  &.-active {
+      z-index: 99;
+      visibility: visible;
+      opacity: 0.7;
+  }
+}
+

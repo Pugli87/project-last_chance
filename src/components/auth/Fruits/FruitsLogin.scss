@@ -1,0 +1,22 @@
+.FruitsLogin {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+
+    img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+
+        @media (max-width: 1024px) {
+            height: 55%;
+        }
+
+        &:first-child {
+            z-index: 2;
+        }
+    }
+}

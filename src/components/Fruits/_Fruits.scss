@@ -1,0 +1,52 @@
+@import '../../assets/sass/base/variables';
+.fruits {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 100vh;
+  background-color: $salud-gray-light;
+  display: flex;
+  justify-content: center;
+
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    height: 50vh;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 767px) {
+    height: 200vh;
+    max-height: 500px;
+  }
+}
+.container {
+  @media (min-width: 1024px) {
+    margin-top: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+
+  }
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+   justify-content: space-evenly;
+   width:100%;
+  }
+}

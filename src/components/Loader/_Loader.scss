@@ -1,0 +1,75 @@
+@import '../../assets/sass/base/variables';
+
+.loader {
+    &__points {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: gray;
+        box-shadow: 20px 0 gray, -20px 0 gray;
+        position: relative;
+        animation: flash 0.5s ease-out infinite alternate;
+    }
+
+    &__wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        transition: all 400ms ease 0s;
+    }
+
+    &__circle {
+        width: 65px;
+        display: flex;
+        aspect-ratio: 1;
+        position: relative;
+        z-index: 100;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        border-radius: 50px;
+        box-shadow: 0 0 0 3px inset $salud-orange;
+        animation: l5 2.5s infinite;
+    }
+    &:after {
+        animation-delay: -1.25s;
+        border-radius: 0;
+    }
+}
+}
+
+@keyframes flash {
+    0% {
+        background-color: #FFF2;
+        box-shadow: 20px 0 #FFF2, -20px 0 gray;
+    }
+    50% {
+        background-color: gray;
+        box-shadow: 20px 0 #FFF2, -20px 0 #FFF2;
+    }
+    100% {
+        background-color: #FFF2;
+        box-shadow: 20px 0 gray, -20px 0 #FFF2;
+    }
+}
+
+@keyframes l5{
+    0%    {inset:0    35px 35px 0   }
+    12.5% {inset:0    35px 0    0   }
+    25%   {inset:35px 35px 0    0   }
+    37.5% {inset:35px 0    0    0   }
+    50%   {inset:35px 0    0    35px}
+    62.5% {inset:0    0    0    35px}
+    75%   {inset:0    0    35px 35px}
+    87.5% {inset:0    0    35px 0   }
+    100%  {inset:0    35px 35px 0   }
+}
+        
