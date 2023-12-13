@@ -4,11 +4,11 @@ import './_Loader.scss'
 
 const Loader = ({variant = 'points', active = false}) => {
     return <>
-        { variant === 'points' ? <span class="loader__points"></span> :
+        { variant === 'points' ? <span className="loader__points"></span> :
             active && 
             <div className='loader__wrapper'>
                 <div className={`backdrop ${active ? '-active' : ''}`}></div>
-                <span class="loader__circle"></span>
+                <span className="loader__circle"></span>
             </div>
         }
     </>
