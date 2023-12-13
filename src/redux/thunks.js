@@ -1,31 +1,27 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios'
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const baseUrl = "http://localhost:3000/api/users";
+const baseUrl = 'http://localhost:3000/api/users';
 
-const fecthCurrentUser = async (token) => {
-    try {
+const fecthCurrentUser = async token => {
+  try {
+    const response = await axios.get(`${baseUrl}/current`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-        const response = await axios.get(`${baseUrl}/current`,  {
-            headers: {
-            'Authorization': `Bearer ${token}`
-            }
-        }) 
-        
-        return response.data.result
-
-    } catch (e) {
-
-        return console.error('error:', e)
-
-    }
-}
+    return response.data.result;
+  } catch (e) {
+    return console.error('error:', e);
+  }
+};
 
 export const loginUser = createAsyncThunk(
-    "auth/loginUser",
-    async (userInfo, thunkAPI) => {
-        try {
-            const { email, password } = userInfo 
+  'auth/loginUser',
+  async (userInfo, thunkAPI) => {
+    try {
+      const { email, password } = userInfo;
 
             if ( !email || !password) {
                 alert('Campos requeridos', 'Por favor, complete todos los campos.');
@@ -34,9 +30,9 @@ export const loginUser = createAsyncThunk(
 
             const response = await axios.post(`${baseUrl}/login`, userInfo)
 
-            const token = response.data.result.token
+      const token = response.data.result.token;
 
-            const responseUser = await fecthCurrentUser(token)
+      const responseUser = await fecthCurrentUser(token);
 
             return  {
                 token,
@@ -93,19 +89,18 @@ export const signUpUser = createAsyncThunk(
 )
 
 export const logOutUser = createAsyncThunk(
-    "auth/logOutUser",
-    async (_, thunkAPI) => {
-        try {
+  'auth/logOutUser',
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token;
 
-            const token = thunkAPI.getState().auth.token;
+      console.log('get token', token);
 
-            console.log('get token', token)
-
-            const response = await axios.post(`${baseUrl}/logout`, null, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+      const response = await axios.post(`${baseUrl}/logout`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
             return response.data;
 
@@ -114,7 +109,6 @@ export const logOutUser = createAsyncThunk(
         }
     }
 );
-
 
 export const fetchFood = createAsyncThunk(
     "auth/fetchFood",

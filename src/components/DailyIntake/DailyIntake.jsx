@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import { Form, Wrapper, ContainForm, Label,InputGramos, LabelGramos, Input, Button } from './DailyIntakeStyled';
+//import React, { useState } from 'react';
+import {
+  Form,
+  Wrapper,
+  ContainForm,
+  Label,
+  InputGramos,
+  LabelGramos,
+  Input,
+  Button,
+} from './DailyIntakeStyled';
 const DailyIntake = () => {
-  const [productName, setProductName] = useState('');
+  /*  const [productName, setProductName] = useState('');
   const products = [
     'berenjena',
     'carne de res',
@@ -11,22 +20,22 @@ const DailyIntake = () => {
   ];
   const handleInputChange = event => {
     setProductName(event.target.value);
-  };
+  };*/
   return (
     <div>
       <Form>
         <ContainForm>
           <Wrapper>
-          <Label>
-          Ingresa el nombre del producto 
-            <Input type="text" required />
-          </Label>
+            <Label>
+              Ingresa el nombre del producto
+              <Input type="text" required />
+            </Label>
           </Wrapper>
           <Wrapper>
-          <LabelGramos>
-          Gramos
-            <InputGramos type="text"  required />
-          </LabelGramos>
+            <LabelGramos>
+              Gramos
+              <InputGramos type="text" required />
+            </LabelGramos>
           </Wrapper>
         </ContainForm>
         <Button type="submit">+</Button>
