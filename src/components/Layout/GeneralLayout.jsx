@@ -29,7 +29,7 @@ const GeneralLayout = ({ children }) => {
     });
 
     return !shouldHide;
-  }, [location.pathname, ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH]); //se agrego , {ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH} que mando error en el despliegue
+  }, [location.pathname]);
 
   useEffect(() => {
     if (error)
