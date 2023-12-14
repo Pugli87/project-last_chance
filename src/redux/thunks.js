@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/api/users';
+const baseUrl = 'http://localhost:3100/api/users';
+//const baseUrl = 'https://slim-mom-backend.up.railway.app/api/users';
 
 const fecthCurrentUser = async token => {
   try {
@@ -15,12 +16,12 @@ const fecthCurrentUser = async token => {
     return response.data.result;
   } catch (e) {
     return Notify.failure(e, {
-      backOverlay: true, 
-      fontSize: '16px', 
-      fontFamily: 'Verdana', 
-      cssAnimationStyle: 'from-right', 
+      backOverlay: true,
+      fontSize: '16px',
+      fontFamily: 'Verdana',
+      cssAnimationStyle: 'from-right',
       timeout: 800,
-    });;
+    });
   }
 };
 
@@ -30,9 +31,9 @@ export const loginUser = createAsyncThunk(
     try {
       const { email, password } = userInfo;
 
-            if ( !email || !password) {
-                return thunkAPI.rejectWithValue('Los campos son requeridos');
-            }
+      if (!email || !password) {
+        return thunkAPI.rejectWithValue('Los campos son requeridos');
+      }
 
       const response = await axios.post(`${baseUrl}/login`, userInfo);
 
@@ -58,24 +59,24 @@ export const signUpUser = createAsyncThunk(
 
       const { name, email, password } = data;
 
-            if (!name || !email || !password) {
-                return thunkAPI.rejectWithValue('Los campos son requeridos');
-            }
+      if (!name || !email || !password) {
+        return thunkAPI.rejectWithValue('Los campos son requeridos');
+      }
 
-            const userInfo = {
-              email,
-              password,
-            }
+      const userInfo = {
+        email,
+        password,
+      };
 
       const response = await axios.post(`${baseUrl}/signUp`, userInfo);
 
-            if (response.status !== 201) {
-              return thunkAPI.rejectWithValue('Error en SignUp');
-            }
+      if (response.status !== 201) {
+        return thunkAPI.rejectWithValue('Error en SignUp');
+      }
 
       const responseUserAction = await thunkAPI.dispatch(loginUser(userInfo));
 
-            const responseUser = responseUserAction.payload;
+      const responseUser = responseUserAction.payload;
 
       return responseUser;
     } catch (e) {

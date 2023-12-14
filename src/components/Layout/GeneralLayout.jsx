@@ -14,15 +14,11 @@ const GeneralLayout = ({ children }) => {
   const location = useLocation();
   const { isMobile } = useDeviceDetect();
 
-  const loading = useSelector((state) => state.auth.isLoading)
-  const error = useSelector((state) => state.auth.error)
+  const loading = useSelector(state => state.auth.isLoading);
+  const error = useSelector(state => state.auth.error);
 
   const showComponent = useMemo(() => {
-    const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
-      //rutas donde nos se ven el headerLogin
-      '/diary',
-      '/calculator',
-    ];
+    const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = ['/diary', '/calculator'];
 
     const shouldHide = ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH.some(route => {
       return location.pathname === route;
@@ -31,15 +27,16 @@ const GeneralLayout = ({ children }) => {
     return !shouldHide;
   }, [location.pathname]);
 
-  useEffect(()=>{
-    if(error) return Notify.failure(error, {
-      backOverlay: true, 
-      fontSize: '16px', 
-      fontFamily: 'Verdana', 
-      cssAnimationStyle: 'from-right', 
-      timeout: 800,
-    });
-  },[error])
+  useEffect(() => {
+    if (error)
+      return Notify.failure(error, {
+        backOverlay: true,
+        fontSize: '16px',
+        fontFamily: 'Verdana',
+        cssAnimationStyle: 'from-right',
+        timeout: 800,
+      });
+  }, [error]);
 
   return (
     <div className="GeneralLayout containerDefault">
@@ -59,7 +56,7 @@ const GeneralLayout = ({ children }) => {
       )}
       <div className="contentLayout appLayout">{children}</div>
       {!showComponent && <Fruits />}
-      <Loader variant='circle' active={loading}/>
+      <Loader variant="circle" active={loading} />
     </div>
   );
 };
