@@ -3,7 +3,6 @@ import ListnotFood from 'components/ListnotFood/ListnotFood';
 import { Container, WrapperResult, WrapperDaily, Wrapper, ContainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
 import './CalendarStyled.scss';
 import DateComponnet from 'components/DateComponent/DateComponent';
-import { Container, WrapperDaily, Wrapper, WrapperResult, ConatainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
