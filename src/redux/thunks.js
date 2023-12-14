@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3001/api/users';
+const baseUrl = 'http://localhost:3000/api/users';
 
 const fecthCurrentUser = async token => {
   try {
