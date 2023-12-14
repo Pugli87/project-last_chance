@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3001/api/users';
+const baseUrl = 'http://localhost:3000/api/users';
 
 const fecthCurrentUser = async token => {
   try {
@@ -13,7 +14,13 @@ const fecthCurrentUser = async token => {
 
     return response.data.result;
   } catch (e) {
-    return console.error('error:', e);
+    return Notify.failure(e, {
+      backOverlay: true, 
+      fontSize: '16px', 
+      fontFamily: 'Verdana', 
+      cssAnimationStyle: 'from-right', 
+      timeout: 800,
+    });;
   }
 };
 
@@ -23,10 +30,9 @@ export const loginUser = createAsyncThunk(
     try {
       const { email, password } = userInfo;
 
-      if (!email || !password) {
-        alert('Campos requeridos', 'Por favor, complete todos los campos.');
-        return thunkAPI.rejectWithValue('Campos requeridos');
-      }
+            if ( !email || !password) {
+                return thunkAPI.rejectWithValue('Los campos son requeridos');
+            }
 
       const response = await axios.post(`${baseUrl}/login`, userInfo);
 
@@ -52,31 +58,24 @@ export const signUpUser = createAsyncThunk(
 
       const { name, email, password } = data;
 
-      if (!name || !email || !password) {
-        alert('Campos requeridos', 'Por favor, complete todos los campos.');
-        return thunkAPI.rejectWithValue('Campos requeridos');
-      }
+            if (!name || !email || !password) {
+                return thunkAPI.rejectWithValue('Los campos son requeridos');
+            }
 
-      const userInfo = {
-        email,
-        password,
-      };
+            const userInfo = {
+              email,
+              password,
+            }
 
       const response = await axios.post(`${baseUrl}/signUp`, userInfo);
 
-      if (response.status !== 201) {
-        alert(
-          'Error en SignUp',
-          'Hubo un problema al registrarse. Por favor, inténtelo de nuevo.'
-        );
-        return thunkAPI.rejectWithValue('Error en SignUp');
-      }
+            if (response.status !== 201) {
+              return thunkAPI.rejectWithValue('Error en SignUp');
+            }
 
       const responseUserAction = await thunkAPI.dispatch(loginUser(userInfo));
 
-      const responseUser = responseUserAction.payload;
-
-      console.log('loginUser', responseUser);
+            const responseUser = responseUserAction.payload;
 
       return responseUser;
     } catch (e) {
@@ -90,8 +89,6 @@ export const logOutUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.token;
-
-      console.log('get token', token);
 
       const response = await axios.post(`${baseUrl}/logout`, null, {
         headers: {
