@@ -14,8 +14,8 @@ const GeneralLayout = ({ children }) => {
   const location = useLocation();
   const { isMobile } = useDeviceDetect();
 
-  const loading = useSelector(state => state.auth.isLoading);
-  const error = useSelector(state => state.auth.error);
+  const loading = useSelector((state) => state.auth.isLoading)
+  const error = useSelector((state) => state.auth.error)
 
   const showComponent = useMemo(() => {
     const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
@@ -59,7 +59,7 @@ const GeneralLayout = ({ children }) => {
       )}
       <div className="contentLayout appLayout">{children}</div>
       {!showComponent && <Fruits />}
-      <Loader variant="circle" active={loading} />
+      <Loader variant='circle' active={loading}/>
     </div>
   );
 };
