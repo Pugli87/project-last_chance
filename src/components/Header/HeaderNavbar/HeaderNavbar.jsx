@@ -48,8 +48,8 @@ function HeaderNavbar() {
               <li className="pointer">
                 <NavLinkHeader to="/diary">Diario</NavLinkHeader>
               </li>
-              <li className="pointer" onClick={() => setShowModal(true)}>
-                Salir
+              <li className="pointer">
+                <NavLinkHeader to="/calculator">Calculadora</NavLinkHeader>
               </li>
             </ul>
           )}
@@ -60,7 +60,6 @@ function HeaderNavbar() {
                   Salir
                 </li>
                 <li className="pointer">Nic</li>
-                {/* ... (other menu items) */}
               </ul>
             )}
             {!isDesktop && <HeaderMenuMobile />}

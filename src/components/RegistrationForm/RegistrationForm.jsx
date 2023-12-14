@@ -4,7 +4,6 @@ import { signUpUser } from '../../redux/thunks';
 
 import {
   FormContainer,
-  Title,
   SubTitle,
   FormGroup,
   Label,
@@ -89,7 +88,6 @@ const RegistrationForm = () => {
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
-        <Title>CREAR UNA CUENTA</Title>
         <SubTitle>CREAR UNA CUENTA</SubTitle>
         <FormGroup>
           <Label htmlFor="nombre">Nombre *</Label>

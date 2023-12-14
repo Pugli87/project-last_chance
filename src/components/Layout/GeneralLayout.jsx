@@ -17,13 +17,13 @@ const GeneralLayout = ({ children }) => {
   const loading = useSelector((state) => state.auth.isLoading)
   const error = useSelector((state) => state.auth.error)
 
-  const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
-    //rutas donde nos se ven el headerLogin
-    '/diary',
-    '/calculator',
-  ];
-
   const showComponent = useMemo(() => {
+    const ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH = [
+      //rutas donde nos se ven el headerLogin
+      '/diary',
+      '/calculator',
+    ];
+
     const shouldHide = ROUTES_WHERE_NOT_SHOWN_HEADER_AUTH.some(route => {
       return location.pathname === route;
     });
@@ -37,7 +37,7 @@ const GeneralLayout = ({ children }) => {
       fontSize: '16px', 
       fontFamily: 'Verdana', 
       cssAnimationStyle: 'from-right', 
-      
+      timeout: 800,
     });
   },[error])
 
