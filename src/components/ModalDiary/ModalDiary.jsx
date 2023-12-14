@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, FormText, Wrapper, ContainForm, Label,InputGramos, LabelGramos, Input, Button} from './DailyIntakeStyled';
-const DailyIntake = () => {
+import { Form, FormText, Wrapper, ContainForm, Label,InputGramos, LabelGramos, Input, Button} from './ModalDiaryStyled';
+const ModalDiary = () => {
   /*const [productName, setProductName] = useState('');
   const products = [
     'berenjena',
@@ -54,7 +54,7 @@ const DailyIntake = () => {
           </Wrapper>
 
         </ContainForm>
-        <Button className='btnSave' type="submit">+</Button>
+        <Button className='btnSave' type="submit">Add</Button>
       </Form>
       <FormText>
         <ul className='formList'>
@@ -69,4 +69,4 @@ const DailyIntake = () => {
     </div>
   );
 };
-export default DailyIntake;
+export default ModalDiary;

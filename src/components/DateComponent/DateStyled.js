@@ -9,9 +9,6 @@ export const Container = styled.div`
 
   @media (min-width: 767px) and (max-width: 1023px) {
   bottom: 0;
-  margin-top: 100px;
-  padding: 20px;
-  max-width: 300px;
   }
   @media (max-width: 767px) {
   }
@@ -19,6 +16,7 @@ export const Container = styled.div`
   export const ContainerLi  = styled.div`
   display: flex; 
   justify-content: space-between;
+  padding-top: 16px;
 `;
 
 export const Title = styled.h2`

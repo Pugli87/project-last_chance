@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container, WrapperResult, WrapperDaily, Wrapper, ContainerDiary, BtnDiary, FormContainer, } from './DiaryStyled';
+import { Container, WrapperResult, WrapperDaily, Wrapper, ContainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
 import './CalendarStyled.scss';
 import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
 import DailyIntake from '../../DailyIntake/DailyIntake';
+import ModalDiary from '../../ModalDiary/ModalDiary';
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-  const [items, setItems] = useState([]);
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
 
   const handleDateChange = selectedDate => {
     setDate(selectedDate);
@@ -23,76 +23,80 @@ const Diary = () => {
   const handleCalendarClick = event => {
     event.stopPropagation();
   };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const customStyles = {
+    content: {
+      position: 'absolute',
+      inset: '12% 0px auto',
+      border: '1px solid rgb(204, 204, 204)',
+      background: 'rgb(255, 255, 255)',
+      overflow: 'auto',
+      borderradius: '4px',
+      outline: 'none',
+      height: '100vh',
+      padding: '20px',
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setItems([...items, { name, number }]);
-    setName('');
-    setNumber('');
-  };
+    }
+  }
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const handleDelete = (index) => {
-    setItems(items.filter((item, i) => i !== index));
-  };
-  
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <Container>
-      <ContainerDiary>
-        <h1>{date.toLocaleDateString()}</h1>
-        <BtnDiary
-          onClick={() => setShowCalendar(!showCalendar)}
-        >
-        {showCalendar && (
-          <div onClick={handleCalendarClick}>
-            <DatePicker 
-              selected={date} 
-              onChange={handleDateChange} 
-              inline 
-              maxDate={new Date()} 
-              className="customDatePicker" 
-            />
-          </div>
-        )}
-          <YourSvg />
-        </BtnDiary>
-      </ContainerDiary>
-      <Wrapper>
-      <FormContainer>
-          <form onSubmit={handleSubmit} className="form">
-            <div className="input-group">
-              <label className='labelForm'>
-                Ingresa el nombre del producto
-                <input type="text" value={name} onChange={e => setName(e.target.value)} required />
-              </label>
-              <label className='labelForm'>
-                Gramos
-                <input type="text" value={number} onChange={e => setNumber(e.target.value)} onKeyPress={event => {
-                  if (!/[0-9]/.test(event.key)) {
-                    event.preventDefault();
-                  }
-                }} required />
-              </label>
-            </div>
-            <button className='btnSave' type="submit">+</button>
-          </form>
-          <ul className='formList'>
-            {items.map((item, index) => (
-              <li className='listForm' key={index}>
-                {item.name} - {item.number} g - {parseInt(item.number, 10) + 10} kcal
-                <button className='btnDelete' onClick={() => handleDelete(index)}>x</button>
-              </li>
-            ))}
-          </ul>
-        </FormContainer>
-        <WrapperDaily>
-
-        </WrapperDaily>
-        <WrapperResult>
-          <DateComponnet />
-          <ListnotFood />
-        </WrapperResult>
-      </Wrapper>
-    </Container>
+    <>
+      {modalIsOpen ? (
+        <div>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={() => setModalIsOpen(false)}
+            contentLabel="Mi Modal"
+            style={customStyles}
+          >
+            <button onClick={() => setModalIsOpen(false)}>---</button>
+            <ModalDiary />
+          </Modal>
+        </div>
+      ) : (
+        <>
+          {windowWidth <= 767 && <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>}
+        <Container>
+          <ContainerDiary>
+            <h1>{date.toLocaleDateString()}</h1>
+            <BtnDiary
+              onClick={() => setShowCalendar(!showCalendar)}
+            >
+              {showCalendar && (
+                <div onClick={handleCalendarClick}>
+                  <DatePicker
+                    selected={date}
+                    onChange={handleDateChange}
+                    inline
+                    maxDate={new Date()}
+                    className="customDatePicker" />
+                </div>
+              )}
+              <YourSvg />
+            </BtnDiary>
+          </ContainerDiary>
+          <Wrapper>
+            <DailyIntake />
+            <WrapperDaily>
+            </WrapperDaily>
+            <WrapperResult>
+              <DateComponnet />
+              <ListnotFood />
+            </WrapperResult>
+          </Wrapper>
+        </Container>
+        </>
+      )}
+    </>
   );
 };
 

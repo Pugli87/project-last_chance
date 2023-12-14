@@ -4,21 +4,17 @@ export const Container = styled.div`
    padding: 20px;
    max-width: 300px;
  
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 767px) and (max-width: 1023px) {
     
     bottom: 0;
     left: 20%;
     transform: translateX(-50%);
-    margin: 20px;
     padding: 20px;
     max-width: 300px;
   }
   @media (max-width: 767px) {
-  
     bottom: 0;
     left: 20%;
-    transform: translateX(-50%);
-    margin: 20px;
     padding: 20px;
     max-width: 300px;
   }

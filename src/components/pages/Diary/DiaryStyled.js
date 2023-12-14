@@ -11,6 +11,20 @@ export const WrapperResult = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
+  @media (min-width: 767px) and (max-width: 1023px) {
+    display: flex;
+    min-width: 100%;
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: -32em;
+  }
+    @media (max-width: 767px) {
+      display: flex;
+      min-width: 100%;
+      position: absolute;
+      bottom: -42em;
+  }
 `;
 export const WrapperDaily = styled.div`
   display: flex;
@@ -115,6 +129,27 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const BtnModal = styled.button`
+  position: absolute;
+  bottom: -6em;
+  left: 9em;
+  padding: 15px 20px; 
+  border-radius: 30px;
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #FF4500;
+    color: white;
+  }
+`
 export const Button = styled.button``;
 
 export const Div = styled.div``;
