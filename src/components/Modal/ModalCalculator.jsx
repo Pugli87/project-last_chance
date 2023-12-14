@@ -8,10 +8,10 @@ const Modal = ({ title, onYesClick, onNoClick }) => {
         <h2>{title}</h2>
         <div className="modal-buttons">
           <button className="modal-button yes" onClick={onYesClick}>
-            Yes
+            Abandonar
           </button>
           <button className="modal-button no" onClick={onNoClick}>
-            No
+            Permanecer
           </button>
         </div>
       </div>
