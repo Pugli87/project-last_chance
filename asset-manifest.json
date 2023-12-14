@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-last_chance/static/css/main.110f67c7.css",
-    "main.js": "/project-last_chance/static/js/main.36221696.js",
+    "main.js": "/project-last_chance/static/js/main.bb0990f4.js",
     "static/media/img-fruits-desktop.png": "/project-last_chance/static/media/img-fruits-desktop.1469c9ddde8a6fca9674.png",
     "static/media/verdanab.ttf": "/project-last_chance/static/media/verdanab.c4e1b53d02ea7938d5bc.ttf",
     "static/media/img-fruits-tablet.png": "/project-last_chance/static/media/img-fruits-tablet.c75d1fe0ce42500d8dfd.png",
@@ -11,10 +11,10 @@
     "static/media/calendar.svg": "/project-last_chance/static/media/calendar.f07abe41ca1bac88f7e6c38064355356.svg",
     "static/media/complement-fruits.svg": "/project-last_chance/static/media/complement-fruits.c655d736b7c28331ec143c1de45f86c8.svg",
     "main.110f67c7.css.map": "/project-last_chance/static/css/main.110f67c7.css.map",
-    "main.36221696.js.map": "/project-last_chance/static/js/main.36221696.js.map"
+    "main.bb0990f4.js.map": "/project-last_chance/static/js/main.bb0990f4.js.map"
   },
   "entrypoints": [
     "static/css/main.110f67c7.css",
-    "static/js/main.36221696.js"
+    "static/js/main.bb0990f4.js"
   ]
 }
