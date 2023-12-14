@@ -16,7 +16,6 @@
   border-radius: 8px;
   text-align: center;
   width: 500px;
-  height: 200px;
   box-shadow: #fc842d 0px 4px 10px;
   position: relative;
   animation: lightAnimation 2s linear infinite;
@@ -64,7 +63,6 @@
 @media screen and (max-width: 1024px) {
   .modal {
     width: 320px;
-    height: 150px;
   }
 
   .modal h2 {
@@ -78,7 +76,6 @@
 @media screen and (max-width: 767px) {
   .modal {
     width: 160px;
-    height: 150px;
   }
 
   .modal h2 {
@@ -86,7 +83,6 @@
   }
   .modal-button {
     width: 100px;
-    height: 25px;
     padding: 0px 0px;
     font-size: 10px;
   }

@@ -23,70 +23,67 @@ export const loginUser = createAsyncThunk(
     try {
       const { email, password } = userInfo;
 
-            if ( !email || !password) {
-                alert('Campos requeridos', 'Por favor, complete todos los campos.');
-                return thunkAPI.rejectWithValue('Campos requeridos');
-            }
+      if (!email || !password) {
+        alert('Campos requeridos', 'Por favor, complete todos los campos.');
+        return thunkAPI.rejectWithValue('Campos requeridos');
+      }
 
-            const response = await axios.post(`${baseUrl}/login`, userInfo)
+      const response = await axios.post(`${baseUrl}/login`, userInfo);
 
       const token = response.data.result.token;
 
       const responseUser = await fecthCurrentUser(token);
 
-            return  {
-                token,
-                currentUser: responseUser
-            }
-
-        } catch (e) {
-
-            return thunkAPI.rejectWithValue(e.response.data.message)
-
-        }
+      return {
+        token,
+        currentUser: responseUser,
+      };
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
-)
+  }
+);
 
 export const signUpUser = createAsyncThunk(
-    "auth/signUpUser",
-    async (data, thunkAPI) => {
-        try {
-            console.log('data desed signUp', data)
+  'auth/signUpUser',
+  async (data, thunkAPI) => {
+    try {
+      console.log('data desed signUp', data);
 
-            const { name, email, password } = data 
+      const { name, email, password } = data;
 
-            if (!name || !email || !password) {
-                alert('Campos requeridos', 'Por favor, complete todos los campos.');
-                return thunkAPI.rejectWithValue('Campos requeridos');
-            }
+      if (!name || !email || !password) {
+        alert('Campos requeridos', 'Por favor, complete todos los campos.');
+        return thunkAPI.rejectWithValue('Campos requeridos');
+      }
 
-            const userInfo = {
-                email,
-                password,
-            }
+      const userInfo = {
+        email,
+        password,
+      };
 
-            const response = await axios.post(`${baseUrl}/signUp`, userInfo);
+      const response = await axios.post(`${baseUrl}/signUp`, userInfo);
 
-            if (response.status !== 201) {
-                alert('Error en SignUp', 'Hubo un problema al registrarse. Por favor, inténtelo de nuevo.');
-                return thunkAPI.rejectWithValue('Error en SignUp');
-            }
+      if (response.status !== 201) {
+        alert(
+          'Error en SignUp',
+          'Hubo un problema al registrarse. Por favor, inténtelo de nuevo.'
+        );
+        return thunkAPI.rejectWithValue('Error en SignUp');
+      }
 
-            const responseUserAction = await thunkAPI.dispatch(loginUser(userInfo));
+      const responseUserAction = await thunkAPI.dispatch(loginUser(userInfo));
 
-            const responseUser = responseUserAction.payload;
+      const responseUser = responseUserAction.payload;
 
-            console.log('loginUser', responseUser);
+      console.log('loginUser', responseUser);
 
-            return responseUser
-
-        } catch (e) {
-
-            return thunkAPI.rejectWithValue(e.response.data.message);
-
-        }
+      return responseUser;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
-)
+  }
+);
 
 export const logOutUser = createAsyncThunk(
   'auth/logOutUser',
@@ -102,27 +99,21 @@ export const logOutUser = createAsyncThunk(
         },
       });
 
-            return response.data;
-
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data.message);
-        }
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
+  }
 );
 
 export const fetchFood = createAsyncThunk(
-    "auth/fetchFood",
-    async (_, thunkAPI) => {
-        try {
-
-            // const response = await axios.get(`${baseUrl}/food`)
-
-            // return  response.json()
-
-        } catch (e) {
-
-            return thunkAPI.rejectWithValue(e.response.data.message)
-
-        }
+  'auth/fetchFood',
+  async (_, thunkAPI) => {
+    try {
+      // const response = await axios.get(`${baseUrl}/food`)
+      // return  response.json()
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
-)
+  }
+);
