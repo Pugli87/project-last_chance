@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 100px;
+ /*  margin-top: 100px; */
   margin-bottom: 200px;
 `;
 export const Wrapper = styled.div`
@@ -30,6 +30,7 @@ export const WrapperDaily = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-left: 94px;
 `;
 
 export const ContainerDiary = styled.div`

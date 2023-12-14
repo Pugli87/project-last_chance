@@ -3,6 +3,7 @@ import ListnotFood from 'components/ListnotFood/ListnotFood';
 import { Container, WrapperResult, WrapperDaily, Wrapper, ContainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
 import './CalendarStyled.scss';
 import DateComponnet from 'components/DateComponent/DateComponent';
+import { Container, WrapperDaily, Wrapper, WrapperResult, ConatainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
@@ -10,11 +11,9 @@ import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
-
 const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-
   const handleDateChange = selectedDate => {
     setDate(selectedDate);
     setShowCalendar(false);
