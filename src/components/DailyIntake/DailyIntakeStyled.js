@@ -59,7 +59,7 @@ color: lightgray;
 `;
 
 export const Button = styled.button`
-    padding: 2px 19px;
+    padding: 12px 17px;
     display: flex;
     color: white;
     font-size: 22px;
@@ -68,6 +68,7 @@ export const Button = styled.button`
     align-items: center;
     justify-content: center;
 `;
+
 
 
 

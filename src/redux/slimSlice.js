@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser, signUpUser, logOutUser, fetchFood } from "./thunks";
+import { loginUser, signUpUser, logOutUser, fetchProducts } from "./thunks";
 
 const initialState = {
     userInfo: {},
     token: localStorage.getItem('token') || '',
-    food: [],
+    products: [],
     isLoading: false,
     error: null,
 };
@@ -60,16 +60,16 @@ export const slimSlice = createSlice({
             state.error = action.payload;
             state.isLoading = false;
           })
-          // fetchFood
-          .addCase(fetchFood.pending, (state) => {
+          // fetchProducts
+          .addCase(fetchProducts.pending, (state) => {
             state.isLoading = true;
             state.error = null;
           })
-          .addCase(fetchFood.fulfilled, (state, action) => {
-            state.food = action.payload;
+          .addCase(fetchProducts.fulfilled, (state, action) => {
+            state.products = action.payload;
             state.isLoading = false;
           })
-          .addCase(fetchFood.rejected, (state, action) => {
+          .addCase(fetchProducts.rejected, (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
           });
