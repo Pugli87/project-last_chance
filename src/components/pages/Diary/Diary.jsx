@@ -8,12 +8,14 @@ import {
   ContainerDiary,
   BtnDiary,
   BtnModal,
+  BtnCloseModal
 } from './DiaryStyled';
 import './CalendarStyled.scss';
 //import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
+import { ReactComponent as CalendarSvg } from '../../../assets/icons/calendar.svg';
+import { ReactComponent as CloseModalSvg } from '../../../assets/icons/arrow.svg';
 import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
@@ -63,7 +65,9 @@ const Diary = () => {
             contentLabel="Mi Modal"
             style={customStyles}
           >
-            <button onClick={() => setModalIsOpen(false)}>---</button>
+            <BtnCloseModal onClick={() => setModalIsOpen(false)}>
+            <CloseModalSvg />
+            </BtnCloseModal>
             <ModalDiary />
           </Modal>
         </div>
@@ -87,10 +91,9 @@ const Diary = () => {
                     />
                   </div>
                 )}
-                <YourSvg />
+                <CalendarSvg />
               </BtnDiary>
             </ContainerDiary>
-
             <Wrapper>
               <DailyIntake />
               {/*

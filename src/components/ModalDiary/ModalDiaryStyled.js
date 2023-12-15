@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display:flex;
   margin-top: 48px;
-  justify-content: center;
 `;
 
 export const ContainForm = styled.div`
@@ -21,7 +20,7 @@ export const Input = styled.input`
     margin-top: 17px;
     border: none;
     border-bottom: 1px solid lightgray;
-    width: 285px;
+    width: 30vh;
     text-align: left;
     font-family: Verdana;
     outline:none;
@@ -35,7 +34,7 @@ export const InputGramos = styled.input`
     border: none;
     border-bottom: 1px solid lightgray;
     margin-right: 48px;
-    width: 285px;
+    width: 30vh;
     text-align: left;
     font-family: Verdana;
     outline: none;
@@ -68,9 +67,14 @@ export const Button = styled.button`
     padding: 2px 72px;
     color: white;
     border-radius: 30px;
-    background-color: #ec6b15;
+    background-color: #ffa500;
     font-size: 14px;
     font-weight: 900;   
+    cursor: pointer;
+    &:hover {
+      background-color: #FF4500;
+      color: white;
+    }
 `;
 
 export const FormText = styled.div`

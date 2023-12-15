@@ -131,9 +131,9 @@ export const FormContainer = styled.div`
 `;
 
 export const BtnModal = styled.button`
-  position: absolute;
-  bottom: -6em;
-  left: 9em;
+  position: relative;
+  bottom: -23vh;
+  left: 40%;
   padding: 15px 20px;
   border-radius: 30px;
   background-color: #ffa500;
@@ -149,6 +149,12 @@ export const BtnModal = styled.button`
   &:hover {
     background-color: #ff4500;
     color: white;
+  }
+`;
+
+export const BtnCloseModal = styled.button`
+  background: transparent;
+  cursor: pointer;
   }
 `;
 export const Button = styled.button``;
