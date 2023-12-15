@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import ListnotFood from 'components/ListnotFood/ListnotFood';
-import { Container, WrapperResult, WrapperDaily, Wrapper, ContainerDiary, BtnDiary, BtnModal } from './DiaryStyled';
+//import ListnotFood from 'components/ListnotFood/ListnotFood';
+import {
+  Container,
+  // WrapperResult,
+  //WrapperDaily,
+  Wrapper,
+  ContainerDiary,
+  BtnDiary,
+  BtnModal,
+} from './DiaryStyled';
 import './CalendarStyled.scss';
-import DateComponnet from 'components/DateComponent/DateComponent';
+//import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as YourSvg } from '../../../assets/icons/calendar.svg';
@@ -33,9 +41,8 @@ const Diary = () => {
       outline: 'none',
       height: '100vh',
       padding: '20px',
-
-    }
-  }
+    },
+  };
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -62,36 +69,39 @@ const Diary = () => {
         </div>
       ) : (
         <>
-          {windowWidth <= 767 && <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>}
-        <Container>
-          <ContainerDiary>
-            <h1>{date.toLocaleDateString()}</h1>
-            <BtnDiary
-              onClick={() => setShowCalendar(!showCalendar)}
-            >
-              {showCalendar && (
-                <div onClick={handleCalendarClick}>
-                  <DatePicker
-                    selected={date}
-                    onChange={handleDateChange}
-                    inline
-                    maxDate={new Date()}
-                    className="customDatePicker" />
-                </div>
-              )}
-              <YourSvg />
-            </BtnDiary>
-          </ContainerDiary>
-          <Wrapper>
-            <DailyIntake />
-            <WrapperDaily>
-            </WrapperDaily>
-            <WrapperResult>
-              <DateComponnet />
-              <ListnotFood />
-            </WrapperResult>
-          </Wrapper>
-        </Container>
+          {windowWidth <= 767 && (
+            <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>
+          )}
+          <Container>
+            <ContainerDiary>
+              <h1>{date.toLocaleDateString()}</h1>
+              <BtnDiary onClick={() => setShowCalendar(!showCalendar)}>
+                {showCalendar && (
+                  <div onClick={handleCalendarClick}>
+                    <DatePicker
+                      selected={date}
+                      onChange={handleDateChange}
+                      inline
+                      maxDate={new Date()}
+                      className="customDatePicker"
+                    />
+                  </div>
+                )}
+                <YourSvg />
+              </BtnDiary>
+            </ContainerDiary>
+
+            <Wrapper>
+              <DailyIntake />
+              {/*
+                <WrapperDaily></WrapperDaily>
+                <WrapperResult>
+                  <DateComponnet />
+                  <ListnotFood />
+                </WrapperResult>
+              */}
+            </Wrapper>
+          </Container>
         </>
       )}
     </>

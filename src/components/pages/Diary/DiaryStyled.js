@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
- /*  margin-top: 100px; */
+  /*  margin-top: 100px; */
   margin-bottom: 200px;
 `;
 export const Wrapper = styled.div`
@@ -19,11 +19,11 @@ export const WrapperResult = styled.div`
     justify-content: space-between;
     bottom: -32em;
   }
-    @media (max-width: 767px) {
-      display: flex;
-      min-width: 100%;
-      position: absolute;
-      bottom: -42em;
+  @media (max-width: 767px) {
+    display: flex;
+    min-width: 100%;
+    position: absolute;
+    bottom: -42em;
   }
 `;
 export const WrapperDaily = styled.div`
@@ -134,9 +134,9 @@ export const BtnModal = styled.button`
   position: absolute;
   bottom: -6em;
   left: 9em;
-  padding: 15px 20px; 
+  padding: 15px 20px;
   border-radius: 30px;
-  background-color: #FFA500;
+  background-color: #ffa500;
   border: none;
   color: white;
   text-align: center;
@@ -147,10 +147,10 @@ export const BtnModal = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #FF4500;
+    background-color: #ff4500;
     color: white;
   }
-`
+`;
 export const Button = styled.button``;
 
 export const Div = styled.div``;
