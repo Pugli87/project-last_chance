@@ -1,29 +1,28 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/api/users';
-//const baseUrl = 'https://slim-mom-backend.up.railway.app/api/users';
+const baseUrl = 'https://slim-mom-backend.up.railway.app/api/users';
+const baseUrlproducts = 'https://slim-mom-backend.up.railway.app/api';
 
-const fecthCurrentUser = async token => {
-  try {
-    const response = await axios.get(`${baseUrl}/current`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+// const fecthCurrentUser = async token => {
+//   try {
+//     const response = await axios.get(`${baseUrl}/current`, {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
 
-    return response.data.result;
-  } catch (e) {
-    return Notify.failure(e, {
-      backOverlay: true,
-      fontSize: '16px',
-      fontFamily: 'Verdana',
-      cssAnimationStyle: 'from-right',
-      timeout: 800,
-    });
-  }
-};
+//     return response.data.result;
+//   } catch (e) {
+//     return Notify.failure(e, {
+//       backOverlay: true,
+//       fontSize: '16px',
+//       fontFamily: 'Verdana',
+//       cssAnimationStyle: 'from-right',
+//       timeout: 800,
+//     });
+//   }
+// };
 
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
@@ -37,13 +36,15 @@ export const loginUser = createAsyncThunk(
 
       const response = await axios.post(`${baseUrl}/login`, userInfo);
 
-      const token = response.data.result.token;
+      const token = response.data.token;
 
-      const responseUser = await fecthCurrentUser(token);
+      console.log(response);
+
+      // const responseUser = await fecthCurrentUser(token);
 
       return {
         token,
-        currentUser: responseUser,
+        currentUser: response.data.isUser,
       };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
@@ -68,7 +69,7 @@ export const signUpUser = createAsyncThunk(
         password,
       };
 
-      const response = await axios.post(`${baseUrl}/signUp`, userInfo);
+      const response = await axios.post(`${baseUrl}/signUp`, data);
 
       if (response.status !== 201) {
         return thunkAPI.rejectWithValue('Error en SignUp');
@@ -86,7 +87,7 @@ export const signUpUser = createAsyncThunk(
 );
 
 export const logOutUser = createAsyncThunk(
-  'auth/logOutUser',
+  'auth/logout',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.token;
@@ -104,12 +105,13 @@ export const logOutUser = createAsyncThunk(
   }
 );
 
-export const fetchFood = createAsyncThunk(
-  'auth/fetchFood',
+export const fetchProducts = createAsyncThunk(
+  'auth/fetchProducts',
   async (_, thunkAPI) => {
     try {
-      // const response = await axios.get(`${baseUrl}/food`)
-      // return  response.json()
+      const response = await axios.get(`${baseUrlproducts}/products`);
+      console.log(response.data);
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
