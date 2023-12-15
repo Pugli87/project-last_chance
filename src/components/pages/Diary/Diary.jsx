@@ -21,6 +21,7 @@ Modal.setAppElement('#root');
 const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
+
   const handleDateChange = selectedDate => {
     setDate(selectedDate);
     setShowCalendar(false);
@@ -29,6 +30,7 @@ const Diary = () => {
   const handleCalendarClick = event => {
     event.stopPropagation();
   };
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const customStyles = {
     content: {
@@ -43,6 +45,7 @@ const Diary = () => {
       padding: '20px',
     },
   };
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
