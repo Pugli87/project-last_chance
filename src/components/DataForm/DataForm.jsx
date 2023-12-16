@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Title,
@@ -45,6 +45,21 @@ const DataForm = () => {
       [name]: value,
     });
   };
+
+  const handleKeyDown = event => {
+    if (event.key === 'Escape') {
+      setModalVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Limpieza del efecto
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const [infoNutricional] = useState({
     kilocalorias: 2000,
