@@ -4,10 +4,10 @@ export const Container = styled.div`
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     margin-right: 79px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     min-width: 280px;
     margin-right: 0;
     margin-top: 30px;
