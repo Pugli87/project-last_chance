@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import "./Login.css";
 import { Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../redux/thunks';
+import "./Login.css"
 
 const Login = () => {
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,28 +16,29 @@ const Login = () => {
 
 
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (!email.trim()) {
-      setEmailValid(false);
-    } else {
-      setEmailValid(true);
-    }
-
-
-    if (!password.trim()) {
-      setPasswordValid(false);
-    } else {
-      setPasswordValid(true);
-      
-    }
-
-    if (emailValid && passwordValid) {
-      console.log('Correo:', email);
-      console.log('Contraseña:', password);
-    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      dispatch(loginUser({email, password}))
+      if (!email.trim()) {
+        setEmailValid(false);
+      } else {
+        setEmailValid(true);
+      }
+  
+  
+      if (!password.trim()) {
+        setPasswordValid(false);
+      } else {
+        setPasswordValid(true);
+        
+      }
+  
+      if (emailValid && passwordValid) {
+        console.log('Correo:', email);
+        console.log('Contraseña:', password);
+      }
   };
+  
 
   const Container = styled.div`
   max-width: 437px;
@@ -56,22 +61,22 @@ const Login = () => {
   
   `;
 
-const Tittle = styled.h3`
-  color: #FC842D;
+  const Tittle = styled.h3`
+    color: #FC842D;
+    font-weight: 700;
+    size: 14px;
+    margin-bottom: 55px;
+    }
+  `;
+
+  const SubTittle = styled.h3`
+  color: #9B9FAA;
   font-weight: 700;
   size: 14px;
-  margin-bottom: 55px;
-  }
-`;
+  margin-bottom: 15px;
+  `;
 
-const SubTittle = styled.h3`
-color: #9B9FAA;
-font-weight: 700;
-size: 14px;
-margin-bottom: 15px;
-`;
-
-const Input = styled.input`
+  const Input = styled.input`
     width: 280px;
     margin-bottom: 10px;
     border-left: none;
@@ -85,38 +90,67 @@ const Input = styled.input`
     border-top: none;
     border-right: none;
   }
-`;
+  `;
 
-const ContButton = styled.div`
-@media screen and (max-width:320px){
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
-  height: 110px;
-}
-`;
-
-const InputWanning = styled.input`
-width: 280px;
-height: 50px;
-margin-bottom: 10px;
-border: 1px solid red;
-border-left: none;
-border-top: none;
-border-right: none;
-outline: none;
-color: red;
-`;
-
-const ContFormCorreo = styled.div`
-  width: 290px;
-  margin-bottom: 15px;
-  &:hover {
-    h3 {
-      color: #FC842D; 
+  const ContButton = styled.div`
+    @media screen and (max-width:320px){
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    height: 110px;
     }
+  `;
+
+  const InputWanning = styled.input`
+  width: 280px;
+  height: 50px;
+  margin-bottom: 10px;
+  border: 1px solid red;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  outline: none;
+  color: red;
+  `;
+	
+  const ContFormCorreo = styled.div`
+    width: 290px;
+    margin-bottom: 15px;
+    &:hover {
+      h3 {
+        color: #FC842D; 
+      }
+
+      input {
+        border: 1px solid #FC842D;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+      }
+    }
+
+    &:focus-within {
+      h3 {
+        color: #FC842D; 
+      }
+
+      input {
+        border: 1px solid #FC842D;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+      }
+    }
+  `;
+
+  const ContFormContra = styled.div`
+    width: 290px;
+    &:hover {
+      h3 {
+        color: #FC842D; 
+      }
 
     input {
       border: 1px solid #FC842D;
@@ -124,82 +158,52 @@ const ContFormCorreo = styled.div`
       border-top: none;
       border-right: none;
     }
-  }
 
-  &:focus-within {
-    h3 {
-      color: #FC842D; 
+    &:focus-within {
+      h3 {
+        color: #FC842D; 
+      } 
+
+      input {
+        border: 1px solid #FC842D;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+      }
     }
+  `;
 
-    input {
-      border: 1px solid #FC842D;
-      border-left: none;
-      border-top: none;
-      border-right: none;
-    }
-  }
-`;
+  const Button = styled.button`
+    width: 181px;
+    height: 44px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    background-color: #FC842D;
+    box-shadow: -5px 11px 6px -8px rgba(252,132,45,1);
+  `;
 
-const ContFormContra = styled.div`
-  width: 290px;
-  &:hover {
-    h3 {
-      color: #FC842D; 
-    }
+  const TextButtonIniciar = styled.p`
+    width: 80px; 
+    color: #fff;
+    margin: auto;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17.01px;
+  `;
 
-    input {
-      border: 1px solid #FC842D;
-      border-left: none;
-      border-top: none;
-      border-right: none;
-    }
-  }
-
-  &:focus-within {
-    h3 {
-      color: #FC842D; 
-    }
-
-    input {
-      border: 1px solid #FC842D;
-      border-left: none;
-      border-top: none;
-      border-right: none;
-    }
-  }
-`;
-
-const Button = styled.button`
-width: 181px;
-height: 44px;
-border: none;
-border-radius: 20px;
-margin-bottom: 18px;
-cursor: pointer;
-background-color: #FC842D;
-box-shadow: -5px 11px 6px -8px rgba(252,132,45,1);
-`;
-
-const TextButtonIniciar = styled.p`
-width: 80px; 
-color: #fff;
-margin: auto;
-font-weight: 700;
-font-size: 14px;
-line-height: 17.01px;
-`;
-
-const TextButtonCrear = styled.p`
-margin: auto;
-font-weight: 700;
-font-size: 14px;
-line-height: 17.01px;
-width: 108px;
-color: #FC842D;
-display: flex;
-justify-content: center;
-padding: 0;
-`;
+  const TextButtonCrear = styled.p`
+    margin: auto;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17.01px;
+    width: 108px;
+    color: #FC842D;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  `;
 
 
 
@@ -255,4 +259,4 @@ padding: 0;
   );
 };
 
-export default Login;
+export default Login
