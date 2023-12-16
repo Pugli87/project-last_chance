@@ -4,45 +4,55 @@ import {
   FormText,
   Wrapper,
   ContainForm,
+  Label,
   InputGramos,
   LabelGramos,
+  Input,
   Button,
-} from './DailyIntakeStyled';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/thunks';
-import { useEffect, useState } from 'react';
-import SaludSelect from 'components/Selects/SaludSelect';
+} from './ModalDiaryStyled';
+const ModalDiary = () => {
+  /*const [productName, setProductName] = useState('');
+  const products = [
+    'berenjena',
+    'carne de res',
+    'pan',
+    'nuez',
+    'carne de cerdo',
+  ];
+  const handleInputChange = event => {
+    setProductName(event.target.value);
+  };*/
+  //const [date, setDate] = useState(new Date());
+  //const [showCalendar, setShowCalendar] = useState(false);
+  const [items, setItems] = useState([]);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
-const DailyIntake = () => {
-  const [options, setOptions] = useState([]);
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.auth.products);
+  const handleSubmit = event => {
+    event.preventDefault();
+    setItems([...items, { name, number }]);
+    setName('');
+    setNumber('');
+  };
 
-  useEffect(() => {
-    if (products.length > 0) {
-      const newOptions = products.map((product) => ({
-        id: product.id,
-        value: product.title,
-        label: product.title,
-      }));
-      setOptions(newOptions);
-    }
-  }, [products]);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-
-  const searchProduct = (event) => {
-    console.log(event.target.value);
+  const handleDelete = index => {
+    setItems(items.filter((item, i) => i !== index));
   };
 
   return (
     <div>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
-          <Wrapper>
-            <SaludSelect options={options} isSearchable isClearable placeholder='Ingresa el nombre del producto' />
+          <Wrapper className="input-group">
+            <Label>
+              Ingresa el nombre del producto
+              <Input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+              />
+            </Label>
           </Wrapper>
 
           <Wrapper>
@@ -63,7 +73,7 @@ const DailyIntake = () => {
           </Wrapper>
         </ContainForm>
         <Button className="btnSave" type="submit">
-          +
+          Add
         </Button>
       </Form>
       <FormText>
@@ -82,4 +92,4 @@ const DailyIntake = () => {
     </div>
   );
 };
-export default DailyIntake;
+export default ModalDiary;
