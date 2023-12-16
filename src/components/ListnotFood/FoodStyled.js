@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-margin-top: 60px;
+  margin-top: 60px; 
   max-width: 300px;
 `;
+
 
 export const Textfood = styled.h2`
   font-size: 16px;
