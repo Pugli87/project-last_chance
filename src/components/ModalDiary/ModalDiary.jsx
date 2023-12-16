@@ -9,8 +9,8 @@ import {
   LabelGramos,
   Input,
   Button,
-} from './DailyIntakeStyled';
-const DailyIntake = () => {
+} from './ModalDiaryStyled';
+const ModalDiary = () => {
   /*const [productName, setProductName] = useState('');
   const products = [
     'berenjena',
@@ -73,7 +73,7 @@ const DailyIntake = () => {
           </Wrapper>
         </ContainForm>
         <Button className="btnSave" type="submit">
-          +
+          Add
         </Button>
       </Form>
       <FormText>
@@ -92,4 +92,4 @@ const DailyIntake = () => {
     </div>
   );
 };
-export default DailyIntake;
+export default ModalDiary;
