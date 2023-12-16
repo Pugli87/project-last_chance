@@ -19,11 +19,11 @@ const DailyIntake = () => {
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.auth.products);
+  const products = useSelector(state => state.auth.products);
 
   useEffect(() => {
     if (products.length > 0) {
-      const newOptions = products.map((product) => ({
+      const newOptions = products.map(product => ({
         id: product.id,
         value: product.title,
         label: product.title,
@@ -34,11 +34,11 @@ const DailyIntake = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   const handleSubmit = event => {
     event.preventDefault();
-    if(!name || !number) return
+    if (!name || !number) return;
     setItems([...items, { name, number }]);
     setName(null);
     setNumber(null);
@@ -48,22 +48,22 @@ const DailyIntake = () => {
     setItems(items.filter((item, i) => i !== index));
   };
 
-  const productSelected = (e) => {
-    setName(e?.value || '')
-  }
+  const productSelected = e => {
+    setName(e?.value || '');
+  };
 
   return (
     <div>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper>
-            <SaludSelect 
-              defaultValue={name?.value} 
-              handleChange={productSelected} 
-              options={options} 
-              isSearchable 
-              isClearable 
-              placeholder='Ingresa el nombre del producto' 
+            <SaludSelect
+              defaultValue={name?.value}
+              handleChange={productSelected}
+              options={options}
+              isSearchable
+              isClearable
+              placeholder="Ingresa el nombre del producto"
             />
           </Wrapper>
 
