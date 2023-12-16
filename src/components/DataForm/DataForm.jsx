@@ -21,6 +21,7 @@ import {
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
 import { ContainerB } from 'components/Modal/Modal.styled';
+import { useNavigate } from 'react-router-dom';
 
 const DataForm = () => {
   const valoresIniciales = {
@@ -60,6 +61,11 @@ const DataForm = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/pages/SignUp/SignUp');
+  };
 
   const [infoNutricional] = useState({
     kilocalorias: 2000,
@@ -212,7 +218,7 @@ const DataForm = () => {
           <Button
             type="submit"
             text="Comienza a perder peso"
-            onClick={() => setModalVisible(false)}
+            onClick={handleClick}
           />
         </ContainerB>
       </Modal>
