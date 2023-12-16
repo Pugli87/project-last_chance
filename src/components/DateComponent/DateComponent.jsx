@@ -1,27 +1,27 @@
 import React from 'react';
-import { Container, Title, SubtitleDate, CaloricValue, ContainerLi } from './DateStyled';
+import { Container, Title, SubtitleDate, CaloricValue, Li } from './DateStyled';
 
 const DateComponnet = () => {
   return (
     <Container>
       <Title>Resumen para el 13.08.2023</Title>
       <ul>
-        <ContainerLi >
-          < SubtitleDate>Quedan</SubtitleDate>
-          <CaloricValue id="parragraph">625 kcal</CaloricValue>
-        </ContainerLi>
-        <ContainerLi>
+        <Li>
+          <SubtitleDate>Quedan</SubtitleDate>
+          <CaloricValue id="missingCalories">625 kcal</CaloricValue>
+        </Li>
+        <Li>
           <SubtitleDate>Cosumido</SubtitleDate>
-          <CaloricValue id="parragraph">2175 kcal</CaloricValue>
-        </ContainerLi>
-        <ContainerLi>
+          <CaloricValue id="caloriesConsumed">2175 kcal</CaloricValue>
+        </Li>
+        <Li>
           <SubtitleDate>Tasa diaria</SubtitleDate>
-          <CaloricValue id="parragraph">2800 kcal</CaloricValue>
-        </ContainerLi>
-        <ContainerLi>
+          <CaloricValue id="totalsCalories">2800 kcal</CaloricValue>
+        </Li>
+        <Li>
           <SubtitleDate>n% de lo normal</SubtitleDate>
-          <CaloricValue id="parragraph">78%</CaloricValue>
-        </ContainerLi>
+          <CaloricValue id="percentage">78%</CaloricValue>
+        </Li>
       </ul>
     </Container>
   );
