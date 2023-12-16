@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Form,
   FormText,
@@ -15,6 +14,10 @@ import SaludSelect from 'components/Selects/SaludSelect';
 
 const DailyIntake = () => {
   const [options, setOptions] = useState([]);
+  const [items, setItems] = useState([]);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
   const dispatch = useDispatch();
   const products = useSelector((state) => state.auth.products);
 
@@ -33,16 +36,35 @@ const DailyIntake = () => {
     dispatch(fetchProducts());
   }, []);
 
-  const searchProduct = (event) => {
-    console.log(event.target.value);
+  const handleSubmit = event => {
+    event.preventDefault();
+    if(!name || !number) return
+    setItems([...items, { name, number }]);
+    setName(null);
+    setNumber(null);
   };
+
+  const handleDelete = index => {
+    setItems(items.filter((item, i) => i !== index));
+  };
+
+  const productSelected = (e) => {
+    setName(e?.value || '')
+  }
 
   return (
     <div>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper>
-            <SaludSelect options={options} isSearchable isClearable placeholder='Ingresa el nombre del producto' />
+            <SaludSelect 
+              defaultValue={name?.value} 
+              handleChange={productSelected} 
+              options={options} 
+              isSearchable 
+              isClearable 
+              placeholder='Ingresa el nombre del producto' 
+            />
           </Wrapper>
 
           <Wrapper>

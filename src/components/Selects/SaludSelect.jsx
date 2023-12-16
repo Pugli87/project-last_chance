@@ -30,7 +30,7 @@ const SaludSelect = ({
         options={options} 
         isMulti={isMulti} 
         onChange={(e)=>handleChange(e)}
-        defaultValue={defaultValue}
+        value={defaultValue}
         isDisabled={isDisabled}
         isLoading={isLoading}
         isClearable={isClearable}
