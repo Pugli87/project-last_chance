@@ -21,6 +21,7 @@ import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
 const Diary = () => {
+
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
