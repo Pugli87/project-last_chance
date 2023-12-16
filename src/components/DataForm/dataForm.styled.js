@@ -83,3 +83,55 @@ export const BoxButton = styled.div`
     margin-top: 0px;
   }
 `;
+
+export const StyledH3 = styled.h3`
+  font-size: 26px;
+  font-weight: 700;
+  font-family: verdana;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+export const StyledH2 = styled.h2`
+  display: flex;
+  align-items: baseline;
+  font-size: 48px;
+  color: #264061;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+`;
+
+export const StyledHr = styled.hr`
+  width: 330px;
+  border: 1px solid #e0e0e0;
+`;
+export const StyledH5 = styled.h5`
+  font-size: 16px;
+  letter-spacing: 0.04em;
+`;
+
+export const StyledP = styled.p`
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  align-item: left;
+`;
+
+export const StyledDiv = styled.div`
+  width: 330px;
+`;
+
+export const Styledol = styled.ol`
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: #9b9faa;
+  margin: 10px 0;
+  padding: 20px;
+`;

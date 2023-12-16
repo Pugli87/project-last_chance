@@ -10,6 +10,13 @@ import {
   RadioInput,
   Form,
   BoxButton,
+  StyledH3,
+  StyledH2,
+  StyledHr,
+  StyledH5,
+  StyledP,
+  StyledDiv,
+  Styledol,
 } from './dataForm.styled';
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
@@ -171,17 +178,22 @@ const DataForm = () => {
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
         <ContainerB>
-          <h3>
-            {' '}
-            Tu ingesta diaria recomendada de calorías es: <br></br>
-            {infoNutricional.kilocalorias} kcal
-          </h3>
-          <p>Alimentos a evitar:</p>
-          <ul>
-            {infoNutricional.alimentosEvitar.map((alimento, index) => (
-              <li key={index}>{alimento}</li>
-            ))}
-          </ul>
+          <StyledH3>
+            Tu ingesta diaria recomendada de <br></br>calorías es:
+          </StyledH3>
+          <StyledH2>
+            {infoNutricional.kilocalorias}
+            <StyledH5>kcal</StyledH5>
+          </StyledH2>
+          <StyledHr />
+          <StyledDiv>
+            <StyledP>Alimentos que no deberías comer:</StyledP>
+            <Styledol>
+              {infoNutricional.alimentosEvitar.map((alimento, index) => (
+                <li key={index}>{alimento}</li>
+              ))}
+            </Styledol>
+          </StyledDiv>
           <Button
             type="submit"
             text="Comienza a perder peso"
