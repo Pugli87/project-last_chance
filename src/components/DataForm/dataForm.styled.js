@@ -80,7 +80,7 @@ export const BoxButton = styled.div`
   text-align: right;
 
   @media (max-width: 768px) {
-    margin-top: 30px;
+    margin: -50px 80px;
   }
 `;
 
