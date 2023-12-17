@@ -45,6 +45,7 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
+  background: none;
 `;
 
 export const RadioGroup = styled.div`
