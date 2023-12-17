@@ -34,7 +34,7 @@ function HeaderNavbar() {
       // Elimina el token del almacenamiento local después de cerrar sesión
       localStorage.removeItem('token');
       setShowModal(false);
-    }, 10000); // 10 segundos en milisegundos
+    }, 3600000); 
 
     // Reinicia el temporizador para eliminar el token después de 5 segundos
     startRemoveTokenTimeout();
