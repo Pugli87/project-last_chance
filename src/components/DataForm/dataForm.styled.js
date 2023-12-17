@@ -68,13 +68,8 @@ export const RadioInput = styled.input`
   -webkit-appearance: none;
   border-radius: 50%;
   &:checked {
-    content: '';
-    width: 15px;
-    height: 15px;
-    background: #fc842d;
     outline: 1px solid #fc842d;
-  }
-  &::before {
+    background: #fc842d;
   }
 `;
 
