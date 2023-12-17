@@ -72,7 +72,7 @@ const DataForm = () => {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/pages/SignUp/SignUp');
+    navigate('/register');
   };
 
   const [infoNutricional] = useState({
