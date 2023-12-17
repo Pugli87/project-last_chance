@@ -119,6 +119,14 @@ export const StyledHr = styled.hr`
     width: 260px;
   }
 `;
+export const StyledHrS = styled.hr`
+  width: 201px;
+  border: 0.7px solid #e0e0e0;
+  margin: 10px;
+  margin-left: 0px;
+  margin-top: 27px;
+`;
+
 export const StyledH5 = styled.h5`
   font-size: 16px;
   letter-spacing: 0.04em;

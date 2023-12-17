@@ -17,6 +17,7 @@ import {
   StyledP,
   StyledDiv,
   Styledol,
+  StyledHrS,
 } from './dataForm.styled';
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
@@ -179,7 +180,7 @@ const DataForm = () => {
           </FormGroup>
           <FormGroup>
             <Label>Grupo Sanguíneo:</Label>
-            <hr></hr>
+            <StyledHrS></StyledHrS>
             <RadioGroup>
               {[1, 2, 3, 4].map(grupo => (
                 <RadioLabel
