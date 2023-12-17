@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Title,
@@ -38,6 +38,7 @@ const DataForm = () => {
   };
 
   const [modalVisible, setModalVisible] = useState(false);
+  const modalRef = useRef();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -52,12 +53,19 @@ const DataForm = () => {
       setModalVisible(false);
     }
   };
+  const handleClickOutside = event => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setModalVisible(false);
+    }
+  };
 
   useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('keydown', handleKeyDown);
 
     // Limpieza del efecto
     return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
@@ -198,7 +206,7 @@ const DataForm = () => {
         </BoxButton>
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
-        <ContainerB>
+        <ContainerB ref={modalRef}>
           <StyledH3>
             Tu ingesta diaria recomendada de <br></br>calorías es:
           </StyledH3>
