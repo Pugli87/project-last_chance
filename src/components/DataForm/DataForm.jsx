@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Title,
@@ -10,10 +10,18 @@ import {
   RadioInput,
   Form,
   BoxButton,
+  StyledH3,
+  StyledH2,
+  StyledHr,
+  StyledH5,
+  StyledP,
+  StyledDiv,
+  Styledol,
 } from './dataForm.styled';
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
 import { ContainerB } from 'components/Modal/Modal.styled';
+import { useNavigate } from 'react-router-dom';
 
 const DataForm = () => {
   const valoresIniciales = {
@@ -37,6 +45,26 @@ const DataForm = () => {
       ...datos,
       [name]: value,
     });
+  };
+
+  const handleKeyDown = event => {
+    if (event.key === 'Escape') {
+      setModalVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Limpieza del efecto
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/pages/SignUp/SignUp');
   };
 
   const [infoNutricional] = useState({
@@ -171,21 +199,26 @@ const DataForm = () => {
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
         <ContainerB>
-          <h3>
-            {' '}
-            Tu ingesta diaria recomendada de calorías es: <br></br>
-            {infoNutricional.kilocalorias} kcal
-          </h3>
-          <p>Alimentos a evitar:</p>
-          <ul>
-            {infoNutricional.alimentosEvitar.map((alimento, index) => (
-              <li key={index}>{alimento}</li>
-            ))}
-          </ul>
+          <StyledH3>
+            Tu ingesta diaria recomendada de <br></br>calorías es:
+          </StyledH3>
+          <StyledH2>
+            {infoNutricional.kilocalorias}
+            <StyledH5>kcal</StyledH5>
+          </StyledH2>
+          <StyledHr />
+          <StyledDiv>
+            <StyledP>Alimentos que no deberías comer:</StyledP>
+            <Styledol>
+              {infoNutricional.alimentosEvitar.map((alimento, index) => (
+                <li key={index}>{alimento}</li>
+              ))}
+            </Styledol>
+          </StyledDiv>
           <Button
             type="submit"
             text="Comienza a perder peso"
-            onClick={() => setModalVisible(false)}
+            onClick={handleClick}
           />
         </ContainerB>
       </Modal>
