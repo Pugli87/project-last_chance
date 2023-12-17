@@ -78,7 +78,7 @@ const DataForm = () => {
 
   const [infoNutricional] = useState({
     kilocalorias: 2000,
-    alimentosEvitar: ['Azúcar', 'Pan blanco', 'Refrescos'],
+    alimentosEvitar: ['Azúcar', 'Pan blanco', 'Refrescos', 'Refrescos'],
   });
 
   const validarDatos = () => {
