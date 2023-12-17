@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   Form,
   FormText,
@@ -9,12 +10,10 @@ import {
 } from './DailyIntakeStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks';
-import { useEffect, useState } from 'react';
 import SaludSelect from 'components/Selects/SaludSelect';
 
-const DailyIntake = ({ onSubmit, selectedDate }) => {
+const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const [options, setOptions] = useState([]);
-  const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -39,17 +38,22 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
   const handleSubmit = event => {
     event.preventDefault();
     if (!name || !number) return;
-    setItems([...items, { name, number }]);
-    setName(null);
-    setNumber(null);
+
+    const updatedItems = [...selectedProducts[selectedDate], { name, number }];
+    onSubmit(updatedItems);
+    setName('');
+    setNumber('');
   };
 
   const handleDelete = index => {
-    setItems(items.filter((item, i) => i !== index));
+    const updatedItems = selectedProducts[selectedDate].filter(
+      (item, i) => i !== index
+    );
+    onSubmit(updatedItems);
   };
 
-  const productSelected = e => {
-    setName(e?.value || '');
+  const productSelected = selectedOption => {
+    setName(selectedOption?.label || '');
   };
 
   return (
@@ -58,7 +62,7 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
         <ContainForm>
           <Wrapper>
             <SaludSelect
-              defaultValue={name?.value}
+              value={{ label: name, value: name }}
               handleChange={productSelected}
               options={options}
               isSearchable
@@ -90,7 +94,7 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
       </Form>
       <FormText>
         <ul className="formList">
-          {items.map((item, index) => (
+          {(selectedProducts[selectedDate] ?? []).map((item, index) => (
             <li className="listForm" key={index}>
               {item.name} - {item.number} g - {parseInt(item.number, 10) + 10}{' '}
               kcal
@@ -104,4 +108,5 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
     </div>
   );
 };
+
 export default DailyIntake;

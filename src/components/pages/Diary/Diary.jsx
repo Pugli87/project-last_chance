@@ -24,6 +24,10 @@ const Diary = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const [selectedProducts, setSelectedProducts] = useState({
+    [new Date().toLocaleDateString()]: [],
+  });
+
   const customStyles = {
     content: {
       position: 'absolute',
@@ -37,10 +41,15 @@ const Diary = () => {
       padding: '20px',
     },
   };
-
   const handleDateChange = selectedDate => {
     setDate(selectedDate);
     setShowCalendar(false);
+
+    const formattedDate = selectedDate.toLocaleDateString();
+    setSelectedProducts({
+      ...selectedProducts,
+      [formattedDate]: selectedProducts[formattedDate] || [],
+    });
   };
 
   const handleCalendarClick = event => {
@@ -62,6 +71,11 @@ const Diary = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [modalIsOpen]);
+
+  const handleSubmit = updatedItems => {
+    const formattedDate = date.toLocaleDateString();
+    setSelectedProducts({ ...selectedProducts, [formattedDate]: updatedItems });
+  };
 
   return (
     <>
@@ -103,7 +117,11 @@ const Diary = () => {
               </BtnDiary>
             </ContainerDiary>
             <Wrapper>
-              <DailyIntake />
+              <DailyIntake
+                selectedProducts={selectedProducts}
+                onSubmit={handleSubmit}
+                selectedDate={date.toLocaleDateString()}
+              />
             </Wrapper>
           </Container>
         </>
