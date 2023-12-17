@@ -1,21 +1,41 @@
-import React from 'react';
-import './Modal.scss';
+import React, { useEffect } from 'react';
+import {
+  ModalOverlay,
+  ModalContainer,
+  ModalTitle,
+  ModalButtons,
+  ModalButton,
+} from './Modal.styles';
 
 const Modal = ({ title, onYesClick, onNoClick }) => {
+  useEffect(() => {
+    const handleOutsideClick = event => {
+      if (event.target.classList.contains('modal-overlay')) {
+        onNoClick();
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [onNoClick]);
+
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <h2>{title}</h2>
-        <div className="modal-buttons">
-          <button className="modal-button yes" onClick={onYesClick}>
+    <ModalOverlay className="modal-overlay">
+      <ModalContainer className="modal">
+        <ModalTitle>{title}</ModalTitle>
+        <ModalButtons className="modal-buttons">
+          <ModalButton className="modal-button yes" onClick={onYesClick}>
             Abandonar
-          </button>
-          <button className="modal-button no" onClick={onNoClick}>
+          </ModalButton>
+          <ModalButton className="modal-button no" onClick={onNoClick}>
             Permanecer
-          </button>
-        </div>
-      </div>
-    </div>
+          </ModalButton>
+        </ModalButtons>
+      </ModalContainer>
+    </ModalOverlay>
   );
 };
 
