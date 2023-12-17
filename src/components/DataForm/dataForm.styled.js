@@ -80,7 +80,7 @@ export const BoxButton = styled.div`
   text-align: right;
 
   @media (max-width: 768px) {
-    margin-top: 0px;
+    margin-top: 30px;
   }
 `;
 
@@ -90,6 +90,12 @@ export const StyledH3 = styled.h3`
   font-family: verdana;
   text-align: center;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
 `;
 
 export const StyledH2 = styled.h2`
@@ -101,15 +107,29 @@ export const StyledH2 = styled.h2`
   text-align: center;
   letter-spacing: 0.04em;
   margin-bottom: 32px;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const StyledHr = styled.hr`
   width: 330px;
   border: 1px solid #e0e0e0;
+  @media (max-width: 768px) {
+    width: 260px;
+  }
 `;
 export const StyledH5 = styled.h5`
   font-size: 16px;
   letter-spacing: 0.04em;
+  @media (max-width: 768px) {
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
 `;
 
 export const StyledP = styled.p`
@@ -119,10 +139,25 @@ export const StyledP = styled.p`
   line-height: 17px;
   letter-spacing: 0.04em;
   align-item: left;
+  @media (max-width: 768px) {
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
 `;
 
 export const StyledDiv = styled.div`
   width: 330px;
+  @media (max-width: 768px) {
+    width: 222px;
+    height: 112px;
+    top: 404px;
+    left: 20px;
+    margin: 30px 0;
+  }
 `;
 
 export const Styledol = styled.ol`
@@ -134,4 +169,8 @@ export const Styledol = styled.ol`
   color: #9b9faa;
   margin: 10px 0;
   padding: 20px;
+  @media (max-width: 768px) {
+    margin: 5px 0;
+    padding: 15px;
+  }
 `;
