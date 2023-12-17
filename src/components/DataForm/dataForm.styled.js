@@ -61,8 +61,21 @@ export const RadioLabel = styled.label`
 `;
 
 export const RadioInput = styled.input`
-  margin-right: 5px;
-  accent-color: #fc842d;
+  margin: 1px 5px;
+  width: 15px;
+  height: 15px;
+  outline: 1px solid rgb(155, 159, 170);
+  -webkit-appearance: none;
+  border-radius: 50%;
+  &:checked {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #fc842d;
+    outline: 1px solid #fc842d;
+  }
+  &::before {
+  }
 `;
 
 export const Form = styled.div`
@@ -81,7 +94,7 @@ export const BoxButton = styled.div`
   text-align: right;
 
   @media (max-width: 768px) {
-    margin: -50px 80px;
+    margin: -60px 80px;
   }
 `;
 
