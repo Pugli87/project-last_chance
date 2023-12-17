@@ -11,15 +11,41 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks';
 import { useEffect, useState } from 'react';
 import SaludSelect from 'components/Selects/SaludSelect';
+import './DailyIntake.scss'
+import { globalIcons } from 'assets/icons/globalIcons';
 
 const DailyIntake = () => {
   const [options, setOptions] = useState([]);
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [openSelectCategory, setOpenSelectCategory] = useState(false);
+  const [category, setCategory] = useState('meat');
 
   const dispatch = useDispatch();
   const products = useSelector(state => state.auth.products);
+  const categories = [
+    {
+      id: 0,
+      name: 'Lacteos',
+      category: 'dairy',
+    },
+    {
+      id: 0,
+      name: 'Carnes',
+      category: 'meat',
+    },
+    {
+      id: 0,
+      name: 'Huevos',
+      category: 'eggs',
+    },
+    {
+      id: 0,
+      name: 'Harinas',
+      category: 'flour',
+    },
+  ]
 
   useEffect(() => {
     if (products.length > 0) {
@@ -31,11 +57,7 @@ const DailyIntake = () => {
       setOptions(newOptions);
     }
   }, [products]);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
+  
   const handleSubmit = event => {
     event.preventDefault();
     if (!name || !number) return;
@@ -43,14 +65,23 @@ const DailyIntake = () => {
     setName(null);
     setNumber(null);
   };
-
+  
   const handleDelete = index => {
     setItems(items.filter((item, i) => i !== index));
   };
-
+  
   const productSelected = e => {
     setName(e?.value || '');
   };
+
+  const categoryClick = (item) => {
+    setCategory(item.category) 
+    setOpenSelectCategory(false)
+  };
+  
+  useEffect(() => {
+    dispatch(fetchProducts(category));
+  }, [category, dispatch]);
 
   return (
     <div>
@@ -65,6 +96,18 @@ const DailyIntake = () => {
               isClearable
               placeholder="Ingresa el nombre del producto"
             />
+            <div className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`} onClick={()=>setOpenSelectCategory(false)}></div>
+            <div class="search">
+                  <div class="search-menu">
+                      <button type="button" class="search__button-filter" onClick={()=>setOpenSelectCategory(!openSelectCategory)}>
+                        <span>Elije una categoria</span>
+                          <img src={globalIcons.arrowUp} alt="arrow Up icon" className={`${openSelectCategory ? 'rotate-180' : ''}`}/>
+                      </button>
+                      <ul class={ `${ openSelectCategory ? '' : 'invisibility' } search__filter-menu`}>
+                          { categories.map(category => <li onClick={()=>categoryClick(category)} class="search_filter-item">{category.name}</li>)}
+                      </ul>
+                  </div>
+            </div>
           </Wrapper>
 
           <Wrapper>
