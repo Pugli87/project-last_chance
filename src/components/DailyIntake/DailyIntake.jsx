@@ -12,7 +12,7 @@ import { fetchProducts } from '../../redux/thunks';
 import { useEffect, useState } from 'react';
 import SaludSelect from 'components/Selects/SaludSelect';
 
-const DailyIntake = () => {
+const DailyIntake = ({ onSubmit, selectedDate }) => {
   const [options, setOptions] = useState([]);
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');

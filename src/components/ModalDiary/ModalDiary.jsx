@@ -9,6 +9,7 @@ import {
   LabelGramos,
   Input,
   Button,
+  Box,
 } from './ModalDiaryStyled';
 const ModalDiary = () => {
   /*const [productName, setProductName] = useState('');
@@ -40,7 +41,7 @@ const ModalDiary = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper className="input-group">
@@ -89,7 +90,7 @@ const ModalDiary = () => {
           ))}
         </ul>
       </FormText>
-    </div>
+    </Box>
   );
 };
 export default ModalDiary;

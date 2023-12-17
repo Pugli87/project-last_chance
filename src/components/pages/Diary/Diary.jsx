@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-//import ListnotFood from 'components/ListnotFood/ListnotFood';
 import {
   Container,
-  // WrapperResult,
-  //WrapperDaily,
   Wrapper,
   ContainerDiary,
   BtnDiary,
   BtnModal,
-  BtnCloseModal
+  BtnCloseModal,
+  Title,
 } from './DiaryStyled';
 import './CalendarStyled.scss';
-//import DateComponnet from 'components/DateComponent/DateComponent';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarSvg } from '../../../assets/icons/calendar.svg';
@@ -20,21 +17,13 @@ import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
-const Diary = () => {
 
+const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-
-  const handleDateChange = selectedDate => {
-    setDate(selectedDate);
-    setShowCalendar(false);
-  };
-
-  const handleCalendarClick = event => {
-    event.stopPropagation();
-  };
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const customStyles = {
     content: {
       position: 'absolute',
@@ -49,15 +38,30 @@ const Diary = () => {
     },
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const handleDateChange = selectedDate => {
+    setDate(selectedDate);
+    setShowCalendar(false);
+  };
+
+  const handleCalendarClick = event => {
+    event.stopPropagation();
+  };
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+
+      if (window.innerWidth > 767 && modalIsOpen) {
+        setModalIsOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [modalIsOpen]);
 
   return (
     <>
@@ -70,7 +74,7 @@ const Diary = () => {
             style={customStyles}
           >
             <BtnCloseModal onClick={() => setModalIsOpen(false)}>
-            <CloseModalSvg />
+              <CloseModalSvg />
             </BtnCloseModal>
             <ModalDiary />
           </Modal>
@@ -82,7 +86,7 @@ const Diary = () => {
           )}
           <Container>
             <ContainerDiary>
-              <h1>{date.toLocaleDateString()}</h1>
+              <Title>{date.toLocaleDateString()}</Title>
               <BtnDiary onClick={() => setShowCalendar(!showCalendar)}>
                 {showCalendar && (
                   <div onClick={handleCalendarClick}>
@@ -100,13 +104,6 @@ const Diary = () => {
             </ContainerDiary>
             <Wrapper>
               <DailyIntake />
-              {/*
-                <WrapperDaily></WrapperDaily>
-                <WrapperResult>
-                  <DateComponnet />
-                  <ListnotFood />
-                </WrapperResult>
-              */}
             </Wrapper>
           </Container>
         </>

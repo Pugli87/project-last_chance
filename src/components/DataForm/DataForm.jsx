@@ -82,10 +82,10 @@ const DataForm = () => {
     e.preventDefault();
     if (validarDatos()) {
       console.log('Datos enviados:', datos);
-      setModalVisible(true); // Abre el modal si la validación es exitosa
-      CleanForm(); // limpia el formulario
+      setModalVisible(true);
+      CleanForm();
     } else {
-      CleanForm(); // Manejo de error si la validación falla
+      CleanForm();
     }
   };
 
