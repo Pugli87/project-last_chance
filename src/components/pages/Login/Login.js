@@ -93,6 +93,11 @@ const Login = () => {
   `;
 
   const ContButton = styled.div`
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
     @media screen and (max-width:320px){
     margin-top: 60px;
     display: flex;
