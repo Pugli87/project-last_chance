@@ -13,13 +13,17 @@ export const Overlay = styled.div`
   justify-content: center;
 `;
 export const ContentModal = styled.div`
-  width: 500px;
-  min-height: 100px;
+  width: 672px;
+  height: 574px;
   background: #fff;
   position: relative;
   border-radius: 5px;
   box-shadow: rgba (100, 100, 111 0.2) 0px 7px 29px 0px;
   padding: 20px;
+  @media (max-width: 768px) {
+    width: 300px;
+    min-height: 100px;
+  }
 `;
 
 export const Headermodal = styled.div`
@@ -33,6 +37,12 @@ export const Headermodal = styled.div`
   h3 {
     font-size: 14px;
     color: #000;
+  }
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 10px;
+      color: #000;
+    }
   }
 `;
 
@@ -55,6 +65,11 @@ export const ButtonClose = styled.div`
 
   &: hover {
     background: #f2f2f2;
+  }
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 1px;
   }
 `;
 
