@@ -12,9 +12,33 @@ import { fetchProducts } from '../../redux/thunks';
 import { useEffect, useState } from 'react';
 import SaludSelect from 'components/Selects/SaludSelect';
 
+const useLocalStorage = (key, initialValue) => {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.log(error);
+      return initialValue;
+    }
+  });
+
+  const setValue = value => {
+    try {
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return [storedValue, setValue];
+};
+
 const DailyIntake = () => {
   const [options, setOptions] = useState([]);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useLocalStorage('items', []);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

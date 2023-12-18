@@ -19,4 +19,10 @@
 .appLayout {
     padding: 0 16px;
     z-index: 1 !important;
+    @media (max-width: 1023px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+      }
 }

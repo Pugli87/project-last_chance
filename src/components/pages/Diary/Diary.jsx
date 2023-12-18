@@ -38,7 +38,7 @@ const Diary = () => {
   const customStyles = {
     content: {
       position: 'absolute',
-      inset: '12% 0px auto',
+      inset: '17% 0px auto',
       border: '1px solid rgb(204, 204, 204)',
       background: 'rgb(255, 255, 255)',
       overflow: 'auto',
