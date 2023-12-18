@@ -9,13 +9,12 @@ import {
   Title,
 } from './DiaryStyled';
 import './CalendarStyled.scss';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarSvg } from '../../../assets/icons/calendar.svg';
 import { ReactComponent as CloseModalSvg } from '../../../assets/icons/arrow.svg';
 import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
+import Calendar from '../../Calendar/Calendar';
 Modal.setAppElement('#root');
 
 const Diary = () => {
@@ -41,6 +40,7 @@ const Diary = () => {
       padding: '20px',
     },
   };
+
   const handleDateChange = selectedDate => {
     setDate(selectedDate);
     setShowCalendar(false);
@@ -104,13 +104,7 @@ const Diary = () => {
               <BtnDiary onClick={() => setShowCalendar(!showCalendar)}>
                 {showCalendar && (
                   <div onClick={handleCalendarClick}>
-                    <DatePicker
-                      selected={date}
-                      onChange={handleDateChange}
-                      inline
-                      maxDate={new Date()}
-                      className="customDatePicker"
-                    />
+                    <Calendar date={date} handleDateChange={handleDateChange} />
                   </div>
                 )}
                 <CalendarSvg />
