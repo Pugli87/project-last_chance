@@ -31,17 +31,17 @@ const DailyIntake = () => {
       category: 'dairy',
     },
     {
-      id: 0,
+      id: 1,
       name: 'Carnes',
       category: 'meat',
     },
     {
-      id: 0,
+      id: 2,
       name: 'Huevos',
       category: 'eggs',
     },
     {
-      id: 0,
+      id: 3,
       name: 'Harinas',
       category: 'flour',
     },
@@ -96,7 +96,7 @@ const DailyIntake = () => {
                           <img src={globalIcons.arrowUp} alt="arrow Up icon" className={`${openSelectCategory ? 'rotate-180' : ''}`}/>
                       </button>
                       <ul className={ `${ openSelectCategory ? '' : 'invisibility' } search__filter-menu`}>
-                          { categories.map(category => <li onClick={()=>categoryClick(category)} className="search_filter-item">{category.name}</li>)}
+                          { categories.map(category => <li key={category.id} onClick={()=>categoryClick(category)} className="search_filter-item">{category.name}</li>)}
                       </ul>
                   </div>
             </div>

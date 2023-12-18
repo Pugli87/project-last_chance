@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk(
 
       const token = response.data.token;
 
-      console.log(response);
+      console.log(response.data.isUser);
 
       // const responseUser = await fecthCurrentUser(token);
 
@@ -97,6 +97,9 @@ export const logOutUser = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
+
+      localStorage.removeItem('token');
+      localStorage.removeItem('currentUser');
 
       return response.data;
     } catch (e) {
