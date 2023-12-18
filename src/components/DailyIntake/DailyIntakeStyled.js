@@ -19,6 +19,7 @@ export const ContainForm = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   margin-right: 50px;
+  gap: 20px;
 `;
 
 export const Input = styled.input`
