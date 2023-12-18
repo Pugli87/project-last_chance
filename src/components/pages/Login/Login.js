@@ -59,36 +59,36 @@ const Login = () => {
       <Tittle>Iniciar sesión</Tittle>
       <form onSubmit={handleSubmit}>
         <ContFormCorreo>
-        <SubTittle className='subTittle'>Correo Electronico*</SubTittle>
-         {emailValid ? <Input 
-          type="email"
-          id="email"
-          value={email}
-          onChange= {(e) => setEmail(e.target.value)}
-          /> : <InputWanning
-          type="email"
-          id="email"
-          placeholder="El correo electronico es un campo obligatorio"
-          value={email}
-          onChange= {(e) => setEmail(e.target.value)}
+          <SubTittle className='subTittle'>Correo Electronico*</SubTittle>
+          {emailValid ? <Input 
+            type="email"
+            id="email"
+            value={email}
+            onChange= {(e) => setEmail(e.target.value)}
+            /> : <InputWanning
+            type="email"
+            id="email"
+            placeholder="El correo electronico es un campo obligatorio"
+            value={email}
+            onChange= {(e) => setEmail(e.target.value)}
           />}
-        </ContFormCorreo>
-        <ContFormContra >
-        <SubTittle className='subTittle'>Contraseña*</SubTittle>
-        {passwordValid ? <Input 
-          type="password"
-          placeholder=""
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          /> : <InputWanning
-          type="password"
-          placeholder="La contraseña es un campo obligatorio"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          />
-      }
-
-        </ContFormContra>
+          </ContFormCorreo>
+          <ContFormContra >
+          <SubTittle className='subTittle'>Contraseña*</SubTittle>
+          {passwordValid ? <Input 
+            type="password"
+            placeholder=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            /> : <InputWanning
+            type="password"
+            placeholder="La contraseña es un campo obligatorio"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
+          }
+  
+          </ContFormContra>
         <ContButton>
           <Button type="submit">
             <TextButtonIniciar>INICIAR</TextButtonIniciar>
