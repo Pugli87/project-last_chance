@@ -6,13 +6,15 @@ import NavLinkHeader from '../NavLinkHeader/NavLinkHeader';
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect';
 import HeaderMenuMobile from '../HeaderMenuMobile/HeaderMenuMobile';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logOutUser /*refreshToken*/ } from '../../../redux/thunks';
+import { useDispatch, /*, useSelector*/ 
+useSelector} from 'react-redux';
+import { logOutUser } from '../../../redux/thunks';
 import Modal from '../../Modal/ModalCalculator';
 
 function HeaderNavbar() {
   const { isDesktop, isMobile } = useDeviceDetect();
   const user = useSelector(state => state.auth.userInfo);
+  const token = useSelector(state => state.auth.token);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const inactivityTimeoutRef = useRef(null);
