@@ -31,11 +31,11 @@
 
     & img {
         transition: $salud-transition;
-        transform: rotate(0);
+        transform: rotate(180deg);
     }
 
     & .rotate-180 {
-        transform: rotate(180deg);
+        transform: rotate(0);
     }
 }
 

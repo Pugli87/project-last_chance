@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
 
       console.log(response.data.isUser);
 
-      // const responseUser = await fecthCurrentUser(token);
+      localStorage.setItem('currentUser', JSON.stringify(response.data.isUser));
 
       return {
         token,
