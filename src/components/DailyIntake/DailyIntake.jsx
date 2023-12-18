@@ -88,15 +88,7 @@ const DailyIntake = () => {
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper>
-            <SaludSelect
-              defaultValue={name?.value}
-              handleChange={productSelected}
-              options={options}
-              isSearchable
-              isClearable
-              placeholder="Ingresa el nombre del producto"
-            />
-            <div className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`} onClick={()=>setOpenSelectCategory(false)}></div>
+          <div className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`} onClick={()=>setOpenSelectCategory(false)}></div>
             <div className="search">
                   <div className="search-menu">
                       <button type="button" className="search__button-filter" onClick={()=>setOpenSelectCategory(!openSelectCategory)}>
@@ -108,6 +100,14 @@ const DailyIntake = () => {
                       </ul>
                   </div>
             </div>
+            <SaludSelect
+              defaultValue={name?.value}
+              handleChange={productSelected}
+              options={options}
+              isSearchable
+              isClearable
+              placeholder="Ingresa el nombre del producto"
+            />
           </Wrapper>
 
           <Wrapper>
