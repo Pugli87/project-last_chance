@@ -45,6 +45,7 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
+  background: none;
 `;
 
 export const RadioGroup = styled.div`
@@ -60,8 +61,16 @@ export const RadioLabel = styled.label`
 `;
 
 export const RadioInput = styled.input`
-  margin-right: 5px;
-  accent-color: #fc842d;
+  margin: 1px 5px;
+  width: 15px;
+  height: 15px;
+  outline: 1px solid rgb(155, 159, 170);
+  -webkit-appearance: none;
+  border-radius: 50%;
+  &:checked {
+    outline: 1px solid #fc842d;
+    background: #fc842d;
+  }
 `;
 
 export const Form = styled.div`
@@ -80,7 +89,7 @@ export const BoxButton = styled.div`
   text-align: right;
 
   @media (max-width: 768px) {
-    margin: -50px 80px;
+    margin: -60px 80px;
   }
 `;
 
@@ -119,6 +128,14 @@ export const StyledHr = styled.hr`
     width: 260px;
   }
 `;
+export const StyledHrS = styled.hr`
+  width: 201px;
+  border: 0.7px solid #e0e0e0;
+  margin: 10px;
+  margin-left: 0px;
+  margin-top: 27px;
+`;
+
 export const StyledH5 = styled.h5`
   font-size: 16px;
   letter-spacing: 0.04em;
