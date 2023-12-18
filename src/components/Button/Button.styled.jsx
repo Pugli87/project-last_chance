@@ -20,6 +20,9 @@ export const Btn = styled.button`
   &:hover {
     background-color: #fc842d80;
   }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const BoxButton = styled.div`
