@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk(
 
       const token = response.data.token;
 
-      console.log(response)
+      console.log(response);
 
       // const responseUser = await fecthCurrentUser(token);
 
@@ -80,7 +80,6 @@ export const signUpUser = createAsyncThunk(
       const responseUser = responseUserAction.payload;
 
       return responseUser;
-
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
@@ -110,9 +109,27 @@ export const fetchProducts = createAsyncThunk(
   'auth/fetchProducts',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${baseUrlproducts}/products`)
-      console.log(response.data)
-      return  response.data
+      const response = await axios.get(`${baseUrlproducts}/products`);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
+    }
+  }
+);
+export const refreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token;
+
+      const response = await axios.post(`${baseUrl}/refresh-token`, {
+        token,
+      });
+
+      const newToken = response.data.token;
+
+      return newToken;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
