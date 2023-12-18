@@ -8,7 +8,7 @@ import {
 } from './thunks';
 
 const initialState = {
-  userInfo: {},
+  userInfo: JSON.parse(localStorage.getItem('currentUser')) || {},
   token: localStorage.getItem('token') || '',
   products: [],
   isLoading: false,

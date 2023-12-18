@@ -38,9 +38,9 @@ export const loginUser = createAsyncThunk(
 
       const token = response.data.token;
 
-      console.log(response);
+      console.log(response.data.isUser);
 
-      // const responseUser = await fecthCurrentUser(token);
+      localStorage.setItem('currentUser', JSON.stringify(response.data.isUser));
 
       return {
         token,
@@ -98,6 +98,9 @@ export const logOutUser = createAsyncThunk(
         },
       });
 
+      localStorage.removeItem('token');
+      localStorage.removeItem('currentUser');
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
@@ -107,11 +110,11 @@ export const logOutUser = createAsyncThunk(
 
 export const fetchProducts = createAsyncThunk(
   'auth/fetchProducts',
-  async (_, thunkAPI) => {
+  async (category, thunkAPI) => {
     try {
-      const response = await axios.get(`${baseUrlproducts}/products`);
-      console.log(response.data);
-      return response.data;
+      const response = await axios.get(`${baseUrlproducts}/products/${category}`)
+
+      return  response.data.products
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }

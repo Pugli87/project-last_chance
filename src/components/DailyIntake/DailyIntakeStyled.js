@@ -19,6 +19,7 @@ align-items: flex-end;
 export const Wrapper = styled.div`
  display: flex;
  margin-right: 50px;
+ gap: 20px;
 `;
 
 
