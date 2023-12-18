@@ -13,8 +13,9 @@
 
 .search__button-filter{
     border-radius: 15px;
-    background: linear-gradient(180deg, $salud-orange 0.01%, #ffe1c5 99.99%);
+    background: linear-gradient(180deg, #ffe1c5 0.01%, #FAFCFE 99.99%);
     box-shadow: 5px 8px 15px 0px rgba(193, 216, 234, 0.37);
+    border: 1px solid lightgray;
     display: flex;
     justify-content: center;
     align-items: center;

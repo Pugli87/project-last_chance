@@ -97,14 +97,14 @@ const DailyIntake = () => {
               placeholder="Ingresa el nombre del producto"
             />
             <div className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`} onClick={()=>setOpenSelectCategory(false)}></div>
-            <div class="search">
-                  <div class="search-menu">
-                      <button type="button" class="search__button-filter" onClick={()=>setOpenSelectCategory(!openSelectCategory)}>
+            <div className="search">
+                  <div className="search-menu">
+                      <button type="button" className="search__button-filter" onClick={()=>setOpenSelectCategory(!openSelectCategory)}>
                         <span>Elije una categoria</span>
                           <img src={globalIcons.arrowUp} alt="arrow Up icon" className={`${openSelectCategory ? 'rotate-180' : ''}`}/>
                       </button>
-                      <ul class={ `${ openSelectCategory ? '' : 'invisibility' } search__filter-menu`}>
-                          { categories.map(category => <li onClick={()=>categoryClick(category)} class="search_filter-item">{category.name}</li>)}
+                      <ul className={ `${ openSelectCategory ? '' : 'invisibility' } search__filter-menu`}>
+                          { categories.map(category => <li onClick={()=>categoryClick(category)} className="search_filter-item">{category.name}</li>)}
                       </ul>
                   </div>
             </div>
