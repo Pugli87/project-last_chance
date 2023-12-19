@@ -12,6 +12,8 @@ export const ContainForm = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 25px;
   margin-top: 17px;
 `;
 export const Box = styled.div`
