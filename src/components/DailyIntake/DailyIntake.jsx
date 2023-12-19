@@ -40,9 +40,9 @@ const useLocalStorage = (key, initialValue) => {
   return [storedValue, setValue];
 };
 
-const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
+const DailyIntake = ({ onSubmit, selectedDate }) => {
   const [options, setOptions] = useState([]);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useLocalStorage('items', []);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -63,16 +63,18 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
     event.preventDefault();
     if (!name || !number) return;
 
-    const updatedItems = [...selectedProducts[selectedDate], { name, number }];
+    const updatedItems = [...items, { name, number }];
+    setItems(updatedItems); // Aquí actualizamos los items en localStorage
     onSubmit(updatedItems);
     setName('');
     setNumber('');
   };
 
   const handleDelete = index => {
-    const updatedItems = selectedProducts[selectedDate].filter(
+    const updatedItems = items.filter(
       (item, i) => i !== index
     );
+    setItems(updatedItems); // Aquí actualizamos los items en localStorage
     onSubmit(updatedItems);
   };
 
@@ -119,7 +121,7 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
       </Form>
       <ScrollableFormText>
         <ul className="formList">
-        {(selectedProducts[selectedDate] ?? []).map((item, index) => (
+        {items.map((item, index) => (
           <ListItem className="listForm" key={index}>
             <Name>{item.name}</Name>
             <Grams>{item.number} g</Grams>
