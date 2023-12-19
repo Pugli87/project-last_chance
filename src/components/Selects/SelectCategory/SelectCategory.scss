@@ -1,4 +1,4 @@
-@import '../../assets/sass/base/variables';
+@import '../../../assets/sass/base/variables';
 .search{
     width: 100%;
     display: flex;
@@ -66,7 +66,7 @@
 .search__filter-menu .search_filter-item{
     border-bottom: 1px solid rgba(7, 7, 7, 0.1);
     background: #FAFCFE;
-    padding: 10px 28px;
+    padding: 10px;
     color: #000;
     cursor: pointer;
     transition: $salud-transition;
