@@ -6,8 +6,7 @@ import NavLinkHeader from '../NavLinkHeader/NavLinkHeader';
 import { useDeviceDetect } from '../../../hooks/deviceDetect/useDeviceDetect';
 import HeaderMenuMobile from '../HeaderMenuMobile/HeaderMenuMobile';
 import { Link } from 'react-router-dom';
-import { useDispatch, /*, useSelector*/ 
-useSelector} from 'react-redux';
+import { useDispatch /*, useSelector*/, useSelector } from 'react-redux';
 import { logOutUser } from '../../../redux/thunks';
 import Modal from '../../Modal/ModalCalculator';
 
@@ -35,7 +34,7 @@ function HeaderNavbar() {
       dispatch(logOutUser());
 
       setShowModal(false);
-    }, 3600000); 
+    }, 3600000);
 
     // Reinicia el temporizador para eliminar el token después de 5 segundos
     startRemoveTokenTimeout();
@@ -51,10 +50,10 @@ function HeaderNavbar() {
   const startRemoveTokenTimeout = () => {
     clearTimeout(removeTokenTimeout);
 
-    // Establece el temporizador para eliminar el token después de 5 segundos
+    // Establece el temporizador para eliminar el token después de 1 hora
     removeTokenTimeout = setTimeout(() => {
       localStorage.removeItem('token');
-    }, 5000); // 5 segundos en milisegundos
+    }, 3600000); // 1 hora en milisegundos
   };
 
   useEffect(() => {
@@ -150,4 +149,3 @@ function HeaderNavbar() {
 }
 
 export default HeaderNavbar;
-

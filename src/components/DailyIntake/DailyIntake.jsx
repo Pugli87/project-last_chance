@@ -44,6 +44,11 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
       name: 'Harinas',
       category: 'flour',
     },
+    {
+      id: 4,
+      name: 'Cereales',
+      category: 'cereals',
+    },
   ];
 
   useEffect(() => {

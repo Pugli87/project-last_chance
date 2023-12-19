@@ -15,12 +15,12 @@ export const Btn = styled.button`
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin: 30px -0px;
+  //margin: 30px -0px;
 
   &:hover {
     background-color: #fc842d80;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     font-size: 12px;
   }
 `;
