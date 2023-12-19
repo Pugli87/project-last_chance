@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Title,
@@ -17,6 +17,7 @@ import {
   StyledP,
   StyledDiv,
   Styledol,
+  StyledHrS,
 } from './dataForm.styled';
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
@@ -38,6 +39,7 @@ const DataForm = () => {
   };
 
   const [modalVisible, setModalVisible] = useState(false);
+  const modalRef = useRef();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -52,25 +54,33 @@ const DataForm = () => {
       setModalVisible(false);
     }
   };
+  const handleClickOutside = event => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setModalVisible(false);
+    }
+  };
 
   useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('keydown', handleKeyDown);
 
     // Limpieza del efecto
     return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/pages/SignUp/SignUp');
+    navigate('/register');
   };
 
-  const [infoNutricional] = useState({
-    kilocalorias: 2000,
-    alimentosEvitar: ['Azúcar', 'Pan blanco', 'Refrescos'],
-  });
+  const calcularCaloriasMujer = (peso, altura, edad) => {
+    const bmr = 447.593 + 9.247 * peso + 3.098 * altura - 4.33 * edad;
+    const calorias = bmr * 1.2;
+    return Math.round(calorias);
+  };
 
   const validarDatos = () => {
     if (
@@ -106,14 +116,28 @@ const DataForm = () => {
     return true;
   };
 
+  const [infoNutricional, setInfoNutricional] = useState({
+    kilocalorias: 2000,
+    alimentosEvitar: ['Harinas', 'Lacteos', 'Azucar', 'Cereales'],
+  });
+
   const handleSubmit = e => {
     e.preventDefault();
     if (validarDatos()) {
-      console.log('Datos enviados:', datos);
+      const caloriasRecomendadas = calcularCaloriasMujer(
+        parseFloat(datos.pesoActual),
+        parseFloat(datos.altura),
+        parseInt(datos.edad)
+      );
+      setInfoNutricional(prevState => ({
+        ...prevState,
+        kilocalorias: caloriasRecomendadas,
+      }));
+
       setModalVisible(true); // Abre el modal si la validación es exitosa
       CleanForm(); // limpia el formulario
     } else {
-      CleanForm(); // Manejo de error si la validación falla
+      CleanForm();
     }
   };
 
@@ -171,7 +195,7 @@ const DataForm = () => {
           </FormGroup>
           <FormGroup>
             <Label>Grupo Sanguíneo:</Label>
-            <hr></hr>
+            <StyledHrS></StyledHrS>
             <RadioGroup>
               {[1, 2, 3, 4].map(grupo => (
                 <RadioLabel
@@ -198,7 +222,7 @@ const DataForm = () => {
         </BoxButton>
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
-        <ContainerB>
+        <ContainerB ref={modalRef}>
           <StyledH3>
             Tu ingesta diaria recomendada de <br></br>calorías es:
           </StyledH3>

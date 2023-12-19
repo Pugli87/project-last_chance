@@ -51,6 +51,21 @@ button {
   display: none;
 }
 
+.invisibility {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateY(-15px) !important;
+}
+
+.bakcdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 .containerDefault {
   margin: 0 auto;
   width: 100%;

@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 200px;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  text-align: left;
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -150,6 +156,10 @@ export const BtnModal = styled.button`
     background-color: #ff4500;
     color: white;
   }
+  @media (max-width: 767px) {
+    display: flex;
+    position: absolute;
+  }
 `;
 
 export const BtnCloseModal = styled.button`
@@ -157,6 +167,16 @@ export const BtnCloseModal = styled.button`
   cursor: pointer;
   }
 `;
-export const Button = styled.button``;
+export const Title = styled.h1`
+  font-family: Verdana;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: left;
 
-export const Div = styled.div``;
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+`;
