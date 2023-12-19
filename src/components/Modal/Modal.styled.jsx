@@ -20,7 +20,7 @@ export const ContentModal = styled.div`
   border-radius: 5px;
   box-shadow: rgba (100, 100, 111 0.2) 0px 7px 29px 0px;
   padding: 20px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 300px;
     min-height: 100px;
   }
@@ -38,7 +38,7 @@ export const Headermodal = styled.div`
     font-size: 14px;
     color: #000;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     h3 {
       font-size: 10px;
       color: #000;
@@ -67,7 +67,7 @@ export const ButtonClose = styled.div`
     background: #f2f2f2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 10px;
     height: 1px;
   }
