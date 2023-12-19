@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  align-items: center;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 48px;
 `;
 
