@@ -30,6 +30,11 @@ function SelectCategory() {
           name: 'Harinas',
           category: 'flour',
         },
+        {
+            id: 4,
+            name: 'Cereales',
+            category: 'cereals',
+          },
       ];
     
     const categoryClick = item => {
