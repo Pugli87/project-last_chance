@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   Form,
   FormText,
@@ -9,14 +10,12 @@ import {
 } from './DailyIntakeStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks';
-import { useEffect, useState } from 'react';
 import SaludSelect from 'components/Selects/SaludSelect';
-import './DailyIntake.scss'
+import './DailyIntake.scss';
 import { globalIcons } from 'assets/icons/globalIcons';
 
-const DailyIntake = () => {
+const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const [options, setOptions] = useState([]);
-  const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [openSelectCategory, setOpenSelectCategory] = useState(false);
@@ -45,7 +44,7 @@ const DailyIntake = () => {
       name: 'Harinas',
       category: 'flour',
     },
-  ]
+  ];
 
   useEffect(() => {
     if (products.length > 0) {
@@ -57,28 +56,33 @@ const DailyIntake = () => {
       setOptions(newOptions);
     }
   }, [products]);
-  
+
   const handleSubmit = event => {
     event.preventDefault();
     if (!name || !number) return;
-    setItems([...items, { name, number }]);
-    setName(null);
-    setNumber(null);
-  };
-  
-  const handleDelete = index => {
-    setItems(items.filter((item, i) => i !== index));
-  };
-  
-  const productSelected = e => {
-    setName(e?.value || '');
+
+    const updatedItems = [...selectedProducts[selectedDate], { name, number }];
+    onSubmit(updatedItems);
+    setName('');
+    setNumber('');
   };
 
-  const categoryClick = (item) => {
-    setCategory(item.category) 
-    setOpenSelectCategory(false)
+  const handleDelete = index => {
+    const updatedItems = selectedProducts[selectedDate].filter(
+      (item, i) => i !== index
+    );
+    onSubmit(updatedItems);
   };
-  
+
+  const productSelected = selectedOption => {
+    setName(selectedOption?.label || '');
+  };
+
+  const categoryClick = item => {
+    setCategory(item.category);
+    setOpenSelectCategory(false);
+  };
+
   useEffect(() => {
     dispatch(fetchProducts(category));
   }, [category, dispatch]);
@@ -88,20 +92,43 @@ const DailyIntake = () => {
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper>
-          <div className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`} onClick={()=>setOpenSelectCategory(false)}></div>
+            <div
+              className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`}
+              onClick={() => setOpenSelectCategory(false)}
+            ></div>
             <div className="search">
-                  <div className="search-menu">
-                      <button type="button" className="search__button-filter" onClick={()=>setOpenSelectCategory(!openSelectCategory)}>
-                        <span>Elije una categoria</span>
-                          <img src={globalIcons.arrowUp} alt="arrow Up icon" className={`${openSelectCategory ? 'rotate-180' : ''}`}/>
-                      </button>
-                      <ul className={ `${ openSelectCategory ? '' : 'invisibility' } search__filter-menu`}>
-                          { categories.map(category => <li key={category.id} onClick={()=>categoryClick(category)} className="search_filter-item">{category.name}</li>)}
-                      </ul>
-                  </div>
+              <div className="search-menu">
+                <button
+                  type="button"
+                  className="search__button-filter"
+                  onClick={() => setOpenSelectCategory(!openSelectCategory)}
+                >
+                  <span>Elije una categoria</span>
+                  <img
+                    src={globalIcons.arrowUp}
+                    alt="arrow Up icon"
+                    className={`${openSelectCategory ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <ul
+                  className={`${
+                    openSelectCategory ? '' : 'invisibility'
+                  } search__filter-menu`}
+                >
+                  {categories.map(category => (
+                    <li
+                      key={category.id}
+                      onClick={() => categoryClick(category)}
+                      className="search_filter-item"
+                    >
+                      {category.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <SaludSelect
-              defaultValue={name?.value}
+              value={{ label: name, value: name }}
               handleChange={productSelected}
               options={options}
               isSearchable
@@ -133,7 +160,7 @@ const DailyIntake = () => {
       </Form>
       <FormText>
         <ul className="formList">
-          {items.map((item, index) => (
+          {(selectedProducts[selectedDate] ?? []).map((item, index) => (
             <li className="listForm" key={index}>
               {item.name} - {item.number} g - {parseInt(item.number, 10) + 10}{' '}
               kcal
@@ -147,4 +174,5 @@ const DailyIntake = () => {
     </div>
   );
 };
+
 export default DailyIntake;

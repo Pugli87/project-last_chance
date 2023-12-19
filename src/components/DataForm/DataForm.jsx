@@ -137,7 +137,7 @@ const DataForm = () => {
       setModalVisible(true); // Abre el modal si la validación es exitosa
       CleanForm(); // limpia el formulario
     } else {
-      CleanForm(); // Manejo de error si la validación falla
+      CleanForm();
     }
   };
 
