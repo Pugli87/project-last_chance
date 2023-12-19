@@ -16,33 +16,8 @@ import { useSelector } from 'react-redux';
 import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
 import SelectCategory from '../../components/Selects/SelectCategory/SelectCategory';
 
-const useLocalStorage = (key, initialValue) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.log(error);
-      return initialValue;
-    }
-  });
-
-  const setValue = value => {
-    try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return [storedValue, setValue];
-};
-
-const DailyIntake = ({ onSubmit, selectedDate }) => {
+const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const [options, setOptions] = useState([]);
-  const [items, setItems] = useLocalStorage('items', []);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -63,18 +38,16 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
     event.preventDefault();
     if (!name || !number) return;
 
-    const updatedItems = [...items, { name, number }];
-    setItems(updatedItems); // Aquí actualizamos los items en localStorage
+    const updatedItems = [...selectedProducts[selectedDate], { name, number }];
     onSubmit(updatedItems);
     setName('');
     setNumber('');
   };
 
   const handleDelete = index => {
-    const updatedItems = items.filter(
+    const updatedItems = selectedProducts[selectedDate].filter(
       (item, i) => i !== index
     );
-    setItems(updatedItems); // Aquí actualizamos los items en localStorage
     onSubmit(updatedItems);
   };
 
@@ -121,7 +94,7 @@ const DailyIntake = ({ onSubmit, selectedDate }) => {
       </Form>
       <ScrollableFormText>
         <ul className="formList">
-        {items.map((item, index) => (
+        {(selectedProducts[selectedDate] ?? []).map((item, index) => (
           <ListItem className="listForm" key={index}>
             <Name>{item.name}</Name>
             <Grams>{item.number} g</Grams>
