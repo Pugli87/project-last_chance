@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-last_chance/static/css/main.cda5beab.css",
-    "main.js": "/project-last_chance/static/js/main.6411a602.js",
+    "main.css": "/project-last_chance/static/css/main.d97c529d.css",
+    "main.js": "/project-last_chance/static/js/main.22f91979.js",
     "static/media/img-fruits-desktop.png": "/project-last_chance/static/media/img-fruits-desktop.1469c9ddde8a6fca9674.png",
     "static/media/verdanab.ttf": "/project-last_chance/static/media/verdanab.c4e1b53d02ea7938d5bc.ttf",
     "static/media/img-fruits-tablet.png": "/project-last_chance/static/media/img-fruits-tablet.c75d1fe0ce42500d8dfd.png",
@@ -9,13 +9,14 @@
     "static/media/img-leaves-tablet.png": "/project-last_chance/static/media/img-leaves-tablet.3cf507fc5063b80c0790.png",
     "index.html": "/project-last_chance/index.html",
     "static/media/calendar.svg": "/project-last_chance/static/media/calendar.f07abe41ca1bac88f7e6c38064355356.svg",
+    "static/media/arrow-up.svg": "/project-last_chance/static/media/arrow-up.64ae77d51e9887a03c08dcf0fbdcc50f.svg",
     "static/media/complement-fruits.svg": "/project-last_chance/static/media/complement-fruits.c655d736b7c28331ec143c1de45f86c8.svg",
     "static/media/arrow.svg": "/project-last_chance/static/media/arrow.24ce6b342eecfc3ce7e0b459a70fddbb.svg",
-    "main.cda5beab.css.map": "/project-last_chance/static/css/main.cda5beab.css.map",
-    "main.6411a602.js.map": "/project-last_chance/static/js/main.6411a602.js.map"
+    "main.d97c529d.css.map": "/project-last_chance/static/css/main.d97c529d.css.map",
+    "main.22f91979.js.map": "/project-last_chance/static/js/main.22f91979.js.map"
   },
   "entrypoints": [
-    "static/css/main.cda5beab.css",
-    "static/js/main.6411a602.js"
+    "static/css/main.d97c529d.css",
+    "static/js/main.22f91979.js"
   ]
 }
