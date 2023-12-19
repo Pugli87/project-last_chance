@@ -1,4 +1,4 @@
-@import '../../assets/sass/base/variables';
+@import '../../../assets/sass/base/variables';
 .search{
     width: 100%;
     display: flex;
@@ -37,6 +37,12 @@
     & .rotate-180 {
         transform: rotate(0);
     }
+
+    @media (max-width: 764px) {
+        width: 100%;
+        padding: 9px 15px;
+        justify-content: space-between;
+    }
 }
 
 .search-menu{
@@ -45,6 +51,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media (max-width: 764px) {
+        width: 100%;
+    }
 }
 
 .search__filter-menu{
@@ -66,7 +75,7 @@
 .search__filter-menu .search_filter-item{
     border-bottom: 1px solid rgba(7, 7, 7, 0.1);
     background: #FAFCFE;
-    padding: 10px 28px;
+    padding: 10px;
     color: #000;
     cursor: pointer;
     transition: $salud-transition;

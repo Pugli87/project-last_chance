@@ -12,11 +12,9 @@ import {
   Grams, 
   Kcal,
 } from './DailyIntakeStyled';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/thunks';
-import SaludSelect from 'components/Selects/SaludSelect';
-import './DailyIntake.scss';
-import { globalIcons } from 'assets/icons/globalIcons';
+import { useSelector } from 'react-redux';
+import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
+import SelectCategory from '../../components/Selects/SelectCategory/SelectCategory';
 
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
@@ -47,38 +45,8 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [openSelectCategory, setOpenSelectCategory] = useState(false);
-  const [category, setCategory] = useState('meat');
 
-  const dispatch = useDispatch();
   const products = useSelector(state => state.auth.products);
-  const categories = [
-    {
-      id: 0,
-      name: 'Lacteos',
-      category: 'dairy',
-    },
-    {
-      id: 1,
-      name: 'Carnes',
-      category: 'meat',
-    },
-    {
-      id: 2,
-      name: 'Huevos',
-      category: 'eggs',
-    },
-    {
-      id: 3,
-      name: 'Harinas',
-      category: 'flour',
-    },
-    {
-      id: 4,
-      name: 'Cereales',
-      category: 'cereals',
-    },
-  ];
 
   useEffect(() => {
     if (products.length > 0) {
@@ -112,55 +80,12 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
     setName(selectedOption?.label || '');
   };
 
-  const categoryClick = item => {
-    setCategory(item.category);
-    setOpenSelectCategory(false);
-  };
-
-  useEffect(() => {
-    dispatch(fetchProducts(category));
-  }, [category, dispatch]);
-
   return (
     <div>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper>
-            <div
-              className={` ${openSelectCategory ? '' : 'hide'} bakcdrop`}
-              onClick={() => setOpenSelectCategory(false)}
-            ></div>
-            <div className="search">
-              <div className="search-menu">
-                <button
-                  type="button"
-                  className="search__button-filter"
-                  onClick={() => setOpenSelectCategory(!openSelectCategory)}
-                >
-                  <span>Elije una categoria</span>
-                  <img
-                    src={globalIcons.arrowUp}
-                    alt="arrow Up icon"
-                    className={`${openSelectCategory ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                <ul
-                  className={`${
-                    openSelectCategory ? '' : 'invisibility'
-                  } search__filter-menu`}
-                >
-                  {categories.map(category => (
-                    <li
-                      key={category.id}
-                      onClick={() => categoryClick(category)}
-                      className="search_filter-item"
-                    >
-                      {category.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <SelectCategory />
             <SaludSelect
               value={{ label: name, value: name }}
               handleChange={productSelected}
