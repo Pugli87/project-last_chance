@@ -7,7 +7,7 @@ import { store } from '../redux/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/project-last_chance">
         <GeneralLayout>
           <AppRouter />
         </GeneralLayout>
