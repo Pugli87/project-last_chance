@@ -9,72 +9,76 @@ export const Form = styled.form`
 `;
 
 export const ContainForm = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    margin-top: 17px;
+  display: flex;
+  margin-top: 17px;
+`;
+export const Box = styled.div`
+  margin: 20px;
 `;
 
-
 export const Input = styled.input`
-    margin-top: 17px;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    width: 100%;
-    text-align: left;
-    font-family: Verdana;
-    outline:none;
-    &: focus {
+  margin-top: 17px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  width: 35vh;
+  text-align: left;
+  font-family: Verdana;
+  outline: none;
+  &: focus {
     border-bottom: 1px solid orange;
-    }
+  }
 `;
 
 export const InputGramos = styled.input`
-    margin-top: 17px;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    margin-right: 80px;
-    width: 100%;
-    text-align: left;
-    font-family: Verdana;
-    outline: none;
-    &: focus {
+  margin-top: 17px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  margin-right: 48px;
+  width: 35vh;
+  text-align: left;
+  font-family: Verdana;
+  outline: none;
+  &: focus {
     border-bottom: 1px solid orange;
-}
+  }
 `;
 
 export const Label = styled.label`
-    display: flex;
-    flex-direction: column;
-    color: lightgray;
-
+  display: flex;
+  flex-direction: column;
+  color: lightgray;
 `;
 
 export const LabelGramos = styled.label`
-    display: flex;
-    flex-direction: column; 
-    color: lightgray;
-
+  display: flex;
+  flex-direction: column;
+  width: 107px;
+  color: lightgray;
 `;
 
 export const Button = styled.button`
-    margin-top: 50px;
-    width: 176px;
-    height: 44px;
-    padding: 2px 72px;
+  position: relative;
+  bottom: -13em;
+  left: -17em;
+  width: 176px;
+  height: 44px;
+  padding: 2px 72px;
+  color: white;
+  border-radius: 30px;
+  background-color: #ffa500;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 40px;
+  &:hover {
+    background-color: #ff4500;
     color: white;
-    border-radius: 30px;
-    background-color: #ffa500;
-    font-size: 14px;
-    font-weight: 900;   
-    cursor: pointer;
-    &:hover {
-      background-color: #FF4500;
-      color: white;
-    }
+  }
 `;
 
 export const FormText = styled.div`
@@ -104,4 +108,3 @@ export const FormText = styled.div`
     }
   }
 `;
-

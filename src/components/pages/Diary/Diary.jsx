@@ -1,37 +1,25 @@
 import React, { useState, useEffect } from 'react';
-//import ListnotFood from 'components/ListnotFood/ListnotFood';
 import {
   Container,
-  // WrapperResult,
-  //WrapperDaily,
   Wrapper,
   ContainerDiary,
   BtnDiary,
   BtnModal,
-  BtnCloseModal
+  BtnCloseModal,
+  Title,
 } from './DiaryStyled';
 import './CalendarStyled.scss';
-//import DateComponnet from 'components/DateComponent/DateComponent';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarSvg } from '../../../assets/icons/calendar.svg';
 import { ReactComponent as CloseModalSvg } from '../../../assets/icons/arrow.svg';
 import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
+import Calendar from '../../Calendar/Calendar';
 Modal.setAppElement('#root');
+
 const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-
-  const handleDateChange = selectedDate => {
-    setDate(selectedDate);
-    setShowCalendar(false);
-  };
-
-  const handleCalendarClick = event => {
-    event.stopPropagation();
-  };
 
   useEffect(() => {
     if (showCalendar) {
@@ -51,6 +39,12 @@ const Diary = () => {
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const [selectedProducts, setSelectedProducts] = useState({
+    [new Date().toLocaleDateString()]: [],
+  });
+
   const customStyles = {
     content: {
       position: 'absolute',
@@ -65,15 +59,41 @@ const Diary = () => {
     },
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const handleDateChange = selectedDate => {
+    setDate(selectedDate);
+    setShowCalendar(false);
+
+    const formattedDate = selectedDate.toLocaleDateString();
+    setSelectedProducts({
+      ...selectedProducts,
+      [formattedDate]: selectedProducts[formattedDate] || [],
+    });
+  };
+
+  const handleCalendarClick = event => {
+    event.stopPropagation();
+  };
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+
+      if (window.innerWidth > 767 && modalIsOpen) {
+        setModalIsOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [modalIsOpen]);
+
+  const handleSubmit = updatedItems => {
+    const formattedDate = date.toLocaleDateString();
+    setSelectedProducts({ ...selectedProducts, [formattedDate]: updatedItems });
+  };
 
   return (
     <>
@@ -86,7 +106,7 @@ const Diary = () => {
             style={customStyles}
           >
             <BtnCloseModal onClick={() => setModalIsOpen(false)}>
-            <CloseModalSvg />
+              <CloseModalSvg />
             </BtnCloseModal>
             <ModalDiary />
           </Modal>
@@ -98,31 +118,22 @@ const Diary = () => {
           )}
           <Container>
             <ContainerDiary>
-              <h1>{date.toLocaleDateString()}</h1>
+              <Title>{date.toLocaleDateString()}</Title>
               <BtnDiary onClick={handleBtnDiaryClick}>
                 {showCalendar && (
                   <div onClick={handleCalendarClick}>
-                    <DatePicker
-                      selected={date}
-                      onChange={handleDateChange}
-                      inline
-                      maxDate={new Date()}
-                      className="customDatePicker"
-                    />
+                    <Calendar date={date} handleDateChange={handleDateChange} />
                   </div>
                 )}
                 <CalendarSvg />
               </BtnDiary>
             </ContainerDiary>
             <Wrapper>
-              <DailyIntake />
-              {/*
-                <WrapperDaily></WrapperDaily>
-                <WrapperResult>
-                  <DateComponnet />
-                  <ListnotFood />
-                </WrapperResult>
-              */}
+              <DailyIntake
+                selectedProducts={selectedProducts}
+                onSubmit={handleSubmit}
+                selectedDate={date.toLocaleDateString()}
+              />
             </Wrapper>
           </Container>
         </>

@@ -1,71 +1,74 @@
-
 @import '../../assets/sass/base/variables';
-.SaludSelect{
+.SaludSelect {
 }
 
-.css-1qclbw3-control, .css-i8st6-control, .css-19umcm4-control, .css-13cymwt-control {
-    border-radius: 15px !important;
-    background: none;
-    box-shadow: none !important;
-    border: none !important;
-    width: clamp(100px, 40vw, 240px) !important;
-    padding: 5px !important;
-    
+.css-1qclbw3-control,
+.css-i8st6-control,
+.css-19umcm4-control,
+.css-13cymwt-control {
+  border-radius: 15px !important;
+  background: none;
+  box-shadow: none !important;
+  border: none !important;
+  width: clamp(100px, 40vw, 240px) !important;
+  padding: 5px !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    transition: $salud-transition;
+  }
+
+  & > div > span {
+    transition: $salud-transition;
+  }
+
+  &:hover {
     &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background-color: lightgray;
-        transition: $salud-transition;
+      background-color: $salud-orange;
     }
-
-    &>div>span {
-        transition: $salud-transition;
+    & > div > span {
+      background-color: $salud-orange !important;
     }
-
-    &:hover {
-        &::after {
-            background-color: $salud-orange;
-        }
-        &>div>span {
-            background-color: $salud-orange !important;
-        }
-    }
+  }
 }
 
 .css-1nmdiq5-menu {
-    background: none;
-    box-shadow: none !important;
-    border: 1px solid #00000046 !important;
-    overflow: hidden !important;
-    width: clamp(100px, 40vw, 240px) !important;
-    font-size: 16px !important;
-    line-height: 24px !important;
-    font-family: Roboto, Helvetica, Arial, sans-serif;;
+  background: none;
+  box-shadow: none !important;
+  border: 1px solid #00000046 !important;
+  overflow: hidden !important;
+  width: clamp(100px, 40vw, 240px) !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 
-    div {
-        color: rgba(0, 0, 0, 0.87) !important;
-        cursor: pointer !important;
-        div:hover {
-            background: #ffa666;
-        }
+  div {
+    color: rgba(0, 0, 0, 0.87) !important;
+    cursor: pointer !important;
+    div:hover {
+      background: #ffa666;
     }
+  }
 }
 
 .css-1i837h3-ValueContainer2 {
-    display: flex !important;
-    gap: 10px !important;
-    align-items: center !important;
-    padding: 10px !important;
-    width: clamp(100px, 40vw, 240px) !important;
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+  padding: 10px !important;
+  width: clamp(100px, 40vw, 240px) !important;
 }
 
-.css-1jqq78o-placeholder, .css-1dimb5e-singleValue {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.2;
-    letter-spacing: 0.04em;
+.css-1jqq78o-placeholder,
+.css-1dimb5e-singleValue {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
