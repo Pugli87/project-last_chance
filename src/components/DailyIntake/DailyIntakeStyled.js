@@ -89,7 +89,7 @@ export const Button = styled.button`
 export const FormText = styled.div`
 .formList {
   .listForm {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     .btnDelete {
@@ -113,4 +113,25 @@ export const FormText = styled.div`
   }
 `;
 
+export const ListItem = styled.li`
+  border-bottom: 1px dashed #aca4a4; 
+`
+export const Name = styled.span`
+  display: inline-block;
+  width: 50%;
+`;
 
+export const Grams = styled.span`
+  display: inline-block;
+  width: 20%;
+`;
+
+export const Kcal = styled.span`
+  display: inline-block;
+  width: 20%;
+`;
+
+export const ScrollableFormText = styled(FormText)`
+  max-height: 300px;
+  overflow-y: auto;
+`;

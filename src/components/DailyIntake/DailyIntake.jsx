@@ -1,11 +1,15 @@
 import {
   Form,
-  FormText,
   Wrapper,
   ContainForm,
   InputGramos,
   LabelGramos,
   Button,
+  ListItem,
+  ScrollableFormText,
+  Name, 
+  Grams, 
+  Kcal,
 } from './DailyIntakeStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks';
@@ -112,19 +116,18 @@ const DailyIntake = () => {
           +
         </Button>
       </Form>
-      <FormText>
+      <ScrollableFormText>
         <ul className="formList">
           {items.map((item, index) => (
-            <li className="listForm" key={index}>
-              {item.name} - {item.number} g - {parseInt(item.number, 10) + 10}{' '}
-              kcal
-              <button className="btnDelete" onClick={() => handleDelete(index)}>
-                x
-              </button>
-            </li>
+          <ListItem className="listForm" key={index}>
+            <Name>{item.name}</Name>
+            <Grams>{item.number} g</Grams>
+            <Kcal>{parseInt(item.number, 10) + 10} kcal</Kcal>
+            <button className="btnDelete" onClick={() => handleDelete(index)}>x</button>
+          </ListItem>
           ))}
         </ul>
-      </FormText>
+      </ScrollableFormText>
     </div>
   );
 };

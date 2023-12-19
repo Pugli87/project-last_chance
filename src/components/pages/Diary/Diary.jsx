@@ -21,7 +21,6 @@ import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
 const Diary = () => {
-
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -32,6 +31,23 @@ const Diary = () => {
 
   const handleCalendarClick = event => {
     event.stopPropagation();
+  };
+
+  useEffect(() => {
+    if (showCalendar) {
+      const handleBodyClick = () => {
+        setShowCalendar(false);
+      };
+      document.body.addEventListener('click', handleBodyClick);
+      return () => {
+        document.body.removeEventListener('click', handleBodyClick);
+      };
+    }
+  }, [showCalendar]);
+
+  const handleBtnDiaryClick = event => {
+    event.stopPropagation();
+    setShowCalendar(!showCalendar);
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -83,7 +99,7 @@ const Diary = () => {
           <Container>
             <ContainerDiary>
               <h1>{date.toLocaleDateString()}</h1>
-              <BtnDiary onClick={() => setShowCalendar(!showCalendar)}>
+              <BtnDiary onClick={handleBtnDiaryClick}>
                 {showCalendar && (
                   <div onClick={handleCalendarClick}>
                     <DatePicker
