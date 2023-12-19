@@ -9,7 +9,9 @@ import {
   LabelGramos,
   Input,
   Button,
+  Box,
 } from './ModalDiaryStyled';
+import SelectCategory from '../../components/Selects/SelectCategory/SelectCategory';
 const ModalDiary = () => {
   /*const [productName, setProductName] = useState('');
   const products = [
@@ -40,10 +42,11 @@ const ModalDiary = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper className="input-group">
+            <SelectCategory />
             <Label>
               Ingresa el nombre del producto
               <Input
@@ -89,7 +92,7 @@ const ModalDiary = () => {
           ))}
         </ul>
       </FormText>
-    </div>
+    </Box>
   );
 };
 export default ModalDiary;

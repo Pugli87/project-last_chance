@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Textfood, Constant,} from './FoodStyled';
+import { Container, Textfood, Constant } from './FoodStyled';
 
 const ListNotFood = () => {
   const alimentosNoRecomendados = [
@@ -12,11 +12,10 @@ const ListNotFood = () => {
   return (
     <Container>
       <Textfood>Alimentos no recomendados</Textfood>
-  
+
       {alimentosNoRecomendados.map((alimento, index) => (
         <Constant key={index}>{alimento}</Constant>
       ))}
-   
     </Container>
   );
 };

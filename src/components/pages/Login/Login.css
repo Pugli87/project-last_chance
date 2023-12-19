@@ -1,115 +1,111 @@
-.Container{
-    max-width: 437px;
-    margin-top: 100px;
-    padding: 20px;
-    left: 10px;
-    top: 100px;
+.Container {
+  max-width: 437px;
+  margin-top: 100px;
+  padding: 20px;
+  left: 10px;
+  top: 100px;
 }
 
-.ContButton{
-    margin-top: 60px;
-    display: flex;
-    flex-direction: row;
-    max-width: 100%;
-    justify-content: space-between;
+.ContButton {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+
+  justify-content: space-between;
 }
 
-.input{
-    &:focus{
-        border: 1px solid #FC842D;
-        border-left: none;
-        border-top: none;
-        border-right: none;
-    }
+.Input {
+  width: 240px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #9b9faa;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  outline: none;
 
-
-    
-    
+  &:hover {
+    border: 1px solid #fc842d;
+  }
 }
 
-
-.contCorreo .contContra{
-    &:hover{
-        .Input{
-            border: 1px solid #FC842D;
-            border-left: none;
-            border-top: none;
-            border-right: none;
-        }
-        .subTittle{
-            color: #FC842D;
-        }
-        
-    }
+.subTittle {
+  color: #9b9faa;
+  font-weight: 700;
+  size: 14px;
 }
 
-.contCorreo{
-    margin-bottom: 15px;
+.tittle {
+  color: #fc842d;
+  font-weight: 700;
+  size: 14px;
+  margin-bottom: 55px;
 }
 
-
-.subTittle{
-    color: #9B9FAA;
-    font-weight: 700;
-    size: 14px;
+.Button {
+  width: 181px;
+  height: 44px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.tittle{
-    color: #FC842D;
-    font-weight: 700;
-    size: 14px;
-    margin-bottom: 55px;
+.ButtonIniciar {
+  background-color: #fc842d;
+  box-shadow: -5px 11px 6px -8px rgba(252, 132, 45, 1);
 }
 
-.Button{
-    width: 181px;
-    height: 44px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+.ButtonCrear {
+  background-color: #fff;
+  border: 2px solid #fc842d;
 }
 
-.ButtonIniciar{
-    background-color: #FC842D;
-    box-shadow: -5px 11px 6px -8px rgba(252,132,45,1);
+.textButtonIniciar {
+  width: 80px;
+  color: #fff;
 }
 
-.ButtonCrear{
-    background-color: #fff;
-    border: 2px solid #FC842D;
+.textButtonCrear {
+  width: 108px;
+  color: #fc842d;
+}
+
+.textButton {
+  margin: auto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17.01px;
+}
+
+/* /////////////////////////////////////////////////////////////////////////// */
+
+@media screen and(max-width:767px) {
+  .Container {
+    margin-top: 160px;
+  }
+}
+
+/* /////////////////////////////////////////////////////////////////////////// */
+
+@media screen and (max-width: 320px) {
+  .Container {
+    width: 280px;
+    margin-top: 32px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-}
-
-.textButtonIniciar{
-    width: 80px; 
-    color: #fff;
-}
-
-.textButtonCrear{
-    width: 108px;
-    color: #FC842D;
-    display: flex;
     justify-content: center;
-    padding: 0;
+    align-items: center;
+  }
+
+  .ContButton {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    height: 110px;
+  }
 }
-
-.textButton{
-    margin: auto;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17.01px;
-}
-
-/* /////////////////////////////////////////////////////////////////////////// */
-
-@media screen and(max-width:768px) {
-    .Container{
-        margin-top: 160px;
-    }
-}
-
-
-/* /////////////////////////////////////////////////////////////////////////// */
-
