@@ -114,12 +114,13 @@ export const fetchProducts = createAsyncThunk(
     try {
       const response = await axios.get(`${baseUrlproducts}/products/${category}`)
 
-      return  response.data.products
+      return response.data.products
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
+
 export const refreshToken = createAsyncThunk(
   'auth/refreshToken',
   async (_, thunkAPI) => {

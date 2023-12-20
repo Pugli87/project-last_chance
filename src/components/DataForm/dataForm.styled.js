@@ -72,6 +72,7 @@ export const RadioInput = styled.input`
   outline: 1px solid rgb(155, 159, 170);
   -webkit-appearance: none;
   border-radius: 50%;
+  cursor: pointer;
   &:checked {
     outline: 1px solid #fc842d;
     background: #fc842d;
@@ -148,7 +149,7 @@ export const StyledHrS = styled.hr`
   }
 `;
 
-export const StyledH5 = styled.h5`
+export const KlcSpan = styled.span`
   font-size: 16px;
   letter-spacing: 0.04em;
   @media (max-width: 767px) {

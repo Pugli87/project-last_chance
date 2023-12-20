@@ -37,7 +37,7 @@ const ModalDiary = () => {
   };
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (products?.length > 0) {
       const newOptions = products.map(product => ({
         id: product.id,
         value: product.title,

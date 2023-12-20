@@ -83,6 +83,7 @@ export const slimSlice = createSlice({
         state.error = action.payload;
         state.isLoading = false;
       })
+      // refreshToken
       .addCase(refreshToken.fulfilled, (state, action) => {
         state.token = action.payload;
       })
