@@ -1,26 +1,47 @@
 import React from 'react';
 import { Container, Title, SubtitleDate, CaloricValue, Li } from './DateStyled';
+import { useSelector } from 'react-redux';
+import Loader from '../../components/Loader/Loader';
 
 const DateComponnet = () => {
+  const user = useSelector(state => state.auth.currentUser);
+  const loading = useSelector(state => state.auth.isLoading);
+
   return (
     <Container>
       <Title>Resumen para el 13.08.2023</Title>
       <ul>
         <Li>
           <SubtitleDate>Quedan</SubtitleDate>
-          <CaloricValue id="missingCalories">625 kcal</CaloricValue>
+          <div>
+            {loading ? <Loader variant='points'/> :
+              <CaloricValue id="missingCalories">{user.name} kcal</CaloricValue>
+            }
+          </div>
         </Li>
         <Li>
           <SubtitleDate>Cosumido</SubtitleDate>
-          <CaloricValue id="caloriesConsumed">2175 kcal</CaloricValue>
+          <div>
+            {loading ? <Loader variant='points'/> :
+              <CaloricValue id="caloriesConsumed">{user.name} kcal</CaloricValue>
+            }
+          </div>
         </Li>
         <Li>
           <SubtitleDate>Tasa diaria</SubtitleDate>
-          <CaloricValue id="totalsCalories">2800 kcal</CaloricValue>
+          <div>
+            {loading ? <Loader variant='points'/> :
+              <CaloricValue id="totalsCalories">{user.name} kcal</CaloricValue>
+            }
+          </div>
         </Li>
         <Li>
           <SubtitleDate>n% de lo normal</SubtitleDate>
-          <CaloricValue id="percentage">78%</CaloricValue>
+          <div>
+            {loading ? <Loader variant='points'/> :
+              <CaloricValue id="percentage">{user.name}%</CaloricValue>
+            }
+          </div>
         </Li>
       </ul>
     </Container>
