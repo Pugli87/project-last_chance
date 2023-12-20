@@ -13,7 +13,7 @@ import {
   StyledH3,
   StyledH2,
   StyledHr,
-  StyledH5,
+  KlcSpan,
   StyledP,
   StyledDiv,
   Styledol,
@@ -198,7 +198,10 @@ const DataForm = () => {
             <StyledHrS></StyledHrS>
             <RadioGroup>
               {[1, 2, 3, 4].map(grupo => (
-                <RadioLabel key={grupo}>
+                <RadioLabel
+                  key={grupo}
+                  // isSelected={datos.grupoSanguineo === grupo.toString()}
+                >
                   <RadioInput
                     type="radio"
                     id={`grupoSanguineo${grupo}`}
@@ -225,7 +228,7 @@ const DataForm = () => {
           </StyledH3>
           <StyledH2>
             {infoNutricional.kilocalorias}
-            <StyledH5>kcal</StyledH5>
+            <KlcSpan>kcal</KlcSpan>
           </StyledH2>
           <StyledHr />
           <StyledDiv>

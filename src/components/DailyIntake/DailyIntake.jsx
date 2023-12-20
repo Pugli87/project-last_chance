@@ -24,7 +24,7 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const products = useSelector(state => state.auth.products);
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (products?.length > 0) {
       const newOptions = products.map(product => ({
         id: product.id,
         value: product.title,
