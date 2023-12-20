@@ -3,12 +3,23 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 200px;
+  margin-left: 100px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
+  @media (min-width: 767px) and (max-width: 1150px) {
+  display: flex;
+  margin-left: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
+  @media (max-width: 767px) {
+    margin-left: 0;
+    }
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -116,6 +127,7 @@ export const FormContainer = styled.div`
       align-items: center;
       .btnDelete {
         margin-left: 10px;
+        margin-right: 10px;
         padding: 7px 13px;
         background-color: transparent;
         border: none;
@@ -156,7 +168,6 @@ export const BtnModal = styled.button`
   }
   @media (max-width: 767px) {
     display: flex;
-    position: absolute;
   }
 `;
 

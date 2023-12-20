@@ -66,10 +66,6 @@ export const LabelGramos = styled.label`
 `;
 
 export const Button = styled.button`
-  position: relative;
-  bottom: -13em;
-  left: -17em;
-  width: 176px;
   height: 44px;
   padding: 2px 72px;
   color: white;
@@ -111,4 +107,35 @@ export const FormText = styled.div`
       }
     }
   }
+`;
+
+export const Name = styled.span`
+  display: inline-block;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding-bottom: 20px;
+  width: 50%;
+`;
+
+export const Grams = styled.span`
+  justify-content: end;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  width: 20%;
+  margin-left: 30px;
+`;
+
+export const Kcal = styled.span`
+  justify-content: end;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  width: 20%;
+  margin-left: 30px;
+`;
+
+export const ScrollableFormText = styled(FormText)`
+  margin-top: 50px;
+  max-height: 300px;
+  overflow-y: auto;
 `;

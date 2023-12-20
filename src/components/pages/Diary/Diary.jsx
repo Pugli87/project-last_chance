@@ -108,7 +108,7 @@ const Diary = () => {
             <BtnCloseModal onClick={() => setModalIsOpen(false)}>
               <CloseModalSvg />
             </BtnCloseModal>
-            <ModalDiary />
+            <ModalDiary onSubmit={handleSubmit} />
           </Modal>
         </div>
       ) : (
