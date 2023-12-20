@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.css';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../redux/thunks';
 import {
@@ -15,6 +14,8 @@ import {
   Button,
   TextButtonIniciar,
   TextButtonCrear,
+  ButtonCrear,
+  WarningText,
 } from './Login.styled';
 
 const Login = () => {
@@ -52,7 +53,7 @@ const Login = () => {
       <Tittle>Iniciar sesión</Tittle>
       <form onSubmit={handleSubmit}>
         <ContFormCorreo>
-          <SubTittle className="subTittle">Correo Electronico*</SubTittle>
+          <SubTittle>Correo Electronico*</SubTittle>
           {emailValid ? (
             <Input
               type="email"
@@ -61,31 +62,36 @@ const Login = () => {
               onChange={e => setEmail(e.target.value)}
             />
           ) : (
-            <InputWanning
-              type="email"
-              id="email"
-              placeholder="El correo electronico es un campo obligatorio"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
+            <>
+              <InputWanning
+                type="email"
+                id="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <WarningText>
+                El correo electrónico es un campo obligatorio
+              </WarningText>
+            </>
           )}
         </ContFormCorreo>
         <ContFormContra>
-          <SubTittle className="subTittle">Contraseña*</SubTittle>
+          <SubTittle>Contraseña*</SubTittle>
           {passwordValid ? (
             <Input
               type="password"
-              placeholder=""
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
           ) : (
-            <InputWanning
-              type="password"
-              placeholder="La contraseña es un campo obligatorio"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
+            <>
+              <InputWanning
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+              <WarningText>La contraseña es un campo obligatorio</WarningText>
+            </>
           )}
         </ContFormContra>
         <ContButton>
@@ -93,10 +99,12 @@ const Login = () => {
             <TextButtonIniciar>INICIAR</TextButtonIniciar>
             <TextButtonIniciar>SESION</TextButtonIniciar>
           </Button>
-          <Link to={'/register'} className="Button ButtonCrear">
-            <TextButtonCrear>CREAR UNA</TextButtonCrear>
-            <TextButtonCrear>CUENTA</TextButtonCrear>
-          </Link>
+          <ButtonCrear>
+            <Link to={'/register'} className="Button ButtonCrear">
+              <TextButtonCrear>CREAR UNA</TextButtonCrear>
+              <TextButtonCrear>CUENTA</TextButtonCrear>
+            </Link>
+          </ButtonCrear>
         </ContButton>
       </form>
     </Container>

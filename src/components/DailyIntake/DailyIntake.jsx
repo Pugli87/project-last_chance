@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {
   Form,
-  FormText,
   Wrapper,
   ContainForm,
   InputGramos,
   LabelGramos,
   Button,
+  ListItem,
+  ScrollableFormText,
+  Name, 
+  Grams, 
+  Kcal,
 } from './DailyIntakeStyled';
 import { useSelector } from 'react-redux';
 import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
@@ -20,7 +24,7 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const products = useSelector(state => state.auth.products);
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (products?.length > 0) {
       const newOptions = products.map(product => ({
         id: product.id,
         value: product.title,
@@ -88,19 +92,18 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
           +
         </Button>
       </Form>
-      <FormText>
+      <ScrollableFormText>
         <ul className="formList">
-          {(selectedProducts[selectedDate] ?? []).map((item, index) => (
-            <li className="listForm" key={index}>
-              {item.name} - {item.number} g - {parseInt(item.number, 10) + 10}{' '}
-              kcal
-              <button className="btnDelete" onClick={() => handleDelete(index)}>
-                x
-              </button>
-            </li>
+        {(selectedProducts[selectedDate] ?? []).map((item, index) => (
+          <ListItem className="listForm" key={index}>
+            <Name>{item.name}</Name>
+            <Grams>{item.number} g</Grams>
+            <Kcal>{parseInt(item.number, 10) + 10} kcal</Kcal>
+            <button className="btnDelete" onClick={() => handleDelete(index)}>x</button>
+          </ListItem>
           ))}
         </ul>
-      </FormText>
+      </ScrollableFormText>
     </div>
   );
 };

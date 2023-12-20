@@ -80,7 +80,7 @@
     cursor: pointer;
     transition: $salud-transition;
 }
-.search__filter-menu .search_filter-item:hover{
+.search__filter-menu .search_filter-item:hover, .search_filter-item.-active{
     background-color: #ffe6b171;
     color: $salud-orange;
 }

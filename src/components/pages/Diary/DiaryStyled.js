@@ -137,10 +137,8 @@ export const FormContainer = styled.div`
 `;
 
 export const BtnModal = styled.button`
-  position: relative;
-  bottom: -23vh;
-  left: 40%;
-  padding: 15px 20px;
+  padding: 13px 20px;
+  margin-bottom: 10px;
   border-radius: 30px;
   background-color: #ffa500;
   border: none;

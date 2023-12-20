@@ -20,6 +20,24 @@ Modal.setAppElement('#root');
 const Diary = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
+
+  useEffect(() => {
+    if (showCalendar) {
+      const handleBodyClick = () => {
+        setShowCalendar(false);
+      };
+      document.body.addEventListener('click', handleBodyClick);
+      return () => {
+        document.body.removeEventListener('click', handleBodyClick);
+      };
+    }
+  }, [showCalendar]);
+
+  const handleBtnDiaryClick = event => {
+    event.stopPropagation();
+    setShowCalendar(!showCalendar);
+  };
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -30,7 +48,7 @@ const Diary = () => {
   const customStyles = {
     content: {
       position: 'absolute',
-      inset: '12% 0px auto',
+      inset: '17% 0px auto',
       border: '1px solid rgb(204, 204, 204)',
       background: 'rgb(255, 255, 255)',
       overflow: 'auto',
@@ -101,7 +119,7 @@ const Diary = () => {
           <Container>
             <ContainerDiary>
               <Title>{date.toLocaleDateString()}</Title>
-              <BtnDiary onClick={() => setShowCalendar(!showCalendar)}>
+              <BtnDiary onClick={handleBtnDiaryClick}>
                 {showCalendar && (
                   <div onClick={handleCalendarClick}>
                     <Calendar date={date} handleDateChange={handleDateChange} />

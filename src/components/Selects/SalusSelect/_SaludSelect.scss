@@ -1,7 +1,4 @@
 @import '../../../assets/sass/base/variables';
-.SaludSelect {
-}
-
 .css-1qclbw3-control,
 .css-i8st6-control,
 .css-19umcm4-control,
@@ -36,6 +33,10 @@
       background-color: $salud-orange !important;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
 }
 
 .css-1nmdiq5-menu {
@@ -54,6 +55,10 @@
     div:hover {
       background: #ffa666;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 100% !important;
   }
 }
 

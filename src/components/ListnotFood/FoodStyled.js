@@ -18,14 +18,19 @@ export const Textfood = styled.h2`
   font-size: 16px;
   color: #212121;
   font-family: verdana;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
 
 export const Constant = styled.span`
   font-size: 14px;
   color: #9b9faa;
   font-family: verdana;
-  padding-top: 20px;
   display: flex;
   flex-direction: column;
   text-align: left;
