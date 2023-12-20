@@ -134,8 +134,8 @@ const DataForm = () => {
         kilocalorias: caloriasRecomendadas,
       }));
 
-      setModalVisible(true); // Abre el modal si la validación es exitosa
-      CleanForm(); // limpia el formulario
+      setModalVisible(true);
+      CleanForm();
     } else {
       CleanForm();
     }
