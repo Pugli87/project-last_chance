@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const baseUrl = 'https://slim-mom-backend.up.railway.app/api/users';
 const baseUrlproducts = 'https://slim-mom-backend.up.railway.app/api';
+//const baseUrl = 'https://slim-mom.up.railway.app/api/auth';
+//const baseUrlproducts = 'https://slim-mom.up.railway.app/api';
 
 const fecthCurrentUser = async token => {
   try {
@@ -15,12 +17,11 @@ const fecthCurrentUser = async token => {
     const userInfo = {
       email: 'byron2@gmail.com',
       password: '1234',
-    }
-    
+    };
+
     const response = await axios.post(`${baseUrl}/login`, userInfo);
 
     return response.data.isUser;
-
   } catch (e) {
     return Notify.failure(e, {
       backOverlay: true,
@@ -46,7 +47,7 @@ export const loginUser = createAsyncThunk(
 
       const token = response.data.token;
 
-      const currentUser = await fecthCurrentUser(token)
+      const currentUser = await fecthCurrentUser(token);
 
       localStorage.setItem('userCurrent', JSON.stringify(currentUser));
 
@@ -121,9 +122,11 @@ export const fetchProducts = createAsyncThunk(
   'auth/fetchProducts',
   async (category, thunkAPI) => {
     try {
-      const response = await axios.get(`${baseUrlproducts}/products/${category}`)
+      const response = await axios.get(
+        `${baseUrlproducts}/products/${category}`
+      );
 
-      return response.data.products
+      return response.data.products;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
