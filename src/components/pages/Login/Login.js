@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.css';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../redux/thunks';
 import {
@@ -15,6 +14,7 @@ import {
   Button,
   TextButtonIniciar,
   TextButtonCrear,
+  ButtonCrear
 } from './Login.styled';
 
 const Login = () => {
@@ -52,7 +52,7 @@ const Login = () => {
       <Tittle>Iniciar sesión</Tittle>
       <form onSubmit={handleSubmit}>
         <ContFormCorreo>
-          <SubTittle className="subTittle">Correo Electronico*</SubTittle>
+          <SubTittle>Correo Electronico*</SubTittle>
           {emailValid ? (
             <Input
               type="email"
@@ -71,7 +71,7 @@ const Login = () => {
           )}
         </ContFormCorreo>
         <ContFormContra>
-          <SubTittle className="subTittle">Contraseña*</SubTittle>
+          <SubTittle>Contraseña*</SubTittle>
           {passwordValid ? (
             <Input
               type="password"
@@ -93,10 +93,12 @@ const Login = () => {
             <TextButtonIniciar>INICIAR</TextButtonIniciar>
             <TextButtonIniciar>SESION</TextButtonIniciar>
           </Button>
-          <Link to={'/register'} className="Button ButtonCrear">
-            <TextButtonCrear>CREAR UNA</TextButtonCrear>
-            <TextButtonCrear>CUENTA</TextButtonCrear>
-          </Link>
+          <ButtonCrear>
+            <Link to={'/register'} className="Button ButtonCrear">
+              <TextButtonCrear>CREAR UNA</TextButtonCrear>
+              <TextButtonCrear>CUENTA</TextButtonCrear>
+            </Link>
+          </ButtonCrear>
         </ContButton>
       </form>
     </Container>

@@ -37,6 +37,25 @@ import styled from 'styled-components';
   margin-bottom: 15px;
   `;
 
+  export const ButtonCrear = styled.div`
+  width: 181px;
+  height: 44px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #fc842d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:hover{
+    background-color: #fc842d;
+    p{
+      color: #fff;
+    }
+  }
+  `;
+
   export  const Input = styled.input`
     width: 280px;
     margin-bottom: 10px;
