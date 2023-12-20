@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-last_chance/static/css/main.7299c2a0.css",
-    "main.js": "/project-last_chance/static/js/main.e1c18370.js",
+    "main.css": "/project-last_chance/static/css/main.1ce9cdae.css",
+    "main.js": "/project-last_chance/static/js/main.d0f3b246.js",
     "static/media/img-fruits-desktop.png": "/project-last_chance/static/media/img-fruits-desktop.1469c9ddde8a6fca9674.png",
     "static/media/verdanab.ttf": "/project-last_chance/static/media/verdanab.c4e1b53d02ea7938d5bc.ttf",
     "static/media/img-fruits-tablet.png": "/project-last_chance/static/media/img-fruits-tablet.c75d1fe0ce42500d8dfd.png",
@@ -12,11 +12,11 @@
     "static/media/arrow-up.svg": "/project-last_chance/static/media/arrow-up.64ae77d51e9887a03c08dcf0fbdcc50f.svg",
     "static/media/complement-fruits.svg": "/project-last_chance/static/media/complement-fruits.c655d736b7c28331ec143c1de45f86c8.svg",
     "static/media/arrow.svg": "/project-last_chance/static/media/arrow.24ce6b342eecfc3ce7e0b459a70fddbb.svg",
-    "main.7299c2a0.css.map": "/project-last_chance/static/css/main.7299c2a0.css.map",
-    "main.e1c18370.js.map": "/project-last_chance/static/js/main.e1c18370.js.map"
+    "main.1ce9cdae.css.map": "/project-last_chance/static/css/main.1ce9cdae.css.map",
+    "main.d0f3b246.js.map": "/project-last_chance/static/js/main.d0f3b246.js.map"
   },
   "entrypoints": [
-    "static/css/main.7299c2a0.css",
-    "static/js/main.e1c18370.js"
+    "static/css/main.1ce9cdae.css",
+    "static/js/main.d0f3b246.js"
   ]
 }
