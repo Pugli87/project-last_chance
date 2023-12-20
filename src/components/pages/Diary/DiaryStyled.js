@@ -17,7 +17,7 @@ export const WrapperResult = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
-  @media (min-width: 767px) and (max-width: 1023px) {
+  @media (min-width: 767px) and (max-width: 1050px) {
     display: flex;
     min-width: 100%;
     position: absolute;

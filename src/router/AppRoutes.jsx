@@ -20,7 +20,7 @@ const AppRoutes = [
     name: 'diary',
     path: '/diary',
     element: () => <Diary />,
-    checkAuth: true,
+    checkAuth: false,
     redirectRoute: '/login',
   },
   {

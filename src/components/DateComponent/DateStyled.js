@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 1023px) {
+  @media (max-width: 1150px) {
     margin-right: 79px;
   }
   @media (max-width: 767px) {
