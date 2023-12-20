@@ -1,21 +1,29 @@
 import React from 'react';
-import { Container, Textfood, Constant } from './FoodStyled';
+import { Container, Textfood, Constant, Wrapper } from './FoodStyled';
+import { useSelector } from 'react-redux';
+import Loader from '../../components/Loader/Loader';
 
 const ListNotFood = () => {
-  const alimentosNoRecomendados = [
-    'Producto de harina',
-    'Leche',
-    'Carne roja',
-    'Carne ahumada',
-  ];
+  const user = useSelector(state => state.auth.currentUser);
+  const loading = useSelector(state => state.auth.isLoading);
+
+  const FoodsNotRecommended = [
+    user,
+    user,
+    user,
+  ]
 
   return (
     <Container>
       <Textfood>Alimentos no recomendados</Textfood>
 
-      {alimentosNoRecomendados.map((alimento, index) => (
-        <Constant key={index}>{alimento}</Constant>
-      ))}
+      <Wrapper>
+      {FoodsNotRecommended.map((food, index) => (
+          <>
+            {loading ? <Loader key={index} variant='points'/> : <Constant key={index}>{food.name}</Constant>}
+          </>
+          ))}
+        </Wrapper>
     </Container>
   );
 };

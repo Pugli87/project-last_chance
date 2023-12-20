@@ -43,7 +43,7 @@ function SelectCategory() {
       };
     
       useEffect(() => {
-        dispatch(fetchProducts(category?.category || 'meat'));
+        dispatch(fetchProducts(category?.category || ''));
       }, [category, dispatch]);
 
   return (

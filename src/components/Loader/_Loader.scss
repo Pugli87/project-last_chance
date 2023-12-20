@@ -4,6 +4,7 @@
     &__points {
         width: 12px;
         height: 12px;
+        display: flex;
         border-radius: 50%;
         background-color: gray;
         box-shadow: 20px 0 gray, -20px 0 gray;
