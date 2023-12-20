@@ -45,6 +45,7 @@ export const InputGramos = styled.input`
   text-align: left;
   font-family: Verdana;
   outline: none;
+  width: 100%;
   &: focus {
     border-bottom: 1px solid orange;
   }
@@ -61,6 +62,7 @@ export const LabelGramos = styled.label`
   flex-direction: column;
   width: 107px;
   color: lightgray;
+  width: 100%;
 `;
 
 export const Button = styled.button`
