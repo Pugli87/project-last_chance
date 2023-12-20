@@ -134,8 +134,8 @@ const DataForm = () => {
         kilocalorias: caloriasRecomendadas,
       }));
 
-      setModalVisible(true); // Abre el modal si la validación es exitosa
-      CleanForm(); // limpia el formulario
+      setModalVisible(true);
+      CleanForm();
     } else {
       CleanForm();
     }
@@ -198,10 +198,7 @@ const DataForm = () => {
             <StyledHrS></StyledHrS>
             <RadioGroup>
               {[1, 2, 3, 4].map(grupo => (
-                <RadioLabel
-                  key={grupo}
-                  isSelected={datos.grupoSanguineo === grupo.toString()}
-                >
+                <RadioLabel key={grupo}>
                   <RadioInput
                     type="radio"
                     id={`grupoSanguineo${grupo}`}
