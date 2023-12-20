@@ -43,7 +43,7 @@ function SelectCategory() {
       };
     
       useEffect(() => {
-        dispatch(fetchProducts(category?.category || 'meat'));
+        dispatch(fetchProducts(category?.category || ''));
       }, [category, dispatch]);
 
   return (
@@ -71,13 +71,13 @@ function SelectCategory() {
                 openSelectCategory ? '' : 'invisibility'
               } search__filter-menu`}
             >
-              {categories.map(category => (
+              {categories.map(item => (
                 <li
-                  key={category.id}
-                  onClick={() => categoryClick(category)}
-                  className="search_filter-item"
+                  key={item.id}
+                  onClick={() => categoryClick(item)}
+                  className={`search_filter-item ${item?.name === category?.name ? '-active' : ''}`}
                 >
-                  {category.name}
+                  {item?.name || ''}
                 </li>
               ))}
             </ul>

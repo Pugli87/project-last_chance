@@ -12,7 +12,7 @@ import Modal from '../../Modal/ModalCalculator';
 
 function HeaderNavbar() {
   const { isDesktop, isMobile } = useDeviceDetect();
-  const user = useSelector(state => state.auth.userInfo);
+  const user = useSelector(state => state.auth.currentUser);
   const token = useSelector(state => state.auth.token);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
