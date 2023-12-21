@@ -13,7 +13,6 @@ const fecthCurrentUser = async token => {
     });
 
     return response.data.data.user.data;
-    
   } catch (e) {
     return Notify.failure(e, {
       backOverlay: true,
@@ -114,9 +113,7 @@ export const fetchProducts = createAsyncThunk(
   'auth/fetchProducts',
   async (category, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `${baseUrl}/products/${category}`
-      );
+      const response = await axios.get(`${baseUrl}/products/${category}`);
 
       return response.data.products;
     } catch (e) {
