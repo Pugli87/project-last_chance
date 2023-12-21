@@ -144,11 +144,13 @@ export const refreshToken = createAsyncThunk(
   }
 );
 
-export const obtenerDatosNutricionales = async () => {
-  try {
-    const respuesta = await axios.get('auth/fetchProducts'); // url pendiente del backend
-    return respuesta.data;
-  } catch (error) {
-    console.error('Error al obtener datos', error);
+export const updateDate = createAsyncThunk(
+  'auth/updateDate',
+  async (date, thunkAPI) => {
+    try {
+      return date;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
+    }
   }
-};
+);
