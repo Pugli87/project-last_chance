@@ -85,6 +85,7 @@ export const Form = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
+  gap: 6px;
   @media (max-width: 767px) {
     height: 400px;
   }
