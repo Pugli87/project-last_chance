@@ -50,7 +50,7 @@ const DateComponnet = ({ selectedDate }) => {
           </div>
         </Li>
         <Li>
-          <SubtitleDate>n% de lo normal</SubtitleDate>
+          <SubtitleDate>N% de lo normal</SubtitleDate>
           <div>
             {loading ? (
               <Loader variant="points" />

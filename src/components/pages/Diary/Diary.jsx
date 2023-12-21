@@ -77,7 +77,13 @@ const Diary = () => {
       [formattedDate]: selectedProducts[formattedDate] || [],
     });
   };
-
+  const handleAddItem = (item) => {
+    const formattedDate = date.toLocaleDateString();
+    setSelectedProducts({
+      ...selectedProducts,
+      [formattedDate]: [...selectedProducts[formattedDate], item],
+    });
+  };
   const handleCalendarClick = event => {
     event.stopPropagation();
   };
@@ -116,7 +122,7 @@ const Diary = () => {
             <BtnCloseModal onClick={() => setModalIsOpen(false)}>
               <CloseModalSvg />
             </BtnCloseModal>
-            <ModalDiary />
+            <ModalDiary onAddItem={handleAddItem} />
           </Modal>
         </div>
       ) : (
