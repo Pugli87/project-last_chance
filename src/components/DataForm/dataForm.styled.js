@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 70px;
-  width: 608px;
+  width: 680px;
   @media (max-width: 767px) {
     width: auto;
   }
@@ -85,7 +85,6 @@ export const Form = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
   @media (max-width: 767px) {
     height: 400px;
   }
