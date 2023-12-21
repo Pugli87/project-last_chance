@@ -156,7 +156,8 @@ export const BtnModal = styled.button`
   }
   @media (max-width: 767px) {
     display: flex;
-    position: absolute;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 `;
 
