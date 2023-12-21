@@ -18,7 +18,7 @@
     z-index: -1;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1023px) {
     height: 50vh;
     position: relative;
     width: 100%;
@@ -31,13 +31,13 @@
   }
 }
 .container {
-  @media (min-width: 1150px) {
+  @media (min-width: 1023px) {
     margin-top: 230px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  @media (max-width: 1150px) {
+  @media (max-width: 1023px) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

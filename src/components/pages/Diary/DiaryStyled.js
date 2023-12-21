@@ -10,7 +10,7 @@ export const Container = styled.div`
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
-  @media (min-width: 767px) and (max-width: 1150px) {
+  @media (min-width: 767px) and (max-width: 1023px) {
   display: flex;
   margin-left: 0;
   justify-content: center;

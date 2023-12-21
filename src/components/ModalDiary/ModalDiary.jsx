@@ -13,8 +13,7 @@ import SelectCategory from '../../components/Selects/SelectCategory/SelectCatego
 import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
 import { useSelector } from 'react-redux';
 
-const ModalDiary = () => {
-  const [items, setItems] = useState([]);
+const ModalDiary = ({ onSubmit, onAddItem }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [options, setOptions] = useState([]);
@@ -23,13 +22,10 @@ const ModalDiary = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setItems([...items, { name, number }]);
+    const newItem = { name, number };
+    onAddItem(newItem);
     setName('');
     setNumber('');
-  };
-
-  const handleDelete = index => {
-    setItems(items.filter((item, i) => i !== index));
   };
 
   const productSelected = selectedOption => {
@@ -62,7 +58,6 @@ const ModalDiary = () => {
               placeholder="Ingresa el nombre del producto"
             />
           </Wrapper>
-
           <Wrapper>
             <LabelGramos>
               Gramos
@@ -84,19 +79,6 @@ const ModalDiary = () => {
           Add
         </Button>
       </Form>
-      <FormText>
-        <ul className="formList">
-          {items.map((item, index) => (
-            <li className="listForm" key={index}>
-              {item.name} - {item.number} g - {parseInt(item.number, 10) + 10}{' '}
-              kcal
-              <button className="btnDelete" onClick={() => handleDelete(index)}>
-                x
-              </button>
-            </li>
-          ))}
-        </ul>
-      </FormText>
     </Box>
   );
 };
