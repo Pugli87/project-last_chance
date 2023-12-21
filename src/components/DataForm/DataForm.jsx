@@ -18,6 +18,7 @@ import {
   StyledDiv,
   Styledol,
   StyledHrS,
+  BoxButtonM,
 } from './dataForm.styled';
 import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
@@ -125,7 +126,7 @@ const DataForm = () => {
     e.preventDefault();
     if (validarDatos()) {
       const caloriasRecomendadas = calcularCaloriasMujer(
-        parseFloat(datos.pesoActual),
+        parseFloat(datos.pesoDeseado),
         parseFloat(datos.altura),
         parseInt(datos.edad)
       );
@@ -238,12 +239,14 @@ const DataForm = () => {
                 <li key={index}>{alimento}</li>
               ))}
             </Styledol>
+            <BoxButtonM>
+              <Button
+                type="submit"
+                text="Comienza a perder peso"
+                onClick={handleClick}
+              />
+            </BoxButtonM>
           </StyledDiv>
-          <Button
-            type="submit"
-            text="Comienza a perder peso"
-            onClick={handleClick}
-          />
         </ContainerB>
       </Modal>
     </Container>

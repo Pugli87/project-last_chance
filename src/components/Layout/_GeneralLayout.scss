@@ -1,42 +1,35 @@
 .GeneralLayout {
-    padding: 80px 0;
+  padding: 80px 0;
 
-    @media (max-width: 1024px) {position: relative;
-        padding-top: 16px;
-        padding-bottom: 0;
-        z-index: 0;
-    }
+  @media (max-width: 1024px) {
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
 }
 
 .contentLayout {
-    //position: relative;
-   // z-index: 1;
-    @media (max-width: 1023px) {
-      padding-top: 16px;
-z-index: -1;
+  z-index: 4;
+  position: relative;
+
+  &:last-child {
+    z-index: 3;
+  }
+  @media (max-width: 767px) {
+    z-index: inherit;
   }
 }
 
 .appLayout {
     ::-webkit-scrollbar {
-        width: 6px;
+        width: 10px;
       }
       ::-webkit-scrollbar-thumb {
-        background: #264061; 
+        background: #888; 
+        border-radius: 20px; 
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #264061;
+        background: #555;
       }
     padding: 0 16px;
-    z-index: 0;
-    @media (max-width: 767px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column-reverse;
-        z-index: 0;
-      }
-      @media (max-width: 1023px) {
-      z-index: -1;
-    }
+    z-index: 1 !important;
 }

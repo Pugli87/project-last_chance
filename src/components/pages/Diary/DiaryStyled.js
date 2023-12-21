@@ -168,6 +168,8 @@ export const BtnModal = styled.button`
   }
   @media (max-width: 767px) {
     display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 `;
 
