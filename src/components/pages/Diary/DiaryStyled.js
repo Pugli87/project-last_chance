@@ -5,15 +5,14 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-top: 100px;
-  margin-bottom: 200px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
-  @media (min-width: 767px) and (max-width: 1023px) {
-    align-items: center;
+  @media (max-width: 1023px) {
+    margin-bottom: 100px;
   }
 `;
 export const Wrapper = styled.div`
