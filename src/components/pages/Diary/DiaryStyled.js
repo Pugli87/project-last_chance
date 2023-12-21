@@ -9,8 +9,8 @@ export const Container = styled.div`
   letter-spacing: 0.04em;
   text-align: left;
 
-  @media (max-width: 767px) {
-    margin-bottom: 200px;
+  @media (max-width: 1023px) {
+    margin-bottom: 100px;
   }
 `;
 export const Wrapper = styled.div`
