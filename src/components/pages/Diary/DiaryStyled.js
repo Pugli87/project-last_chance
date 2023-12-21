@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 100px;
-  margin-bottom: 200px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
+
+  @media (max-width: 767px) {
+    margin-bottom: 200px;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;

@@ -21,7 +21,7 @@ const fecthCurrentUser = async token => {
 
     const response = await axios.post(`${baseUrl}/login`, userInfo);
 
-    return response.data.isUser;
+    return response.data.User;
   } catch (e) {
     return Notify.failure(e, {
       backOverlay: true,
@@ -54,7 +54,7 @@ export const loginUser = createAsyncThunk(
       return {
         token,
         currentUser,
-        userData: response.data.isUser,
+        userData: response.data.User,
       };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data.message);
