@@ -30,7 +30,6 @@ const GeneralLayout = ({ children }) => {
   useEffect(() => {
     if (error)
       return Notify.failure(error, {
-        backOverlay: true,
         fontSize: '16px',
         fontFamily: 'Verdana',
         cssAnimationStyle: 'from-right',
