@@ -239,14 +239,14 @@ const DataForm = () => {
                 <li key={index}>{alimento}</li>
               ))}
             </Styledol>
+            <BoxButtonM>
+              <Button
+                type="submit"
+                text="Comienza a perder peso"
+                onClick={handleClick}
+              />
+            </BoxButtonM>
           </StyledDiv>
-          <BoxButtonM>
-            <Button
-              type="submit"
-              text="Comienza a perder peso"
-              onClick={handleClick}
-            />
-          </BoxButtonM>
         </ContainerB>
       </Modal>
     </Container>

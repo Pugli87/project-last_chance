@@ -107,7 +107,7 @@ export const BoxButton = styled.div`
 export const BoxButtonM = styled.div`
   @media (max-width: 767px) {
     text-align: center;
-    margin: 60px 60px;
+    margin: 10px 10px;
     width: max-content;
   }
 `;
