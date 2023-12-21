@@ -2,10 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 
-const baseUrl = 'https://slim-mom-backend.up.railway.app/api/users';
-const baseUrlproducts = 'https://slim-mom-backend.up.railway.app/api';
-//const baseUrl = 'https://slim-mom.up.railway.app/api/auth';
-//const baseUrlproducts = 'https://slim-mom.up.railway.app/api';
+const baseUrl = 'https://slim-mom.up.railway.app/api/auth';
+const baseUrlproducts = 'https://slim-mom.up.railway.app/api';
 
 const fecthCurrentUser = async token => {
   try {
