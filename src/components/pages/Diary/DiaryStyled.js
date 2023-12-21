@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 100px;
   font-family: Verdana;
   font-size: 14px;
@@ -8,13 +11,15 @@ export const Container = styled.div`
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
-
   @media (max-width: 1023px) {
     margin-bottom: 100px;
   }
 `;
 export const Wrapper = styled.div`
   display: flex;
+  @media (max-width: 767px){
+    flex-direction: column;
+  }
 `;
 export const WrapperResult = styled.div`
   display: flex;

@@ -92,7 +92,8 @@ export const FormText = styled.div`
     align-items: center;
     .btnDelete {
       margin-left: 10px;
-      padding: 7px 13px;
+      margin-right: 10px;
+      padding: 7px 9px;
       background-color: transparent;
       border: none;
       border-radius: 30px;
@@ -105,31 +106,40 @@ export const FormText = styled.div`
       cursor: pointer;
 
       &:hover {
-        background-color: #c5c1c1;
+        background-color: #f0f1f3;
       }
     }
   }
 `;
 
-export const ListItem = styled.li`
-  border-bottom: 1px dashed #aca4a4; 
-`
+
 export const Name = styled.span`
   display: inline-block;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding-bottom: 20px;
   width: 50%;
 `;
 
 export const Grams = styled.span`
-  display: inline-block;
+  justify-content: end;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
   width: 20%;
+  margin-left: 30px;
 `;
 
 export const Kcal = styled.span`
-  display: inline-block;
+  justify-content: end;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
   width: 20%;
+  margin-left: 30px;
 `;
 
 export const ScrollableFormText = styled(FormText)`
+  margin-top: 50px;
   max-height: 300px;
   overflow-y: auto;
 `;

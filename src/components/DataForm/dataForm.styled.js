@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 30px 0;
+  padding: 70px;
   width: 608px;
-  align-items: left;
   @media (max-width: 767px) {
     width: auto;
   }
