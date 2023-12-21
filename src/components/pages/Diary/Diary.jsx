@@ -113,9 +113,6 @@ const Diary = () => {
         </div>
       ) : (
         <>
-          {windowWidth <= 767 && (
-            <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>
-          )}
           <Container>
             <ContainerDiary>
               <Title>{date.toLocaleDateString()}</Title>
@@ -135,6 +132,9 @@ const Diary = () => {
                 selectedDate={date.toLocaleDateString()}
               />
             </Wrapper>
+            {windowWidth <= 767 && (
+              <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>
+            )}
           </Container>
         </>
       )}

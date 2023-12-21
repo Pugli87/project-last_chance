@@ -1,6 +1,6 @@
 @import '../../assets/sass/base/variables';
 .fruits {
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   width: 40%;
@@ -47,14 +47,13 @@
     //width: 80%;
     //margin:auto 0;
     //margin-left: 32px;
-
   }
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
-   //justify-content: space-evenly;
-   width:100%;
-   min-width: 280px;
-   margin-top: 0;
+    //justify-content: space-evenly;
+    width: 100%;
+    min-width: 280px;
+    margin-top: 0;
   }
 }

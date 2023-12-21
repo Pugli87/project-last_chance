@@ -11,18 +11,20 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 9;
 `;
 export const ContentModal = styled.div`
   width: 672px;
   height: 574px;
   background: #fff;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: rgba (100, 100, 111 0.2) 0px 7px 29px 0px;
   padding: 20px;
+  z-index: 10;
   @media (max-width: 767px) {
     width: 300px;
-    min-height: 100px;
+    height: 550px;
   }
 `;
 

@@ -99,6 +99,16 @@ export const BoxButton = styled.div`
   }
   @media (max-width: 767px) {
     text-align: center;
+    position: absolute;
+    display: flex;
+    margin: -70px 70px;
+  }
+`;
+export const BoxButtonM = styled.div`
+  @media (max-width: 767px) {
+    text-align: center;
+    margin: 10px 10px;
+    width: max-content;
   }
 `;
 
