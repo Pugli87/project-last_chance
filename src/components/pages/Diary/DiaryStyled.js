@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 100px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
@@ -59,6 +59,7 @@ export const BtnDiary = styled.button`
 `;
 export const FormContainer = styled.div`
   .form {
+
     color: rgba(155, 159, 170, 1);
     margin-top: 4em;
     display: flex;
@@ -103,6 +104,8 @@ export const FormContainer = styled.div`
       transition-duration: 0.4s;
       cursor: pointer;
 
+  
+
       &:hover {
         background-color: #FF4500;
         color: white;
@@ -110,6 +113,7 @@ export const FormContainer = styled.div`
     }
   }
   .formList {
+ 
     .listForm {
       margin-top: 50px;
       display: flex;
@@ -138,25 +142,22 @@ export const FormContainer = styled.div`
 
 export const BtnModal = styled.button`
   padding: 13px 20px;
-  margin-bottom: 10px;
   border-radius: 30px;
   background-color: #ffa500;
   border: none;
   color: white;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
   transition-duration: 0.4s;
   cursor: pointer;
-
   &:hover {
     background-color: #ff4500;
     color: white;
   }
   @media (max-width: 767px) {
     display: flex;
-    position: absolute;
+    margin-bottom: 50px;
   }
 `;
 

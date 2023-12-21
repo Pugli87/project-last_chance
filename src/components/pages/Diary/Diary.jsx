@@ -121,7 +121,10 @@ const Diary = () => {
               <Title>{date.toLocaleDateString()}</Title>
               <BtnDiary onClick={handleBtnDiaryClick}>
                 {showCalendar && (
-                  <div onClick={handleCalendarClick}>
+                  <div
+                    onClick={handleCalendarClick}
+                    style={{ position: 'absolute' }}
+                  >
                     <Calendar date={date} handleDateChange={handleDateChange} />
                   </div>
                 )}
