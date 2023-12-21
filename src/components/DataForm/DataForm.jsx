@@ -233,10 +233,10 @@ const DataForm = () => {
               ))}
             </RadioGroup>
           </FormGroup>
-        </Form>
         <BoxButton>
           <Button type="submit" text="Comienza a perder peso" />
         </BoxButton>
+        </Form>
       </form>
       <Modal state={modalVisible} changestate={() => setModalVisible(false)}>
         <ContainerB ref={modalRef}>
