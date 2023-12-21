@@ -69,7 +69,7 @@ const Diary = () => {
       [formattedDate]: selectedProducts[formattedDate] || [],
     });
   };
-  const handleAddItem = (item) => {
+  const handleAddItem = item => {
     const formattedDate = date.toLocaleDateString();
     setSelectedProducts({
       ...selectedProducts,
