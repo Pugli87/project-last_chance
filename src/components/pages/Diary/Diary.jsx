@@ -21,13 +21,13 @@ Modal.setAppElement('#root');
 
 const Diary = () => {
   const [showCalendar, setShowCalendar] = useState(false);
-  const dateState = useSelector(state => state.auth.date)
-  const [date, setDate] = useState(dateState || new Date())
+  const dateState = useSelector(state => state.auth.date);
+  const [date, setDate] = useState(dateState || new Date());
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    if(dateState) return setDate(dateState)
-  },[dateState])
+  useEffect(() => {
+    if (dateState) return setDate(dateState);
+  }, [dateState]);
 
   useEffect(() => {
     if (showCalendar) {
@@ -151,3 +151,4 @@ const Diary = () => {
 };
 
 export default Diary;
+//
