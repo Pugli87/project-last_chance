@@ -119,7 +119,7 @@ const DataForm = () => {
 
   const [infoNutricional, setInfoNutricional] = useState({
     kilocalorias: 2000,
-    alimentosEvitar: ['Harinas', 'Lacteos', 'Azucar', 'Cereales'],
+    alimentosEvitar: ['Harinas', 'Huevos', 'Azucares', 'Cereales'],
   });
 
   const handleSubmit = e => {
