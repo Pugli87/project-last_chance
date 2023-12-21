@@ -66,7 +66,6 @@ export const LabelGramos = styled.label`
 `;
 
 export const Button = styled.button`
-  position: relative;
   bottom: -13em;
   left: -17em;
   width: 176px;
@@ -87,9 +86,12 @@ export const Button = styled.button`
 
 export const FormText = styled.div`
 .formList {
+      display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
   .listForm {
-    margin-top: 150px;
-    margin-left: 80px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     .btnDelete {
