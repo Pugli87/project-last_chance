@@ -3,8 +3,8 @@ import { Container, Title, SubtitleDate, CaloricValue, Li } from './DateStyled';
 import { useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 
-const DateComponnet = ({ selectedDate }) => {
-  const user = useSelector(state => state.auth.currentUser);
+const DateComponnet = () => {
+  const userFromRedux = useSelector(state => state.auth.currentUser);
   const loading = useSelector(state => state.auth.isLoading);
   const dateState = useSelector(state => state.auth.date)
   const [date, setDate] = useState(dateState || new Date())
@@ -12,6 +12,22 @@ const DateComponnet = ({ selectedDate }) => {
   useEffect(()=>{
     if(dateState) return setDate(dateState)
   },[dateState])
+
+  const user = {
+    ...userFromRedux,
+    missingCalories: loading
+      ? userFromRedux.name
+      : Math.floor(Math.random() * 500) + ' kcal',
+    caloriesConsumed: loading
+      ? userFromRedux.name
+      : Math.floor(Math.random() * 2000) + ' kcal',
+    totalCalories: loading
+      ? userFromRedux.name
+      : Math.floor(Math.random() * 2000) + ' kcal',
+    percentage: loading
+      ? userFromRedux.name
+      : Math.floor(Math.random() * 100) + '%',
+  };
 
   return (
     <Container>
@@ -23,7 +39,9 @@ const DateComponnet = ({ selectedDate }) => {
             {loading ? (
               <Loader variant="points" />
             ) : (
-              <CaloricValue id="missingCalories">{user.name} kcal</CaloricValue>
+              <CaloricValue id="missingCalories">
+                {user.missingCalories}
+              </CaloricValue>
             )}
           </div>
         </Li>
@@ -34,7 +52,7 @@ const DateComponnet = ({ selectedDate }) => {
               <Loader variant="points" />
             ) : (
               <CaloricValue id="caloriesConsumed">
-                {user.name} kcal
+                {user.caloriesConsumed}
               </CaloricValue>
             )}
           </div>
@@ -45,7 +63,9 @@ const DateComponnet = ({ selectedDate }) => {
             {loading ? (
               <Loader variant="points" />
             ) : (
-              <CaloricValue id="totalsCalories">{user.name} kcal</CaloricValue>
+              <CaloricValue id="totalsCalories">
+                {user.totalCalories}
+              </CaloricValue>
             )}
           </div>
         </Li>
@@ -55,7 +75,7 @@ const DateComponnet = ({ selectedDate }) => {
             {loading ? (
               <Loader variant="points" />
             ) : (
-              <CaloricValue id="percentage">{user.name}%</CaloricValue>
+              <CaloricValue id="percentage">{user.percentage}</CaloricValue>
             )}
           </div>
         </Li>
