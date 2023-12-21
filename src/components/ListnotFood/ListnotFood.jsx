@@ -8,9 +8,10 @@ const ListNotFood = () => {
   const loading = useSelector(state => state.auth.isLoading);
 
   const FoodsNotRecommended = [
-    user,
-    user,
-    user,
+    {name: 'Azucares'},
+    {name: 'Cereales'},
+    {name: 'Harina'},
+    {name: 'Huevos'},
   ]
 
   return (
