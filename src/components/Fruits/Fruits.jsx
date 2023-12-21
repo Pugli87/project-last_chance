@@ -7,7 +7,7 @@ import ListnotFood from 'components/ListnotFood/ListnotFood';
 import DateComponnet from '../DateComponent/DateComponent';
 function Fruits() {
   const { isDesktop, isMobile } = useDeviceDetect();
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, ] = useState(new Date());
 
   return (
     <div className="fruits">
