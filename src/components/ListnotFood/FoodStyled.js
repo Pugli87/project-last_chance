@@ -19,6 +19,7 @@ export const Textfood = styled.h2`
   color: #212121;
   font-family: verdana;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 `;
 
 export const Wrapper = styled.div`
@@ -29,7 +30,9 @@ export const Wrapper = styled.div`
 
 export const Constant = styled.span`
   font-size: 14px;
-  color: #9b9faa;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #9B9FAA;
   font-family: verdana;
   display: flex;
   flex-direction: column;

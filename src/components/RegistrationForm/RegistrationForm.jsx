@@ -28,7 +28,7 @@ const RegistrationForm = () => {
     contrasena: false,
   });
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -42,7 +42,6 @@ const RegistrationForm = () => {
     console.log('Submit button clicked');
     e.preventDefault();
 
-    // Validación de campos
     const errors = {};
     Object.keys(formData).forEach(key => {
       if (formData[key].trim() === '') {
@@ -57,11 +56,13 @@ const RegistrationForm = () => {
       );
     } else {
       console.log('Registro exitoso:', formData);
-      dispatch(signUpUser({
-        name: formData.nombre,
-        email: formData.correo,
-        password: formData.contrasena,
-      }))
+      dispatch(
+        signUpUser({
+          name: formData.nombre,
+          email: formData.correo,
+          password: formData.contrasena,
+        })
+      );
       resetForm();
     }
   };
@@ -100,7 +101,17 @@ const RegistrationForm = () => {
             style={{ borderColor: formErrors.nombre ? 'red' : '' }}
           />
           {formErrors.nombre && (
-            <p style={{ color: 'red' }}>El nombre es requerido</p>
+            <p
+              style={{
+                color: 'red',
+                marginTop: '5px',
+                fontSize: '9px',
+                fontFamily: 'Verdana',
+                fontWeight: 400,
+              }}
+            >
+              El nombre es requerido
+            </p>
           )}
         </FormGroup>
         <FormGroup>
@@ -114,7 +125,17 @@ const RegistrationForm = () => {
             style={{ borderColor: formErrors.correo ? 'red' : '' }}
           />
           {formErrors.correo && (
-            <p style={{ color: 'red' }}>El correo es requerido</p>
+            <p
+              style={{
+                color: 'red',
+                marginTop: '5px',
+                fontSize: '9px',
+                fontFamily: 'Verdana',
+                fontWeight: 400,
+              }}
+            >
+              El correo es requerido
+            </p>
           )}
         </FormGroup>
         <FormGroup>
@@ -128,7 +149,17 @@ const RegistrationForm = () => {
             style={{ borderColor: formErrors.contrasena ? 'red' : '' }}
           />
           {formErrors.contrasena && (
-            <p style={{ color: 'red' }}>La contraseña es requerida</p>
+            <p
+              style={{
+                color: 'red',
+                marginTop: '5px',
+                fontSize: '9px',
+                fontFamily: 'Verdana',
+                fontWeight: 400,
+              }}
+            >
+              La contraseña es requerida
+            </p>
           )}
         </FormGroup>
 
