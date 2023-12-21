@@ -14,7 +14,8 @@ import {
   Button,
   TextButtonIniciar,
   TextButtonCrear,
-  ButtonCrear
+  ButtonCrear,
+  WarningText,
 } from './Login.styled';
 
 const Login = () => {
@@ -61,13 +62,17 @@ const Login = () => {
               onChange={e => setEmail(e.target.value)}
             />
           ) : (
-            <InputWanning
-              type="email"
-              id="email"
-              placeholder="El correo electronico es un campo obligatorio"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
+            <>
+              <InputWanning
+                type="email"
+                id="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <WarningText>
+                El correo electrónico es un campo obligatorio
+              </WarningText>
+            </>
           )}
         </ContFormCorreo>
         <ContFormContra>
@@ -75,17 +80,18 @@ const Login = () => {
           {passwordValid ? (
             <Input
               type="password"
-              placeholder=""
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
           ) : (
-            <InputWanning
-              type="password"
-              placeholder="La contraseña es un campo obligatorio"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
+            <>
+              <InputWanning
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+              <WarningText>La contraseña es un campo obligatorio</WarningText>
+            </>
           )}
         </ContFormContra>
         <ContButton>

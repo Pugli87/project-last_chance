@@ -6,7 +6,6 @@ import {
   InputGramos,
   LabelGramos,
   Button,
-  ListItem,
   ScrollableFormText,
   Name, 
   Grams, 
@@ -15,6 +14,7 @@ import {
 import { useSelector } from 'react-redux';
 import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
 import SelectCategory from '../../components/Selects/SelectCategory/SelectCategory';
+import { ReactComponent as DelteFrom } from '../../assets/icons/deleteFrom.svg';
 
 const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
   const [options, setOptions] = useState([]);
@@ -36,6 +36,7 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    
     if (!name || !number) return;
 
     const updatedItems = [...selectedProducts[selectedDate], { name, number }];
@@ -95,12 +96,14 @@ const DailyIntake = ({ onSubmit, selectedDate, selectedProducts }) => {
       <ScrollableFormText>
         <ul className="formList">
         {(selectedProducts[selectedDate] ?? []).map((item, index) => (
-          <ListItem className="listForm" key={index}>
+          <li className="listForm" key={index}>
             <Name>{item.name}</Name>
             <Grams>{item.number} g</Grams>
             <Kcal>{parseInt(item.number, 10) + 10} kcal</Kcal>
-            <button className="btnDelete" onClick={() => handleDelete(index)}>x</button>
-          </ListItem>
+            <button className="btnDelete" onClick={() => handleDelete(index)}>
+              <DelteFrom />
+            </button>
+          </li>
           ))}
         </ul>
       </ScrollableFormText>

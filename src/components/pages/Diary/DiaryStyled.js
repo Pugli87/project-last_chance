@@ -1,17 +1,25 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 100px;
-  margin-bottom: 200px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: left;
+  @media (max-width: 1023px) {
+    margin-bottom: 100px;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;
+  @media (max-width: 767px){
+    flex-direction: column;
+  }
 `;
 export const WrapperResult = styled.div`
   display: flex;
@@ -156,7 +164,8 @@ export const BtnModal = styled.button`
   }
   @media (max-width: 767px) {
     display: flex;
-    position: absolute;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 `;
 

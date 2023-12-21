@@ -66,7 +66,6 @@ export const LabelGramos = styled.label`
 `;
 
 export const Button = styled.button`
-  position: relative;
   bottom: -13em;
   left: -17em;
   width: 176px;
@@ -82,33 +81,5 @@ export const Button = styled.button`
   &:hover {
     background-color: #ff4500;
     color: white;
-  }
-`;
-
-export const FormText = styled.div`
-.formList {
-  .listForm {
-    margin-top: 150px;
-    margin-left: 80px;
-    display: flex;
-    align-items: center;
-    .btnDelete {
-      margin-left: 10px;
-      padding: 7px 13px;
-      background-color: transparent;
-      border: none;
-      border-radius: 30px;
-      color: grey;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #c5c1c1;
-      }
-    }
   }
 `;

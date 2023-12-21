@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 30px 0;
+  padding: 70px;
   width: 608px;
-  align-items: left;
   @media (max-width: 767px) {
     width: auto;
   }
@@ -99,6 +98,16 @@ export const BoxButton = styled.div`
   }
   @media (max-width: 767px) {
     text-align: center;
+    position: absolute;
+    display: flex;
+    margin: -70px 70px;
+  }
+`;
+export const BoxButtonM = styled.div`
+  @media (max-width: 767px) {
+    text-align: center;
+    margin: 10px 10px;
+    width: max-content;
   }
 `;
 

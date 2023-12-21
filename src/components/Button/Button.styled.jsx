@@ -29,4 +29,7 @@ export const BoxButton = styled.div`
   margin: auto;
   margin-top: 10px;
   text-align: right;
+  @media (max-width: 767px) {
+    margin: 10px;
+  }
 `;

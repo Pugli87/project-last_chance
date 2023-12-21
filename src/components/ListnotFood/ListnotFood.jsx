@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 
 const ListNotFood = () => {
-  const user = useSelector(state => state.auth.currentUser);
   const loading = useSelector(state => state.auth.isLoading);
 
   const FoodsNotRecommended = [
-    user,
-    user,
-    user,
+    {name: 'Azucares'},
+    {name: 'Cereales'},
+    {name: 'Harina'},
+    {name: 'Huevos'},
   ]
 
   return (

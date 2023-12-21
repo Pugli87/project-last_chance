@@ -69,7 +69,13 @@ const Diary = () => {
       [formattedDate]: selectedProducts[formattedDate] || [],
     });
   };
-
+  const handleAddItem = (item) => {
+    const formattedDate = date.toLocaleDateString();
+    setSelectedProducts({
+      ...selectedProducts,
+      [formattedDate]: [...selectedProducts[formattedDate], item],
+    });
+  };
   const handleCalendarClick = event => {
     event.stopPropagation();
   };
@@ -108,14 +114,11 @@ const Diary = () => {
             <BtnCloseModal onClick={() => setModalIsOpen(false)}>
               <CloseModalSvg />
             </BtnCloseModal>
-            <ModalDiary />
+            <ModalDiary onAddItem={handleAddItem} />
           </Modal>
         </div>
       ) : (
         <>
-          {windowWidth <= 767 && (
-            <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>
-          )}
           <Container>
             <ContainerDiary>
               <Title>{date.toLocaleDateString()}</Title>
@@ -135,6 +138,9 @@ const Diary = () => {
                 selectedDate={date.toLocaleDateString()}
               />
             </Wrapper>
+            {windowWidth <= 767 && (
+              <BtnModal onClick={() => setModalIsOpen(true)}>+</BtnModal>
+            )}
           </Container>
         </>
       )}
