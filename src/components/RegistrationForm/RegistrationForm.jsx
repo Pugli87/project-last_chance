@@ -43,9 +43,14 @@ const RegistrationForm = () => {
     e.preventDefault();
 
     const errors = {};
+
+
     Object.keys(formData).forEach(key => {
       if (formData[key].trim() === '') {
         errors[key] = true;
+      }
+      if(formData.contrasena.length < 8) {
+        errors.contrasena = true
       }
     });
 
@@ -158,7 +163,7 @@ const RegistrationForm = () => {
                 fontWeight: 400,
               }}
             >
-              La contraseña es requerida
+              La contraseña debe ser de 8 o más caracteres
             </p>
           )}
         </FormGroup>

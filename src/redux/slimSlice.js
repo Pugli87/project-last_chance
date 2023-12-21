@@ -5,6 +5,7 @@ import {
   logOutUser,
   fetchProducts,
   refreshToken,
+  updateDate,
 } from './thunks';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   products: [],
   isLoading: false,
   error: null,
+  date: new Date(),
 };
 
 export const slimSlice = createSlice({
@@ -84,6 +86,13 @@ export const slimSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+      })
+      // updateDate
+      .addCase(updateDate.fulfilled, (state, action) => {
+        state.date = action.payload;
+      })
+      .addCase(updateDate.rejected, (state, action) => {
+        state.error = action.payload;
       })
       // refreshToken
       .addCase(refreshToken.fulfilled, (state, action) => {

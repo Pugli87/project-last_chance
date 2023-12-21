@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Title, SubtitleDate, CaloricValue, Li } from './DateStyled';
 import { useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
@@ -6,6 +6,13 @@ import Loader from '../../components/Loader/Loader';
 const DateComponnet = () => {
   const userFromRedux = useSelector(state => state.auth.currentUser);
   const loading = useSelector(state => state.auth.isLoading);
+  const dateState = useSelector(state => state.auth.date)
+  const [date, setDate] = useState(dateState || new Date())
+
+  useEffect(()=>{
+    if(dateState) return setDate(dateState)
+  },[dateState])
+
   const user = {
     ...userFromRedux,
     missingCalories: loading
@@ -24,7 +31,7 @@ const DateComponnet = () => {
 
   return (
     <Container>
-      <Title>Resumen para el 13.08.2023</Title>
+      <Title>Resumen para el {date.toLocaleDateString()}</Title>
       <ul>
         <Li>
           <SubtitleDate>Quedan</SubtitleDate>
