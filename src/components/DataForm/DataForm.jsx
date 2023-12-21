@@ -24,6 +24,7 @@ import Modal from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
 import { ContainerB } from 'components/Modal/Modal.styled';
 import { useNavigate } from 'react-router-dom';
+//import { obtenerDatosNutricionales } from '../../redux/thunks';
 
 const DataForm = () => {
   const valoresIniciales = {
@@ -62,6 +63,10 @@ const DataForm = () => {
   };
 
   useEffect(() => {
+    // const storedData = localStorage.getItem('formData');
+    // if (storedData) {
+    //   setDatos(JSON.parse(storedData));
+    // }
     document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('keydown', handleKeyDown);
 
@@ -121,6 +126,14 @@ const DataForm = () => {
     kilocalorias: 2000,
     alimentosEvitar: ['Harinas', 'Huevos', 'Azucares', 'Cereales'],
   });
+  // Petición al backend
+  /*useEffect(() => {
+    if (modalVisible) {
+      obtenerDatosNutricionales().then(datos => {
+        setInfoNutricional(datos);
+      });
+    }
+  }, [modalVisible]);*/
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -130,10 +143,12 @@ const DataForm = () => {
         parseFloat(datos.altura),
         parseInt(datos.edad)
       );
+
       setInfoNutricional(prevState => ({
         ...prevState,
         kilocalorias: caloriasRecomendadas,
       }));
+      //localStorage.setItem('Dataform', JSON.stringify(datos));
 
       setModalVisible(true);
       CleanForm();
@@ -179,6 +194,7 @@ const DataForm = () => {
               name="edad"
               value={datos.edad}
               onChange={handleChange}
+              autocomplete="on"
               required
             />
           </FormGroup>
