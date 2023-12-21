@@ -8,7 +8,8 @@ import {
 } from './thunks';
 
 const initialState = {
-  userInfo: JSON.parse(localStorage.getItem('currentUser')) || {},
+  userInfo: {},
+  currentUser: JSON.parse(localStorage.getItem('userCurrent')) || {},
   token: localStorage.getItem('token') || '',
   products: [],
   isLoading: false,
@@ -33,7 +34,8 @@ export const slimSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.token = action.payload.token;
-        state.userInfo = action.payload.currentUser;
+        state.userInfo = action.payload.userData;
+        state.currentUser = action.payload.currentUser;
         localStorage.setItem('token', action.payload.token);
         state.isLoading = false;
       })
@@ -83,6 +85,7 @@ export const slimSlice = createSlice({
         state.error = action.payload;
         state.isLoading = false;
       })
+      // refreshToken
       .addCase(refreshToken.fulfilled, (state, action) => {
         state.token = action.payload;
       })

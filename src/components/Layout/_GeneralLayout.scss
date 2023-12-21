@@ -14,9 +14,6 @@
   &:last-child {
     z-index: 3;
   }
-  @media (max-width: 767px) {
-    z-index: inherit;
-  }
 }
 
 .appLayout {

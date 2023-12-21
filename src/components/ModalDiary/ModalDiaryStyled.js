@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  align-items: center;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 48px;
 `;
 
@@ -12,6 +15,8 @@ export const ContainForm = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 25px;
   margin-top: 17px;
 `;
 export const Box = styled.div`
@@ -40,6 +45,7 @@ export const InputGramos = styled.input`
   text-align: left;
   font-family: Verdana;
   outline: none;
+  width: 100%;
   &: focus {
     border-bottom: 1px solid orange;
   }
@@ -56,6 +62,7 @@ export const LabelGramos = styled.label`
   flex-direction: column;
   width: 107px;
   color: lightgray;
+  width: 100%;
 `;
 
 export const Button = styled.button`

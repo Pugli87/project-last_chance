@@ -1,33 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Form,
   FormText,
   Wrapper,
   ContainForm,
-  Label,
   InputGramos,
   LabelGramos,
-  Input,
   Button,
   Box,
 } from './ModalDiaryStyled';
+import SelectCategory from '../../components/Selects/SelectCategory/SelectCategory';
+import SaludSelect from '../../components/Selects/SalusSelect/SaludSelect';
+import { useSelector } from 'react-redux';
+
 const ModalDiary = () => {
-  /*const [productName, setProductName] = useState('');
-  const products = [
-    'berenjena',
-    'carne de res',
-    'pan',
-    'nuez',
-    'carne de cerdo',
-  ];
-  const handleInputChange = event => {
-    setProductName(event.target.value);
-  };*/
-  //const [date, setDate] = useState(new Date());
-  //const [showCalendar, setShowCalendar] = useState(false);
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [options, setOptions] = useState([]);
+
+  const products = useSelector(state => state.auth.products);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -40,20 +32,35 @@ const ModalDiary = () => {
     setItems(items.filter((item, i) => i !== index));
   };
 
+  const productSelected = selectedOption => {
+    setName(selectedOption?.label || '');
+  };
+
+  useEffect(() => {
+    if (products?.length > 0) {
+      const newOptions = products.map(product => ({
+        id: product.id,
+        value: product.title,
+        label: product.title,
+      }));
+      setOptions(newOptions);
+    }
+  }, [products]);
+
   return (
     <Box>
       <Form onSubmit={handleSubmit} className="form">
         <ContainForm>
           <Wrapper className="input-group">
-            <Label>
-              Ingresa el nombre del producto
-              <Input
-                type="text"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-              />
-            </Label>
+            <SelectCategory />
+            <SaludSelect
+              value={{ label: name, value: name }}
+              handleChange={productSelected}
+              options={options}
+              isSearchable
+              isClearable
+              placeholder="Ingresa el nombre del producto"
+            />
           </Wrapper>
 
           <Wrapper>
