@@ -8,7 +8,16 @@
 }
 
 .contentLayout {
-  z-index: 1;
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #264061; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #264061;
+  }
+  z-index: 4;
   position: relative;
 
   &:last-child {

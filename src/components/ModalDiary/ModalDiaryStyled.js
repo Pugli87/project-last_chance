@@ -83,34 +83,3 @@ export const Button = styled.button`
     color: white;
   }
 `;
-
-export const FormText = styled.div`
-.formList {
-      display: flex;
-    align-items: center;
-    justify-content:center;
-    flex-direction: column;
-  .listForm {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    .btnDelete {
-      margin-left: 10px;
-      padding: 7px 13px;
-      background-color: transparent;
-      border: none;
-      border-radius: 30px;
-      color: grey;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #c5c1c1;
-      }
-    }
-  }
-`;
