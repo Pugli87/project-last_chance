@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-last_chance/static/css/main.2c8a2377.css",
-    "main.js": "/project-last_chance/static/js/main.4f79914a.js",
+    "main.js": "/project-last_chance/static/js/main.271aa839.js",
     "static/media/img-fruits-desktop.png": "/project-last_chance/static/media/img-fruits-desktop.1469c9ddde8a6fca9674.png",
     "static/media/verdanab.ttf": "/project-last_chance/static/media/verdanab.c4e1b53d02ea7938d5bc.ttf",
     "static/media/img-fruits-tablet.png": "/project-last_chance/static/media/img-fruits-tablet.c75d1fe0ce42500d8dfd.png",
@@ -14,10 +14,10 @@
     "static/media/deleteFrom.svg": "/project-last_chance/static/media/deleteFrom.8cdb920ca8331504fc3379915d48c780.svg",
     "static/media/arrow.svg": "/project-last_chance/static/media/arrow.24ce6b342eecfc3ce7e0b459a70fddbb.svg",
     "main.2c8a2377.css.map": "/project-last_chance/static/css/main.2c8a2377.css.map",
-    "main.4f79914a.js.map": "/project-last_chance/static/js/main.4f79914a.js.map"
+    "main.271aa839.js.map": "/project-last_chance/static/js/main.271aa839.js.map"
   },
   "entrypoints": [
     "static/css/main.2c8a2377.css",
-    "static/js/main.4f79914a.js"
+    "static/js/main.271aa839.js"
   ]
 }
