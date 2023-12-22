@@ -5,4 +5,7 @@ export const store = configureStore({
   reducer: {
     auth: slimSlice,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });

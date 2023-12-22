@@ -143,3 +143,14 @@ export const refreshToken = createAsyncThunk(
     }
   }
 );
+
+export const updateDate = createAsyncThunk(
+  'auth/updateDate',
+  async (date, thunkAPI) => {
+    try {
+      return date;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data.message);
+    }
+  }
+);

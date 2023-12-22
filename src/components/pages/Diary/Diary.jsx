@@ -14,12 +14,20 @@ import { ReactComponent as CloseModalSvg } from '../../../assets/icons/arrow.svg
 import DailyIntake from '../../DailyIntake/DailyIntake';
 import ModalDiary from '../../ModalDiary/ModalDiary';
 import Modal from 'react-modal';
+import { updateDate } from '../../../redux/thunks';
 import Calendar from '../../Calendar/Calendar';
+import { useDispatch, useSelector } from 'react-redux';
 Modal.setAppElement('#root');
 
 const Diary = () => {
-  const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
+  const dateState = useSelector(state => state.auth.date);
+  const [date, setDate] = useState(dateState || new Date());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (dateState) return setDate(dateState);
+  }, [dateState]);
 
   useEffect(() => {
     if (showCalendar) {
@@ -60,7 +68,7 @@ const Diary = () => {
   };
 
   const handleDateChange = selectedDate => {
-    setDate(selectedDate);
+    dispatch(updateDate(selectedDate));
     setShowCalendar(false);
 
     const formattedDate = selectedDate.toLocaleDateString();
@@ -149,3 +157,4 @@ const Diary = () => {
 };
 
 export default Diary;
+//

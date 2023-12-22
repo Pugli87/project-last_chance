@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 70px;
-  width: 608px;
+  width: 680px;
   @media (max-width: 767px) {
     width: auto;
   }
@@ -98,9 +98,7 @@ export const BoxButton = styled.div`
   }
   @media (max-width: 767px) {
     text-align: center;
-    position: absolute;
     display: flex;
-    margin: -70px 70px;
   }
 `;
 export const BoxButtonM = styled.div`
