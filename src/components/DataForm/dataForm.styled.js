@@ -81,12 +81,12 @@ export const RadioInput = styled.input`
 export const Form = styled.div`
   height: 200px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   @media (max-width: 767px) {
     height: 400px;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 export const BoxButton = styled.div`
